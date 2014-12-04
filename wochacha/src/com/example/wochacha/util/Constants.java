@@ -37,7 +37,7 @@ public final class Constants {
 		public static final String LastModified = "Last-Modified";		
 	}
 	// we need / slash 
-	public static final String SERVER_URL = "https://test.com/";
+	public static final String SERVER_URL = "http://wweb.chinacloudapp.cn/api";
 	
 	
 	public static final String EmptyString = "";

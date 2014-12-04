@@ -131,6 +131,7 @@ public class RestClient {
 			if (!params.isEmpty()) {
 				if (isJsonContent) {
 					httpPost.setEntity(new StringEntity(params.get(0).getValue(), HTTP.UTF_8));
+					Log.e("TODO", params.get(0).getValue());
 				} else if (filePost) {
 					String sFilePath = params.get(0).getValue();
 					// httpPost.setEntity(new FileEntity(new File(sFilePath), "binary/octet-stream"));

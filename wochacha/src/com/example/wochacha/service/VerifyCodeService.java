@@ -7,9 +7,10 @@ import com.example.wochacha.exception.LocalGeneralException;
 import com.example.wochacha.exception.NetworkNotAvailableException;
 import com.example.wochacha.exception.ServerAuthException;
 import com.example.wochacha.exception.ServerGeneralException;
+import com.example.wochacha.network.RequestManager;
 
 public class VerifyCodeService extends DataServiceImpl {
-
+	///scan/45dewdS96UWe6YlQ6tDBmg
 	private static final String VERIFY_URL = "/scan";
 	private String code;
 	private ScanRequest request;
@@ -25,12 +26,7 @@ public class VerifyCodeService extends DataServiceImpl {
 			NetworkNotAvailableException, Exception {
 		String url = VERIFY_URL + "/" + code;
 
-		// JSONObject object = RequestManager.Post(url, request.toJsonString());
-
-		Thread.currentThread().sleep(2000);
-
-		JSONObject object = new JSONObject();
-
+		JSONObject object = RequestManager.Post(url, request.toJsonString());	
 		return object;
 	}
 

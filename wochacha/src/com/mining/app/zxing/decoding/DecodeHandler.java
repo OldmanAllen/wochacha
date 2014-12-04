@@ -17,7 +17,6 @@
 package com.mining.app.zxing.decoding;
 import java.util.Hashtable;
 
-import android.app.Activity;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Looper;
@@ -25,7 +24,6 @@ import android.os.Message;
 import android.util.Log;
 
 import com.example.wochacha.R;
-import com.example.wochacha.ui.CaptureActivity;
 import com.example.wochacha.ui.HomeFragment;
 import com.google.zxing.BinaryBitmap;
 import com.google.zxing.DecodeHintType;

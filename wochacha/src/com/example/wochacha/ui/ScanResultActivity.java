@@ -34,7 +34,7 @@ public class ScanResultActivity extends Activity implements DataServiceDelegate 
 	ImageView iv_thumbnail;
 	TextView tv_original_info;
 
-	View rl_scan_manufacture_detail;
+	//View rl_scan_manufacture_detail;
 	View ll_scan_details;
 	WebView webView;
 	ProgressDialog progressDialog;
@@ -71,7 +71,7 @@ public class ScanResultActivity extends Activity implements DataServiceDelegate 
 
 		iv_thumbnail = (ImageView) findViewById(R.id.iv_thumbnail);
 		// tv_original_info = (TextView) findViewById(R.id.tv_original_info);
-		rl_scan_manufacture_detail = findViewById(R.id.rl_scan_manufacture_detail);
+		//rl_scan_manufacture_detail = findViewById(R.id.rl_scan_manufacture_detail);
 		ll_scan_details = findViewById(R.id.ll_scan_details);
 
 		webView = (WebView) findViewById(R.id.wv_content);
@@ -96,7 +96,7 @@ public class ScanResultActivity extends Activity implements DataServiceDelegate 
 
 		// Bitmap bitmap = CameraManager.get().getThumbnail();
 
-		webView.loadUrl("http://biz.cli.im/test/CI25850");
+		webView.setVisibility(View.GONE);
 
 	}
 
@@ -134,7 +134,7 @@ public class ScanResultActivity extends Activity implements DataServiceDelegate 
 
 		int id = view.getId();
 		if (id == R.id.iv_expand_or_collapse) {
-			toggle(rl_scan_manufacture_detail);
+			//toggle(rl_scan_manufacture_detail);
 		} else {
 			toggle(ll_scan_details);
 		}
@@ -191,6 +191,7 @@ public class ScanResultActivity extends Activity implements DataServiceDelegate 
 				progressDialog.dismiss();
 				ToastMessageHelper.showErrorMessage(ScanResultActivity.this,
 						R.string.load_failed, true);
+				ScanResultActivity.this.finish();
 
 			}
 		});
