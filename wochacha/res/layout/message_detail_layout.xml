@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#EFEFF4" >
+
+    <RadioGroup
+        android:id="@+id/ll_bottom_action"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_alignParentBottom="true"
+        android:orientation="horizontal" >
+
+        <RadioButton
+            android:id="@+id/rb_action1"
+            style="@style/message_tab_style"
+            android:background="@drawable/message_tab_bg"
+            android:text="我的订单" />
+
+        <RadioButton
+            android:id="@+id/rb_action2"
+            style="@style/message_tab_style"
+            android:background="@drawable/message_tab_bg"
+            android:text="产品介绍" />
+
+        <RadioButton
+            android:id="@+id/rb_action3"
+            style="@style/message_tab_style"
+            android:background="@drawable/message_tab_bg"
+            android:text="会员中心" />
+    </RadioGroup>
+
+    <ScrollView
+        android:id="@+id/sv_content"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_above="@id/ll_bottom_action" >
+
+        <LinearLayout
+            android:id="@+id/ll_content"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical" >
+
+            <LinearLayout
+                android:id="@+id/ll_message1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical" android:padding="10dp" >
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="150dp"
+                    android:background="@drawable/message_item_bg_top" >
+
+                    <ImageView
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:scaleType="centerCrop"
+                        android:src="@drawable/welcome_message" android:background="#55cccccc" />
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="60dp"
+                    android:background="@drawable/message_item_bg_single" >
+
+                    <TextView
+                        android:id="@+id/tv_action_name"
+                        style="@style/text_style.light"
+                        android:layout_alignParentLeft="true"
+                        android:layout_centerVertical="true"
+                        android:layout_marginLeft="0dp"
+                        android:text="欢迎新用户"
+                        android:textSize="16sp" />
+
+                    <ImageView style="@style/right_action_style" />
+                </RelativeLayout>
+            </LinearLayout>
+        </LinearLayout>
+    </ScrollView>
+
+</RelativeLayout>
