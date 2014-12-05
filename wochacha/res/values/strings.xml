@@ -41,9 +41,14 @@
     <string name="scan_result_tip">云溯温馨提示：</string>
     <string name="verify_code_loading">查询中...</string>
     <string name="rfid_tip">请将手机靠近标签</string>
-    <string name="demo_scan_result">XX商品为真品</string>
+    <string name="rfid_enable">请开启NFC功能</string>
+    <string name="demo_scan_result">此商品为真品</string>
     <string name="demo_scan_desc">此商品在保质期内，请放心使用。</string>
-    
+    <string name="nfc_not_supported">本手机不支持NFC</string>
+    <string name="nfc_enable_title">开启NFC功能</string>
+    <string name="nfc_enable_message">是否开启NFC功能？</string>
+    <string name="yes">是</string>
+    <string name="no">否</string>
     
     <!-- enterprise  -->
     <string name="enterprise_home">首页</string>

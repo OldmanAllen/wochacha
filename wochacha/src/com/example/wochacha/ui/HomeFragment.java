@@ -173,7 +173,9 @@ public class HomeFragment extends FragmentBase implements
 			Intent resultIntent = new Intent(this.getActivity(),
 					ScanResultActivity.class);
 			Bundle bundle = new Bundle();
-			bundle.putString(ScanResultActivity.IntentKey.RESULT, resultString);
+			//TODO demo purpose 
+			bundle.putString(ScanResultActivity.IntentKey.RESULT, "45dewdS96UWe6YlQ6tDBmg");
+			//bundle.putString(ScanResultActivity.IntentKey.RESULT, resultString);
 			// bundle.putParcelable(ScanResultActivity.IntentKey.THUMBNAIL,
 			// barcode);
 			resultIntent.putExtras(bundle);

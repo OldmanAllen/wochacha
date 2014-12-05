@@ -100,23 +100,12 @@
                         style="@style/text_style.light" />
                 </RelativeLayout>
             </LinearLayout>
-
-            <!--
-                 <CheckBox
-                android:id="@+id/iv_expand_or_collapse"
-                android:layout_width="30dp"
-                android:layout_height="30dp"
-                android:layout_gravity="bottom|center_horizontal"
-                android:background="@drawable/bg_expand_or_collapse"
-                android:button="@null"
-                android:onClick="onExpandOrCollapseClicked" />
-            -->
         </FrameLayout>
 
         <FrameLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="10dp" >
+            android:layout_marginTop="10dp" android:background="#fff">
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -129,7 +118,7 @@
                 <RelativeLayout
                     android:id="@+id/rl_scan_result_area"
                     android:layout_width="match_parent"
-                    android:layout_height="150dp"                   
+                    android:layout_height="wrap_content"
                     android:visibility="visible" >
 
                     <TextView
@@ -158,6 +147,7 @@
                         android:textSize="16sp" />
 
                     <TextView
+                        android:id="@+id/tv_scan_desc"
                         style="@style/text_style.light"
                         android:layout_width="200dp"
                         android:layout_below="@id/tv_scan_status"
@@ -173,19 +163,19 @@
                     android:id="@+id/ll_scan_details"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                   
                     android:orientation="vertical"
-                    android:visibility="visible"  >
-					
+                    android:visibility="gone" >
+
                     <View
                         android:layout_width="match_parent"
-                        android:layout_height="1dp"                       
-                        android:background="#c2c2c2"  android:layout_marginTop="10dp" android:layout_marginBottom="10dp" />
+                        android:layout_height="1dp"
+                        android:layout_marginBottom="10dp"
+                        android:layout_marginTop="10dp"
+                        android:background="#c2c2c2" />
 
-                    
                     <RelativeLayout
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
+                        android:layout_height="40dp"
                         android:background="@drawable/bg_item_bottom"
                         android:padding="5dp" >
 
@@ -195,7 +185,8 @@
                             android:layout_alignParentLeft="true"
                             android:layout_centerVertical="true"
                             android:gravity="left"
-                            android:text="商品码:" android:textSize="12sp" />
+                            android:text="商品码:"
+                            android:textSize="12sp" />
 
                         <TextView
                             android:id="@+id/tv_product_barcode_value"
@@ -203,12 +194,13 @@
                             android:layout_alignTop="@id/tv_product_barcode"
                             android:layout_marginLeft="10dp"
                             android:layout_toRightOf="@id/tv_product_barcode"
-                            android:text="商品码"  android:textSize="12sp" />
+                            android:text="商品码"
+                            android:textSize="12sp" />
                     </RelativeLayout>
 
                     <RelativeLayout
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
+                        android:layout_height="40dp"
                         android:background="@drawable/bg_item_bottom"
                         android:padding="5dp" >
 
@@ -217,7 +209,8 @@
                             style="@style/text_style"
                             android:layout_alignParentLeft="true"
                             android:layout_centerVertical="true"
-                            android:text="物品名称:"  android:textSize="12sp" />
+                            android:text="物品名称:"
+                            android:textSize="12sp" />
 
                         <TextView
                             android:id="@+id/tv_product_name_value"
@@ -225,12 +218,13 @@
                             android:layout_alignTop="@id/tv_product_name"
                             android:layout_marginLeft="10dp"
                             android:layout_toRightOf="@id/tv_product_name"
-                            android:text="商品码"  android:textSize="12sp"/>
+                            android:text="商品码"
+                            android:textSize="12sp" />
                     </RelativeLayout>
 
                     <RelativeLayout
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
+                        android:layout_height="40dp"
                         android:background="@drawable/bg_item_bottom"
                         android:padding="5dp" >
 
@@ -239,7 +233,8 @@
                             style="@style/text_style"
                             android:layout_alignParentLeft="true"
                             android:layout_centerVertical="true"
-                            android:text="描述:"  android:textSize="12sp" />
+                            android:text="描述:"
+                            android:textSize="12sp" />
 
                         <TextView
                             android:id="@+id/tv_product_desc_value"
@@ -247,7 +242,8 @@
                             android:layout_alignTop="@id/tv_product_desc"
                             android:layout_marginLeft="10dp"
                             android:layout_toRightOf="@id/tv_product_desc"
-                            android:text="商品码"   android:textSize="12sp"/>
+                            android:text="商品码"
+                            android:textSize="12sp" />
                     </RelativeLayout>
                 </LinearLayout>
             </LinearLayout>
