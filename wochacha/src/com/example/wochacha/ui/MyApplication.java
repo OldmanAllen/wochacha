@@ -6,6 +6,7 @@ import android.content.Context;
 import com.example.wochacha.manager.DeviceGeoLocationManager;
 import com.example.wochacha.manager.DeviceManager;
 import com.example.wochacha.manager.EnterpriseSessionManager;
+import com.example.wochacha.manager.MessageManager;
 import com.example.wochacha.manager.SessionManager;
 import com.example.wochacha.network.CacheService;
 import com.example.wochacha.network.ImageManager;
@@ -33,7 +34,11 @@ public class MyApplication extends Application {
 		ImageManager.initializeIntance(appContext);
 		DeviceGeoLocationManager.initializeIntance(appContext);
 		DeviceGeoLocationManager.getInstance().restore();
+		DeviceGeoLocationManager.getInstance().registerLocationUpdate();
 
+		MessageManager.initializeIntance(appContext);
+		MessageManager.getInstance().restore();
+		
 	}
 
 }

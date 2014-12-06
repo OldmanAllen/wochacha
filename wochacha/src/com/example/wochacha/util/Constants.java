@@ -29,6 +29,9 @@ public final class Constants {
 		
 		public final static String PREF_DEVICE_INFO = "device_in";
 		public static final String KEY_DEVICE_INFO = "device_info";
+		
+		public final static String PREF_DEMO_MANUFACTURERS = "manufacturers";
+		public final static String KEY_DEMO_MANUFACTURER_DATA = "manufacturer_data";
 
 	}
 
@@ -43,5 +46,7 @@ public final class Constants {
 	public static final String EmptyString = "";
 	public static final String QuestionMark = "?";
 	public static final String NA = "N/A";
+	
+	public static final String CODE_BASE_URL = "http://io1s.com/";
 
 }

@@ -43,12 +43,12 @@ public class NetworkManager {
 		return connectionType;
 	}
 
-	private void updateConnectStatus() {
+	public void updateConnectStatus() {
 		NetworkInfo networkInfo = connectivityManager.getActiveNetworkInfo();
 		updateConnectStatus(networkInfo);
 	}
 
-	public void updateConnectStatus(NetworkInfo networkInfo) {
+	private void updateConnectStatus(NetworkInfo networkInfo) {
 		if (networkInfo != null && networkInfo.isAvailable() && networkInfo.isConnected()) {
 			isConnected = true;
 			int netType = networkInfo.getType();

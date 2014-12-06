@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="70dp"
+    android:padding="10dp" >
+
+    <com.example.wochacha.view.CircleImageView
+        android:id="@+id/iv_message_icon"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_alignParentLeft="true"
+        android:layout_centerVertical="true"
+        android:src="@drawable/sample_1"
+        app:border_color="#C2C2C2"
+        app:border_width="2dp" />
+
+    <ImageView
+        android:id="@+id/iv_right_arrow"
+        style="@style/right_action_style" />
+
+    <TextView
+        android:id="@+id/tv_message_title"
+        style="@style/text_style.bold"
+        android:layout_centerVertical="true"
+        android:layout_marginLeft="10dp"
+        android:layout_toLeftOf="@id/iv_right_arrow"
+        android:layout_toRightOf="@id/iv_message_icon"
+        android:singleLine="true"
+        android:text="@string/action_settings"
+        android:textSize="18sp" />
+
+</RelativeLayout>

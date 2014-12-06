@@ -64,4 +64,23 @@ public class StringHelper {
 		}
 		return date;
 	}
+	
+	
+	
+
+	public static String join(String seperator, String[] array) {
+		StringBuilder sb = new StringBuilder();
+		if (array != null) {
+
+			for (int i = 0; i < array.length; i++) {
+				sb.append(array[i]);
+				if (i < array.length - 1) {
+					sb.append(seperator);
+				}
+			}
+
+		}
+		return sb.toString();
+		
+	}
 }

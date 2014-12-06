@@ -25,6 +25,7 @@ import com.example.wochacha.R;
 import com.example.wochacha.adapter.MessageAdapter;
 import com.example.wochacha.entity.Message;
 import com.example.wochacha.exception.BaseException;
+import com.example.wochacha.manager.MessageManager;
 import com.example.wochacha.network.CacheService;
 import com.example.wochacha.service.DataServiceImpl;
 import com.example.wochacha.service.MessageService;
@@ -102,29 +103,11 @@ public class MessageFragment extends FragmentBase implements
 					int position, long id) {
 				Message item = (Message) adapter.getItem(position - 1);
 				if (item.getNewMessageCount() > 0) {
-					item.read();
-
-					String dataString = CacheService.getCacheServiceInstance()
-							.getObjectFromCache("/message/1", true);
-					JSONObject object;
-					try {
-						object = new JSONObject(dataString);
-						JSONArray array = object.getJSONArray("array");
-
-						if (item.getCompanyId() == 1) {
-							array.getJSONObject(0).put("message_count", 0);
-						} else {
-							array.getJSONObject(1).put("message_count", 0);
-						}
-						CacheService.getCacheServiceInstance().refreshCache(
-								"/message/1", object);
+					item.read();	
+					MessageManager.getInstance().pushReadNotification(item.getCompanyId());
 						
-						adapter.notifyDataSetChanged();
-
-					} catch (JSONException e) {
-						// TODO Auto-generated catch block
-						e.printStackTrace();
-					}
+					adapter.notifyDataSetChanged();
+				
 				}
 
 				Intent intent = new Intent(MessageFragment.this.getActivity(),

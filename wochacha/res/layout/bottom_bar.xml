@@ -24,13 +24,13 @@
         <RadioButton
             android:id="@+id/maintabs_tab_find"
             style="@style/maintabs_tab_style"
-            android:drawableTop="@drawable/maintabs_tab_message_btn"
+            android:drawableTop="@drawable/maintabs_tab_find_btn"
             android:text="@string/tab_find" />
         
         <RadioButton
             android:id="@+id/maintabs_tab_message"
             style="@style/maintabs_tab_style"
-            android:drawableTop="@drawable/maintabs_tab_find_btn"
+            android:drawableTop="@drawable/maintabs_tab_message_btn"
             android:text="@string/tab_message" />
 
 

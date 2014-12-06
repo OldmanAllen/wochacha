@@ -99,6 +99,11 @@
         <item name="android:textStyle">bold</item>
     </style>
 
+    
+      <style name="text_style.scandetail">
+        <item name="android:fontFamily">sans-serif-light</item>
+        <item name="android:textSize">14sp</item>
+    </style>
     <style name="right_action_style">
         <item name="android:layout_width">30dp</item>
         <item name="android:layout_height">30dp</item>

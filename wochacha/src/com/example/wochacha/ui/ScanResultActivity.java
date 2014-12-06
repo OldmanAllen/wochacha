@@ -1,27 +1,27 @@
 package com.example.wochacha.ui;
 
+import java.lang.reflect.Array;
 import java.util.HashMap;
 
 import org.json.JSONObject;
-import org.w3c.dom.Text;
 
-import android.R.string;
 import android.app.Activity;
 import android.app.ProgressDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.KeyEvent;
 import android.view.MenuItem;
 import android.view.View;
 import android.webkit.WebChromeClient;
 import android.webkit.WebSettings;
 import android.webkit.WebView;
-import android.webkit.WebViewClient;
 import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.example.wochacha.R;
+import com.example.wochacha.entity.Message;
 import com.example.wochacha.entity.ScanRequest;
 import com.example.wochacha.entity.ScanResult;
 import com.example.wochacha.entity.ScanResult.Manufacturer;
@@ -29,13 +29,16 @@ import com.example.wochacha.entity.ScanResult.ScanProduct;
 import com.example.wochacha.entity.ScanResult.ScanProductType;
 import com.example.wochacha.entity.UserLocation;
 import com.example.wochacha.exception.BaseException;
+import com.example.wochacha.exception.NetworkNotAvailableException;
+import com.example.wochacha.exception.ServerGeneralException;
 import com.example.wochacha.manager.DeviceGeoLocationManager;
 import com.example.wochacha.manager.DeviceManager;
+import com.example.wochacha.manager.MessageManager;
 import com.example.wochacha.network.ImageManager;
 import com.example.wochacha.network.ImageViewInfo;
 import com.example.wochacha.service.DataServiceImpl;
-import com.example.wochacha.service.VerifyCodeService;
 import com.example.wochacha.service.DataServiceImpl.DataServiceDelegate;
+import com.example.wochacha.service.VerifyCodeService;
 import com.example.wochacha.util.StringHelper;
 import com.example.wochacha.util.ToastMessageHelper;
 
@@ -71,7 +74,7 @@ public class ScanResultActivity extends Activity implements DataServiceDelegate 
 	static {
 		// TODO: hash mapping
 		statusIconLookupHashMap.put("NORMAL", R.drawable.icon_accept);
-		statusIconLookupHashMap.put("Fake", R.drawable.icon_reject);
+		statusIconLookupHashMap.put("FAKE", R.drawable.icon_reject);
 		statusIconLookupHashMap.put("RISK", R.drawable.icon_alert);
 	}
 
@@ -86,32 +89,35 @@ public class ScanResultActivity extends Activity implements DataServiceDelegate 
 
 		progressDialog = new ProgressDialog(this);
 		progressDialog.setMessage(getString(R.string.verify_code_loading));
-		progressDialog.setOnCancelListener(new DialogInterface.OnCancelListener() {
+		progressDialog
+				.setOnCancelListener(new DialogInterface.OnCancelListener() {
 
-			@Override
-			public void onCancel(DialogInterface dialog) {
-				if (service != null) {
-					service.cancel();
-				}
-			}
-		});
+					@Override
+					public void onCancel(DialogInterface dialog) {
+						if (service != null) {
+							service.cancel();
+						}
+					}
+				});
 
-		iv_thumbnail = (ImageView)findViewById(R.id.iv_thumbnail);
-		tv_company_name = (TextView)findViewById(R.id.tv_company_name);
+		iv_thumbnail = (ImageView) findViewById(R.id.iv_thumbnail);
+		tv_company_name = (TextView) findViewById(R.id.tv_company_name);
 
-		iv_result_icon = (ImageView)findViewById(R.id.iv_result_icon);
-		tv_scan_status = (TextView)findViewById(R.id.tv_scan_status);
-		tv_scan_desc = (TextView)findViewById(R.id.tv_scan_desc);
+		iv_result_icon = (ImageView) findViewById(R.id.iv_result_icon);
+		tv_scan_status = (TextView) findViewById(R.id.tv_scan_status);
+		tv_scan_desc = (TextView) findViewById(R.id.tv_scan_desc);
 
-		// rl_scan_manufacture_detail = findViewById(R.id.rl_scan_manufacture_detail);
+		// rl_scan_manufacture_detail =
+		// findViewById(R.id.rl_scan_manufacture_detail);
 		ll_scan_details = findViewById(R.id.ll_scan_details);
-		tv_product_barcode_value = (TextView)findViewById(R.id.tv_product_barcode_value);
-		tv_product_name_value = (TextView)findViewById(R.id.tv_product_name_value);
-		tv_product_desc_value = (TextView)findViewById(R.id.tv_product_desc_value);
+		tv_product_barcode_value = (TextView) findViewById(R.id.tv_product_barcode_value);
+		tv_product_name_value = (TextView) findViewById(R.id.tv_product_name_value);
+		tv_product_desc_value = (TextView) findViewById(R.id.tv_product_desc_value);
 
-		webView = (WebView)findViewById(R.id.wv_content);
+		webView = (WebView) findViewById(R.id.wv_content);
 		webView.getSettings().setJavaScriptEnabled(true);
-		webView.getSettings().setBuiltInZoomControls(true);
+		webView.getSettings().setDomStorageEnabled(true);
+		webView.getSettings().setBuiltInZoomControls(false);
 		webView.getSettings().setCacheMode(WebSettings.LOAD_CACHE_ELSE_NETWORK);
 
 		webView.setWebChromeClient(new WebChromeClient() {
@@ -142,7 +148,8 @@ public class ScanResultActivity extends Activity implements DataServiceDelegate 
 		request.setDeviceModel(deviceMgr.getDeviceModel());
 		request.setOsVersion(deviceMgr.getDeviceSDKVersion());
 
-		DeviceGeoLocationManager geoMgr = DeviceGeoLocationManager.getInstance();
+		DeviceGeoLocationManager geoMgr = DeviceGeoLocationManager
+				.getInstance();
 		UserLocation location = geoMgr.getCurrentLocation();
 
 		request.setLat(location.getLatitude());
@@ -151,6 +158,7 @@ public class ScanResultActivity extends Activity implements DataServiceDelegate 
 		VerifyCodeService service = new VerifyCodeService(result, request);
 		service.setDelegate(this);
 		progressDialog.show();
+		findViewById(R.id.sv_content).setVisibility(View.GONE);
 		service.start();
 	}
 
@@ -192,12 +200,31 @@ public class ScanResultActivity extends Activity implements DataServiceDelegate 
 
 	protected void refreshUI() {
 		if (scanResult.isDataValid()) {
+			findViewById(R.id.sv_content).setVisibility(View.VISIBLE);
+			MessageManager manager = MessageManager.getInstance();
+			Manufacturer manufacturer = scanResult.getManufacturer();
+			int manufacturerId = manufacturer.getId();
+			Message message = manager
+					.getMessageByManufacturerId(manufacturerId);
+			if (message != null) {
+				manager.updateMessageWithManufacturerInfo(message, manufacturer);
+			} else {
+
+				Message newMessage = new Message();
+				newMessage.setCompanyName(manufacturer.getName());
+				newMessage.setCompanyId(manufacturer.getId());
+				newMessage.setIconUrl(manufacturer.getImageUri());
+				newMessage.setNewMessageCount(1);
+				MessageManager.getInstance().pushNewNotification(newMessage);
+			}
+
 			setupManufacturerUI();
 			setupResultUI();
 			setupWebView();
 
 		} else {
-			ToastMessageHelper.showErrorMessage(ScanResultActivity.this, R.string.load_failed, true);
+			ToastMessageHelper.showErrorMessage(ScanResultActivity.this,
+					R.string.load_failed, true);
 			ScanResultActivity.this.finish();
 		}
 
@@ -218,17 +245,43 @@ public class ScanResultActivity extends Activity implements DataServiceDelegate 
 	private void setupResultUI() {
 		ScanProduct product = scanResult.getProduct();
 
-		iv_result_icon.setImageResource(statusIconLookupHashMap.get(product.getProductStatus()));
-		tv_scan_status.setText(R.string.demo_scan_result);
-		tv_scan_desc.setText(product.getProductStatusDescription());
+		Integer resourceId = statusIconLookupHashMap.get(product
+				.getProductStatusCode());
+		iv_result_icon
+				.setImageResource((resourceId == null ? R.drawable.icon_alert
+						: resourceId.intValue()));
+		tv_scan_status.setText(product.getProductStatusDescription());
+		tv_scan_desc.setText(product.getProductInformation());
 		setupResultDetail(product);
+
 	}
 
 	private void setupResultDetail(ScanProduct product) {
 		ScanProductType productType = product.getProductType();
 		tv_product_barcode_value.setText(productType.getBarCode());
 		tv_product_name_value.setText(productType.getProductName());
-		tv_product_desc_value.setText(productType.getDescription());
+		tv_product_desc_value.setText(productType.getDetails());
+
+		if (scanResult.getScanRecord().getCount() > 0) {
+			findViewById(R.id.rl_scan_record).setVisibility(View.VISIBLE);
+			TextView tv_scan_record_value = (TextView) findViewById(R.id.tv_scan_record_value);
+
+			tv_scan_record_value.setText(StringHelper.join("\r\n", scanResult
+					.getScanRecord().getLatest()));
+
+		} else {
+			findViewById(R.id.rl_scan_record).setVisibility(View.GONE);
+		}
+		String[] path = scanResult.getPath();
+		if (path != null && path.length > 0) {
+			findViewById(R.id.rl_logistics).setVisibility(View.VISIBLE);
+			String pathDetail = StringHelper.join("\r\n", path);
+			TextView tv_logistics_value = (TextView) findViewById(R.id.tv_logistics_value);
+			tv_logistics_value.setText(pathDetail);
+		} else {
+			findViewById(R.id.rl_logistics).setVisibility(View.GONE);
+		}
+
 	}
 
 	private void setupManufacturerUI() {
@@ -236,7 +289,8 @@ public class ScanResultActivity extends Activity implements DataServiceDelegate 
 		String manufacturerImageUri = manufacturer.getImageUri();
 		ImageViewInfo info = new ImageViewInfo(manufacturerImageUri, 0);
 		iv_thumbnail.setTag(info);
-		ImageManager.getInstance().displayImage(manufacturerImageUri, this, iv_thumbnail);
+		ImageManager.getInstance().displayImage(manufacturerImageUri, this,
+				iv_thumbnail);
 
 		tv_company_name.setText(manufacturer.getName());
 
@@ -247,7 +301,8 @@ public class ScanResultActivity extends Activity implements DataServiceDelegate 
 	}
 
 	@Override
-	public void onRequestSucceeded(DataServiceImpl service, final JSONObject data, boolean isCached) {
+	public void onRequestSucceeded(DataServiceImpl service,
+			final JSONObject data, boolean isCached) {
 		runOnUiThread(new Runnable() {
 
 			@Override
@@ -255,21 +310,34 @@ public class ScanResultActivity extends Activity implements DataServiceDelegate 
 				scanResult = new ScanResult();
 				progressDialog.dismiss();
 				scanResult.populate(data);
-				refreshUI();				
+				refreshUI();
 			}
 		});
 	}
 
 	@Override
-	public void onRequestFailed(DataServiceImpl service, BaseException exception) {
+	public void onRequestFailed(DataServiceImpl service, final BaseException exception) {
 		runOnUiThread(new Runnable() {
 
 			@Override
 			public void run() {
-				//TODO if the status is 404, then make a ui change.
+				// TODO if the status is 404, then make a ui change.
+				//Log.e("onRequestFailed", exception.getMessage());
 				progressDialog.dismiss();
-				ToastMessageHelper.showErrorMessage(ScanResultActivity.this, R.string.load_failed, true);
-				ScanResultActivity.this.finish();
+				if (exception instanceof NetworkNotAvailableException)
+				{
+					ToastMessageHelper.showErrorMessage(ScanResultActivity.this,
+							R.string.network_not_available, true);
+					ScanResultActivity.this.finish();
+				}
+				else {
+					ToastMessageHelper.showErrorMessage(ScanResultActivity.this,
+							R.string.load_failed, true);
+					ScanResultActivity.this.finish();
+				}
+				
+				
+				
 
 			}
 		});

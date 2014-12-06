@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"  >
+
+    <com.handmark.pulltorefresh.library.PullToRefreshGridView    
+        android:id="@+id/gv_actions"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#C2C2C2" 
+        android:horizontalSpacing="1dp"
+        android:numColumns="2"
+        android:stretchMode="columnWidth"
+        android:verticalSpacing="1dp" android:padding="1dp" />
+
+</FrameLayout>

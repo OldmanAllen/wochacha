@@ -93,11 +93,10 @@ public class ScanResult implements JSONEntity {
 	public String[] getPath() {
 		return path;
 	}
-	
+
 	public String getUrl() {
 		return url;
 	}
-	
 
 	@Override
 	public String toJsonString() throws JSONException {
@@ -125,15 +124,16 @@ public class ScanResult implements JSONEntity {
 			path = StringHelper.toStringArray(pathArray);
 		}
 	}
-	
-	public boolean isDataValid()
-	{
-		return manufacturer.getId() > 0 && product.getProductStatus() != null;
+
+	public boolean isDataValid() {
+		return manufacturer.getId() > 0
+				&& product.getProductStatusCode() != null;
 	}
 
 	public final static class ScanProduct implements JSONEntity {
-		private String productStatus;
+		private String productStatusCode;
 		private String productStatusDescription;
+		private String productInformation;
 		private Date manufacturingDate;
 		private Date expireDate;
 		private ScanProductType productType;
@@ -142,12 +142,16 @@ public class ScanResult implements JSONEntity {
 			productType = new ScanProductType();
 		}
 
-		public String getProductStatus() {
-			return productStatus;
+		public String getProductStatusCode() {
+			return productStatusCode;
 		}
 
 		public String getProductStatusDescription() {
 			return productStatusDescription;
+		}
+
+		public String getProductInformation() {
+			return productInformation;
 		}
 
 		public Date getManufacturingDate() {
@@ -170,11 +174,15 @@ public class ScanResult implements JSONEntity {
 
 		@Override
 		public void populate(JSONObject object) {
-			productStatus = object.optString("productStatus");
-			productStatusDescription = object.optString("productStatusDescription");
-			String manufacturerDateString = object.optString("manufacturingDate");
+			productStatusCode = object.optString("productStatusCode");
+			productStatusDescription = object
+					.optString("productStatusDescription");
+			productInformation = object.optString("productInformation");
+			String manufacturerDateString = object
+					.optString("manufacturingDate");
 			if (StringHelper.isStringNullOrEmpty(manufacturerDateString)) {
-				manufacturingDate = StringHelper.convertStringToDate(manufacturerDateString);
+				manufacturingDate = StringHelper
+						.convertStringToDate(manufacturerDateString);
 			}
 			String expireDateString = object.optString("expireDate");
 			if (StringHelper.isStringNullOrEmpty(expireDateString)) {
@@ -233,14 +241,14 @@ public class ScanResult implements JSONEntity {
 	}
 
 	public final static class Manufacturer implements JSONEntity {
-		private long id;
+		private int id;
 		private String name;
 		private String imageUri;
 		private boolean isVerified;
 		private String description;
 		private String details;
 
-		public long getId() {
+		public int getId() {
 			return id;
 		}
 
@@ -308,5 +316,7 @@ public class ScanResult implements JSONEntity {
 				latest = StringHelper.toStringArray(array);
 			}
 		}
+
+		
 	}
 }

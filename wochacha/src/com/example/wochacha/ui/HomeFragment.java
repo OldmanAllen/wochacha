@@ -22,6 +22,7 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 
 import com.example.wochacha.R;
+import com.example.wochacha.util.Constants;
 import com.example.wochacha.util.DensityUtil;
 import com.example.wochacha.util.ToastMessageHelper;
 import com.google.zxing.BarcodeFormat;
@@ -161,20 +162,24 @@ public class HomeFragment extends FragmentBase implements
 		CameraManager.get().closeDriver();
 	}
 
+	
 	public void handleDecode(Result result, Bitmap barcode) {
 		// inactivityTimer.onActivity();
 		playVibrate();
 		String resultString = result.getText();
-		if (resultString.equals("")) {
+		Log.e("qr result", result.getText());
+		if (resultString.equals("") || !resultString.contains(Constants.CODE_BASE_URL)) {
 			ToastMessageHelper.showErrorMessage(this.getActivity(),
 					R.string.scan_failed, false);
 
 		} else {
+			
+			
 			Intent resultIntent = new Intent(this.getActivity(),
 					ScanResultActivity.class);
 			Bundle bundle = new Bundle();
 			//TODO demo purpose 
-			bundle.putString(ScanResultActivity.IntentKey.RESULT, "45dewdS96UWe6YlQ6tDBmg");
+			bundle.putString(ScanResultActivity.IntentKey.RESULT, resultString.replace(Constants.CODE_BASE_URL, ""));
 			//bundle.putString(ScanResultActivity.IntentKey.RESULT, resultString);
 			// bundle.putParcelable(ScanResultActivity.IntentKey.THUMBNAIL,
 			// barcode);

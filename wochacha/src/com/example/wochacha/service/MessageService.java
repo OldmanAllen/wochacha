@@ -1,13 +1,17 @@
 package com.example.wochacha.service;
 
+import java.util.List;
+
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import com.example.wochacha.entity.Message;
 import com.example.wochacha.exception.LocalGeneralException;
 import com.example.wochacha.exception.NetworkNotAvailableException;
 import com.example.wochacha.exception.ServerAuthException;
 import com.example.wochacha.exception.ServerGeneralException;
+import com.example.wochacha.manager.MessageManager;
 import com.example.wochacha.network.CacheService;
 import com.example.wochacha.util.StringHelper;
 
@@ -30,21 +34,32 @@ public class MessageService extends DataServiceImpl {
 
 		Thread.currentThread().sleep(1000);
 
-		
 		JSONObject object = new JSONObject();
-		String dataString = CacheService.getCacheServiceInstance()
-				.getObjectFromCache(url, true);
-		if (StringHelper.isStringNullOrEmpty(dataString)) {
-			String jsontest = "[{\"company_id\":1, \"message_count\":1,\"company_name\":\"任志强公�?�1\", \"image_url\":\"http://tp2.sinaimg.cn/1182389073/50/1283203476/1\"},{\"company_id\":2, \"message_count\":1,\"company_name\":\"任志强公�?�2\", \"image_url\":\"http://tp2.sinaimg.cn/1182389073/50/1283203476/1\"}]";
+		JSONArray array = new JSONArray();
 
-			JSONArray array = new JSONArray(jsontest);
+		List<Message> list = MessageManager.getInstance()
+				.getScannedManufacturers();
 
-			
-			object.put("array", array);
+		for (Message message : list) {
+			array.put(message.toJsonObject());
+		}
+		object.put("array", array);
 
-			CacheService.getCacheServiceInstance().refreshCache(url, object);
-		}	
-		
+		/*
+		 * String dataString = CacheService.getCacheServiceInstance()
+		 * .getObjectFromCache(url, true); if
+		 * (StringHelper.isStringNullOrEmpty(dataString)) { String jsontest =
+		 * "[{\"company_id\":1, \"message_count\":1,\"company_name\":\"任志强公�?�1\", \"image_url\":\"http://tp2.sinaimg.cn/1182389073/50/1283203476/1\"},{\"company_id\":2, \"message_count\":1,\"company_name\":\"任志强公�?�2\", \"image_url\":\"http://tp2.sinaimg.cn/1182389073/50/1283203476/1\"}]"
+		 * ;
+		 * 
+		 * JSONArray array = new JSONArray(jsontest);
+		 * 
+		 * 
+		 * object.put("array", array);
+		 * 
+		 * CacheService.getCacheServiceInstance().refreshCache(url, object); }
+		 */
+
 		return object;
 	}
 
@@ -55,14 +70,23 @@ public class MessageService extends DataServiceImpl {
 
 	@Override
 	protected JSONObject cacheMethod() throws JSONException {
-		String url = MESSAGE_URL + "/" + pageIdx;
-		JSONObject object = null;
-		String dataString = CacheService.getCacheServiceInstance()
-				.getObjectFromCache(url, true);
-		if (StringHelper.isStringNullOrEmpty(dataString)) {
-			return null;
+		/*
+		 * String url = MESSAGE_URL + "/" + pageIdx; JSONObject object = null;
+		 * String dataString = CacheService.getCacheServiceInstance()
+		 * .getObjectFromCache(url, true); if
+		 * (StringHelper.isStringNullOrEmpty(dataString)) { return null; }
+		 * object = new JSONObject(dataString); return object;
+		 */
+		JSONObject object = new JSONObject();
+		JSONArray array = new JSONArray();
+
+		List<Message> list = MessageManager.getInstance()
+				.getScannedManufacturers();
+
+		for (Message message : list) {
+			array.put(message.toJsonObject());
 		}
-		object = new JSONObject(dataString);
+		object.put("array", array);
 		return object;
 	}
 

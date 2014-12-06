@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+	<item android:state_pressed="true" android:drawable="@android:drawable/list_selector_background">
+		<!-- <shape>
+			<corners android:radius="6dp" />
+			<padding android:left="5dp" android:top="5dp" android:right="5dp"
+				android:bottom="5dp" />
+			<stroke  android:width="0.5dp" android:color="#C2C2C2"/>
+			<solid android:color="#A6C73A"/>
+		</shape> -->
+	</item>
+	<item>
+	<shape>
+			<corners android:radius="6dp" />
+			<padding android:left="10dp" android:top="10dp" android:right="10dp"
+				android:bottom="10dp" />
+			<stroke  android:width="0.5dp" android:color="#C2C2C2"/>
+			<solid android:color="#FFFFFF"/>
+		</shape>
+	</item>
+</selector>

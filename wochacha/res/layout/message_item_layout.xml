@@ -5,15 +5,33 @@
     android:layout_height="70dp"
     android:padding="10dp" >
 
-    <com.example.wochacha.view.CircleImageView
-        android:id="@+id/iv_message_icon"
-        android:layout_width="50dp"
-        android:layout_height="50dp"
-        android:layout_alignParentLeft="true"
-        android:layout_centerVertical="true"
-        android:src="@drawable/sample_1"
-        app:border_color="#C2C2C2"
-        app:border_width="2dp" />
+    <FrameLayout
+        android:id="@+id/rl_message_icon"
+        android:layout_width="wrap_content"
+        android:layout_height="70dp" >
+
+        <com.example.wochacha.view.CircleImageView
+            android:id="@+id/iv_message_icon"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_gravity="center"
+            android:src="@drawable/sample_1"
+            app:border_color="#C2C2C2"
+            app:border_width="2dp" />
+
+        <TextView
+            android:id="@+id/tv_new_message_count"
+            style="@style/text_style.bold"
+            android:layout_width="18dp"
+            android:layout_height="18dp"
+            android:layout_gravity="right|top"
+            android:background="@drawable/bg_new_message_count"
+            android:gravity="center"
+            android:padding="2dp" android:textStyle="bold"
+            android:text="99"
+            android:textColor="#FFFFFF"
+            android:textSize="12dp" />
+    </FrameLayout>
 
     <ImageView
         android:id="@+id/iv_right_arrow"
@@ -25,9 +43,10 @@
         android:layout_centerVertical="true"
         android:layout_marginLeft="10dp"
         android:layout_toLeftOf="@id/iv_right_arrow"
-        android:layout_toRightOf="@id/iv_message_icon"
+        android:layout_toRightOf="@id/rl_message_icon"
         android:singleLine="true"
-        android:text="@string/action_settings"
-        android:textSize="18sp" />
+        android:text="@string/nfc_enable_message"
+        android:textSize="18sp" >
+    </TextView>
 
 </RelativeLayout>

@@ -68,19 +68,18 @@ public class MessageAdapter extends BaseAdapter {
 					.findViewById(R.id.iv_message_icon);
 			holder.titleTextView = (TextView) convertView
 					.findViewById(R.id.tv_message_title);
-			holder.badgeView = new BadgeView(parent.getContext(),
-					holder.imageView);
-			holder.badgeView.setBadgeMargin(0);
+			holder.badgeView =(TextView)convertView.findViewById(R.id.tv_new_message_count);
+			
 			convertView.setTag(holder);
 		}
 		ViewHolder holder = (ViewHolder) convertView.getTag();
 
 		int count = item.getNewMessageCount();
 		if (count == 0) {
-			holder.badgeView.hide();
+			holder.badgeView.setVisibility(View.GONE);
 		} else {
 			holder.badgeView.setText(Integer.toString(count));
-			holder.badgeView.show();
+			holder.badgeView.setVisibility(View.VISIBLE);
 		}
 		ImageViewInfo info = new ImageViewInfo(item.getIconUrl(), position);
 		holder.imageView.setTag(info);
@@ -95,7 +94,7 @@ public class MessageAdapter extends BaseAdapter {
 	private static class ViewHolder {
 		public ImageView imageView;
 		public TextView titleTextView;
-		public BadgeView badgeView;
+		public TextView badgeView;
 	}
 
 }

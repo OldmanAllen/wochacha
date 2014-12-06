@@ -9,14 +9,20 @@ import android.app.Activity;
 import android.app.Fragment;
 import android.app.FragmentManager;
 import android.content.Intent;
+import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.os.Handler;
 import android.support.v4.view.ViewPager;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.RadioButton;
 import android.widget.RadioGroup;
 
 import com.example.wochacha.R;
+import com.example.wochacha.manager.DeviceGeoLocationManager;
+import com.example.wochacha.manager.MessageManager;
+import com.example.wochacha.manager.MessageManager.onMessageNofify;
 import com.example.wochacha.ui.HomeFragment.HomeFragmentCallback;
 import com.example.wochacha.util.ToastMessageHelper;
 
@@ -101,6 +107,48 @@ public class MainActivity extends Activity implements HomeFragmentCallback,
 
 		vp_fragment.setOffscreenPageLimit(3);
 
+		MessageManager.getInstance()
+				.registerMessageNotification(notifyListener);
+		
+		toggleMessgeIcon(MessageManager.getInstance().hasUnreadMessage());
+		
+		if(!DeviceGeoLocationManager.getInstance().isLocationServiceEnabled())
+		{
+			//Intent intent = new Intent(android.provider.Settings.ACTION_WIFI_SETTINGS)
+		}
+
+	}
+
+	protected void onDestroy() {
+		super.onDestroy();
+		MessageManager.getInstance().unRegisterMessageNotificaiton(
+				notifyListener);
+
+	};
+
+	onMessageNofify notifyListener = new onMessageNofify() {
+
+		@Override
+		public void onAllMessageReaded() {
+			toggleMessgeIcon(false);
+
+		}
+
+		@Override
+		public void onMessageNotified() {
+			Log.e("test", "ddddddddddddddddd");
+			toggleMessgeIcon(true);
+
+		}
+	};
+	
+	private void toggleMessgeIcon(boolean hasNewMessage)
+	{
+		int drawableId = hasNewMessage ? R.drawable.maintabs_tab_message_new_btn : R.drawable.maintabs_tab_message_btn;
+		RadioButton radioButton = (RadioButton)maintabs_tabs_bar.findViewById(R.id.maintabs_tab_message);
+		Drawable drawable = getResources().getDrawable(drawableId);
+	
+		radioButton.setCompoundDrawablesWithIntrinsicBounds(null,getResources().getDrawable(drawableId) , null, null);
 	}
 
 	private void resetFragments(int position) {
