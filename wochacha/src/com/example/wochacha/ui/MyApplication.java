@@ -33,8 +33,7 @@ public class MyApplication extends Application {
 		CacheService.initializeInstance(appContext);
 		ImageManager.initializeIntance(appContext);
 		DeviceGeoLocationManager.initializeIntance(appContext);
-		DeviceGeoLocationManager.getInstance().restore();
-		DeviceGeoLocationManager.getInstance().registerLocationUpdate();
+		DeviceGeoLocationManager.getInstance().restore();		
 
 		MessageManager.initializeIntance(appContext);
 		MessageManager.getInstance().restore();

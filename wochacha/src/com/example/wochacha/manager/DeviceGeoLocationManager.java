@@ -6,7 +6,11 @@ import java.util.Locale;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import android.app.Activity;
+import android.app.AlertDialog;
 import android.content.Context;
+import android.content.DialogInterface;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.SharedPreferences.Editor;
 import android.location.Address;
@@ -27,6 +31,9 @@ import com.example.wochacha.util.StringHelper;
 import com.example.wochacha.util.ToastMessageHelper;
 
 public class DeviceGeoLocationManager extends BaseManager implements LocationListener {
+	
+	public static final int REQUEST_LOCATION_CODE = 0xde;
+	
 	private static String TAG = DeviceGeoLocationManager.class.getSimpleName();
 	private static DeviceGeoLocationManager deviceGeoLocationManager;
 
@@ -74,8 +81,6 @@ public class DeviceGeoLocationManager extends BaseManager implements LocationLis
 	public void removeGeoLocationUpdatedListener(GeoLocationUpdated listener) {
 		removeListener(GeoLocationUpdated.class.getSimpleName(), listener);
 	}
-	
-	
 
 	public void restore() {
 		SharedPreferences preferences = context.getSharedPreferences(Constants.Preference.PREF_LAST_KNOWN_LOCATION,
@@ -115,6 +120,22 @@ public class DeviceGeoLocationManager extends BaseManager implements LocationLis
 			}
 		}
 		return isLocationServiceEnabled;
+	}
+
+	public void enableLocation(final Activity activity) {
+
+		AlertDialog dialog = new AlertDialog.Builder(activity).setTitle(R.string.enable_location_title)
+				.setMessage(R.string.enable_location_message)
+				.setPositiveButton(R.string.location_ok, new DialogInterface.OnClickListener() {
+
+					@Override
+					public void onClick(DialogInterface dialog, int which) {
+						Intent intent = new Intent(android.provider.Settings.ACTION_LOCATION_SOURCE_SETTINGS);
+						activity.startActivityForResult(intent, REQUEST_LOCATION_CODE);
+
+					}
+				}).setNegativeButton(R.string.location_no, null).create();
+		dialog.show();
 	}
 
 	public void registerLocationUpdate() {
@@ -162,7 +183,7 @@ public class DeviceGeoLocationManager extends BaseManager implements LocationLis
 		public void handleMessage(Message msg) {
 			switch (msg.what) {
 			case 1:
-				//UserLocation l = (UserLocation)msg.obj;
+				// UserLocation l = (UserLocation)msg.obj;
 				double lat = location.getLatitude();
 				double lng = location.getLongitude();
 				if (lastKnownLocation.getLatitude() != lat || lastKnownLocation.getLongitude() != lng) {
@@ -192,10 +213,9 @@ public class DeviceGeoLocationManager extends BaseManager implements LocationLis
 	protected void refreshGeoLocationInfo() {
 		geoLocationInfo = String.format("{\"Longitude\":%s,\"Latitude\":%s}", location.getLongitude(),
 				location.getLatitude());
-		
-		
+
 		// TODO: to get location info like city and state.
-		// onGeoCoding(this.location.getLatitude(), this.location.getLongitude());		
+		// onGeoCoding(this.location.getLatitude(), this.location.getLongitude());
 		handler.sendEmptyMessage(1);
 	}
 
@@ -221,7 +241,7 @@ public class DeviceGeoLocationManager extends BaseManager implements LocationLis
 	@Override
 	public void onLocationChanged(Location newLocation) {
 		String name = newLocation.getProvider();
-		Log.d(TAG, name);
+		Log.e(TAG, name + "::::test" + newLocation.getLatitude() + "::" + newLocation.getLongitude());
 		isLocationChanged = true;
 		if (isBetterLocation(newLocation, this.location)) {
 			this.location = newLocation;

@@ -50,6 +50,12 @@
     <string name="yes">是</string>
     <string name="no">否</string>
     
+    <!-- Locaiton  -->
+    <string name="enable_location_title">开启位置服务</string>
+    <string name="enable_location_message">为了更好地验证物品的真假，串货等，请务必开启位置服务。</string>
+    <string name="location_ok">好的</string>
+    <string name="location_no">暂时不</string>
+    
     <!-- enterprise  -->
     <string name="enterprise_home">首页</string>
     <string name="enterprise_settings">设置</string>
