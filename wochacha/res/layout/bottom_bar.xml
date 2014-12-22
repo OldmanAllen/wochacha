@@ -9,34 +9,41 @@
     <RadioGroup
         android:id="@+id/maintabs_tabs_bar"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="60dp"
         android:layout_alignParentBottom="true"
-        android:orientation="horizontal"  android:background="#f5f5f5" android:paddingTop="5dp">
+        android:background="#f5f5f5"
+        android:orientation="horizontal" >
 
         <!-- Tabs bar' tabs -->
 
         <RadioButton
-            android:id="@+id/maintabs_tab_home"
-            style="@style/maintabs_tab_style"
-            android:checked="true"
-            android:drawableTop="@drawable/maintabs_tab_scan_btn"
-            android:text="@string/tab_scan" />
-        <RadioButton
             android:id="@+id/maintabs_tab_find"
             style="@style/maintabs_tab_style"
             android:drawableTop="@drawable/maintabs_tab_find_btn"
-            android:text="@string/tab_find" />
-        
+            android:text="@string/tab_find"
+            android:visibility="gone" />
+
         <RadioButton
             android:id="@+id/maintabs_tab_message"
             style="@style/maintabs_tab_style"
+            android:layout_marginTop="5dp"
             android:drawableTop="@drawable/maintabs_tab_message_btn"
             android:text="@string/tab_message" />
 
+        <RadioButton
+            android:id="@+id/maintabs_tab_home"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:layout_marginTop="-15dp"
+            android:background="@drawable/maintabs_tab_scan_btn"
+            android:button="@null"
+            android:checked="true"
+            android:text="@null" />
 
         <RadioButton
             android:id="@+id/maintabs_tab_profile"
             style="@style/maintabs_tab_style"
+            android:layout_marginTop="5dp"
             android:drawableTop="@drawable/maintabs_tab_profile_btn"
             android:text="@string/tab_profile" />
     </RadioGroup>

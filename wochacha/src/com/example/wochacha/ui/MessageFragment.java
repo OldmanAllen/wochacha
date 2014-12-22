@@ -68,7 +68,7 @@ public class MessageFragment extends FragmentBase implements
 
 	@Override
 	public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
-		inflater.inflate(R.menu.main, menu);
+		//inflater.inflate(R.menu.main, menu);
 		super.onCreateOptionsMenu(menu, inflater);
 	}
 
@@ -146,7 +146,7 @@ public class MessageFragment extends FragmentBase implements
 
 	@Override
 	public void onPrepareOptionsMenu(Menu menu) {
-		menu.findItem(R.id.action_scan).setVisible(false);
+		//menu.findItem(R.id.action_scan).setVisible(false);
 		super.onPrepareOptionsMenu(menu);
 	}
 

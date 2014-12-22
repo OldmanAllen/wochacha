@@ -91,7 +91,7 @@ public class HomeFragment extends FragmentBase implements
 
 	@Override
 	public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
-		inflater.inflate(R.menu.main, menu);
+		//inflater.inflate(R.menu.main, menu);
 
 		super.onCreateOptionsMenu(menu, inflater);
 	}
@@ -125,11 +125,11 @@ public class HomeFragment extends FragmentBase implements
 
 	@Override
 	public boolean onOptionsItemSelected(MenuItem item) {
-		if (item.getItemId() == R.id.action_scan) {
+		/*if (item.getItemId() == R.id.action_scan) {
 			if (callback != null) {
 				callback.onDrawerToogleClicked();
 			}
-		}
+		}*/
 		return super.onOptionsItemSelected(item);
 	}
 
