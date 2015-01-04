@@ -1,4 +1,4 @@
-package com.example.wochacha.ui;
+package com.example.wochacha.fragment;
 
 import java.io.IOException;
 import java.util.Vector;
@@ -22,6 +22,9 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 
 import com.example.wochacha.R;
+import com.example.wochacha.ui.RFIDWaitingActivity;
+import com.example.wochacha.ui.ScanResultActivity;
+import com.example.wochacha.ui.ScanResultActivity.IntentKey;
 import com.example.wochacha.util.Constants;
 import com.example.wochacha.util.DensityUtil;
 import com.example.wochacha.util.ToastMessageHelper;

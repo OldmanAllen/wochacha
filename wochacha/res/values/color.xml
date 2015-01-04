@@ -7,4 +7,6 @@
        <color name="clear_color">#FFFFFF</color>   
         <color name="headline_color">#666666</color>
         <color name="scan_frame_color">#4BC5FE</color>
+        <color name="scan_current_color">#0078D5</color>
+         <color name="scan_past_color">#999</color>
 </resources>

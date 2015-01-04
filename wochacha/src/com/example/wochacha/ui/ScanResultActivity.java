@@ -1,22 +1,29 @@
 package com.example.wochacha.ui;
 
-import java.lang.reflect.Array;
+import java.util.ArrayList;
+import java.util.Collection;
 import java.util.HashMap;
+import java.util.Iterator;
+import java.util.List;
 
 import org.json.JSONObject;
 
 import android.app.Activity;
+import android.app.Fragment;
+import android.app.FragmentManager;
 import android.app.ProgressDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.v13.app.FragmentPagerAdapter;
+import android.support.v4.view.ViewPager;
+import android.support.v4.view.ViewPager.OnPageChangeListener;
+import android.text.GetChars;
 import android.util.Log;
 import android.view.KeyEvent;
 import android.view.MenuItem;
 import android.view.View;
-import android.webkit.WebChromeClient;
-import android.webkit.WebSettings;
-import android.webkit.WebView;
+import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -26,11 +33,12 @@ import com.example.wochacha.entity.ScanRequest;
 import com.example.wochacha.entity.ScanResult;
 import com.example.wochacha.entity.ScanResult.Manufacturer;
 import com.example.wochacha.entity.ScanResult.ScanProduct;
-import com.example.wochacha.entity.ScanResult.ScanProductType;
 import com.example.wochacha.entity.UserLocation;
 import com.example.wochacha.exception.BaseException;
 import com.example.wochacha.exception.NetworkNotAvailableException;
-import com.example.wochacha.exception.ServerGeneralException;
+import com.example.wochacha.fragment.ProductInfoFragment;
+import com.example.wochacha.fragment.ProductPathInfoFragment;
+import com.example.wochacha.fragment.ProductScanInfoFragment;
 import com.example.wochacha.manager.DeviceGeoLocationManager;
 import com.example.wochacha.manager.DeviceManager;
 import com.example.wochacha.manager.MessageManager;
@@ -39,15 +47,16 @@ import com.example.wochacha.network.ImageViewInfo;
 import com.example.wochacha.service.DataServiceImpl;
 import com.example.wochacha.service.DataServiceImpl.DataServiceDelegate;
 import com.example.wochacha.service.VerifyCodeService;
-import com.example.wochacha.util.StringHelper;
 import com.example.wochacha.util.ToastMessageHelper;
+import com.viewpagerindicator.TabPageIndicator;
 
 public class ScanResultActivity extends Activity implements DataServiceDelegate {
 
 	ImageView iv_thumbnail;
 	TextView tv_company_name;
 
-	ImageView iv_result_icon;
+	ImageView iv_product_icon;
+	ImageView iv_result_status;
 	TextView tv_scan_status;
 	TextView tv_scan_desc;
 
@@ -58,8 +67,11 @@ public class ScanResultActivity extends Activity implements DataServiceDelegate 
 
 	// View rl_scan_manufacture_detail;
 	View ll_scan_details;
-	WebView webView;
+
 	ProgressDialog progressDialog;
+	TabPageIndicator indicator;
+	ViewPager vp_scan_details;
+
 	VerifyCodeService service;
 
 	private static HashMap<String, Integer> statusIconLookupHashMap = new HashMap<>();
@@ -73,9 +85,9 @@ public class ScanResultActivity extends Activity implements DataServiceDelegate 
 
 	static {
 		// TODO: hash mapping
-		statusIconLookupHashMap.put("NORMAL", R.drawable.icon_accept);
-		statusIconLookupHashMap.put("FAKE", R.drawable.icon_reject);
-		statusIconLookupHashMap.put("RISK", R.drawable.icon_alert);
+		statusIconLookupHashMap.put("NORMAL", R.drawable.ic_zhengpin);
+		statusIconLookupHashMap.put("FAKE", R.drawable.ic_jiahuo);
+		statusIconLookupHashMap.put("RISK", R.drawable.ic_jinggao);
 	}
 
 	@Override
@@ -103,26 +115,12 @@ public class ScanResultActivity extends Activity implements DataServiceDelegate 
 		iv_thumbnail = (ImageView) findViewById(R.id.iv_thumbnail);
 		tv_company_name = (TextView) findViewById(R.id.tv_company_name);
 
-		iv_result_icon = (ImageView) findViewById(R.id.iv_result_icon);
+		iv_product_icon = (ImageView) findViewById(R.id.iv_product_icon);
+		iv_result_status = (ImageView) findViewById(R.id.iv_result_status);
 		tv_scan_status = (TextView) findViewById(R.id.tv_scan_status);
 		tv_scan_desc = (TextView) findViewById(R.id.tv_scan_desc);
-
-		// rl_scan_manufacture_detail =
-		// findViewById(R.id.rl_scan_manufacture_detail);
-		ll_scan_details = findViewById(R.id.ll_scan_details);
-		tv_product_barcode_value = (TextView) findViewById(R.id.tv_product_barcode_value);
-		tv_product_name_value = (TextView) findViewById(R.id.tv_product_name_value);
-		tv_product_desc_value = (TextView) findViewById(R.id.tv_product_desc_value);
-
-		webView = (WebView) findViewById(R.id.wv_content);
-		webView.getSettings().setJavaScriptEnabled(true);
-		webView.getSettings().setDomStorageEnabled(true);
-		webView.getSettings().setBuiltInZoomControls(false);
-		webView.getSettings().setCacheMode(WebSettings.LOAD_CACHE_ELSE_NETWORK);
-
-		webView.setWebChromeClient(new WebChromeClient() {
-
-		});
+		indicator = (TabPageIndicator) findViewById(R.id.indicator);
+		vp_scan_details = (ViewPager) findViewById(R.id.vp_scan_details);
 
 		Intent intent = getIntent();
 		if (intent == null || (intent.getStringExtra(IntentKey.RESULT) == null)) {
@@ -131,13 +129,7 @@ public class ScanResultActivity extends Activity implements DataServiceDelegate 
 		}
 
 		String result = intent.getStringExtra(IntentKey.RESULT);
-
 		VerfiyCode(result);
-		// qr code
-
-		// Bitmap bitmap = CameraManager.get().getThumbnail();
-
-		webView.setVisibility(View.GONE);
 
 	}
 
@@ -191,10 +183,10 @@ public class ScanResultActivity extends Activity implements DataServiceDelegate 
 
 	@Override
 	public boolean onKeyDown(int keyCode, KeyEvent event) {
-		if (keyCode == KeyEvent.KEYCODE_BACK && webView.canGoBack()) {
-			webView.goBack();
-			return true;
-		}
+		/*
+		 * if (keyCode == KeyEvent.KEYCODE_BACK && webView.canGoBack()) {
+		 * webView.goBack(); return true; }
+		 */
 		return super.onKeyDown(keyCode, event);
 	}
 
@@ -220,7 +212,6 @@ public class ScanResultActivity extends Activity implements DataServiceDelegate 
 
 			setupManufacturerUI();
 			setupResultUI();
-			setupWebView();
 
 		} else {
 			ToastMessageHelper.showErrorMessage(ScanResultActivity.this,
@@ -231,14 +222,13 @@ public class ScanResultActivity extends Activity implements DataServiceDelegate 
 	}
 
 	private void setupWebView() {
-		String url = scanResult.getUrl();
-
-		if (!StringHelper.isStringNullOrEmpty(url)) {
-			webView.setVisibility(View.VISIBLE);
-			webView.loadUrl(url);
-		} else {
-			webView.setVisibility(View.GONE);
-		}
+		/*
+		 * String url = scanResult.getUrl();
+		 * 
+		 * if (!StringHelper.isStringNullOrEmpty(url)) {
+		 * webView.setVisibility(View.VISIBLE); webView.loadUrl(url); } else {
+		 * webView.setVisibility(View.GONE); }
+		 */
 
 	}
 
@@ -247,40 +237,72 @@ public class ScanResultActivity extends Activity implements DataServiceDelegate 
 
 		Integer resourceId = statusIconLookupHashMap.get(product
 				.getProductStatusCode());
-		iv_result_icon
-				.setImageResource((resourceId == null ? R.drawable.icon_alert
+
+		// TODO: we need image url from product type
+		// product.getProductType().getImageUri();
+		iv_product_icon.setImageResource(R.drawable.demo_scan);
+		iv_result_status
+				.setImageResource((resourceId == null ? R.drawable.ic_jinggao
 						: resourceId.intValue()));
 		tv_scan_status.setText(product.getProductStatusDescription());
 		tv_scan_desc.setText(product.getProductInformation());
-		setupResultDetail(product);
+		setupResultDetail(scanResult);
 
 	}
 
-	private void setupResultDetail(ScanProduct product) {
-		ScanProductType productType = product.getProductType();
-		tv_product_barcode_value.setText(productType.getBarCode());
-		tv_product_name_value.setText(productType.getProductName());
-		tv_product_desc_value.setText(productType.getDetails());
+	
 
-		if (scanResult.getScanRecord().getCount() > 0) {
-			findViewById(R.id.rl_scan_record).setVisibility(View.VISIBLE);
-			TextView tv_scan_record_value = (TextView) findViewById(R.id.tv_scan_record_value);
+	private void setupResultDetail(ScanResult scanResult) {
+		/*
+		 * ScanProductType productType = product.getProductType();
+		 * tv_product_barcode_value.setText(productType.getBarCode());
+		 * tv_product_name_value.setText(productType.getProductName());
+		 * tv_product_desc_value.setText(productType.getDetails());
+		 */
 
-			tv_scan_record_value.setText(StringHelper.join("\r\n", scanResult
-					.getScanRecord().getLatest()));
+		List<Fragment> list = new ArrayList<Fragment>();
 
-		} else {
-			findViewById(R.id.rl_scan_record).setVisibility(View.GONE);
-		}
-		String[] path = scanResult.getPath();
-		if (path != null && path.length > 0) {
-			findViewById(R.id.rl_logistics).setVisibility(View.VISIBLE);
-			String pathDetail = StringHelper.join("\r\n", path);
-			TextView tv_logistics_value = (TextView) findViewById(R.id.tv_logistics_value);
-			tv_logistics_value.setText(pathDetail);
-		} else {
-			findViewById(R.id.rl_logistics).setVisibility(View.GONE);
-		}
+		ProductInfoFragment infoFragment = new ProductInfoFragment();
+		infoFragment.setData(scanResult.getProduct());
+		list.add(infoFragment);
+		
+		ProductScanInfoFragment scanFragment = new ProductScanInfoFragment();
+		scanFragment.setData(scanResult.getScanRecord());
+		list.add(scanFragment);
+		
+		ProductPathInfoFragment pathFragment = new ProductPathInfoFragment();
+		pathFragment.setData(scanResult.getPathList());
+		list.add(pathFragment);
+		
+		
+
+		final FragmentPagerAdapter adapter = new SectionsPagerAdapter(
+				getFragmentManager(), list);
+	
+		vp_scan_details.setAdapter(adapter);
+		indicator.setViewPager(vp_scan_details);
+	
+		//vp_scan_details.setOffscreenPageLimit(2);
+
+		/*
+		 * if (scanResult.getScanRecord().getCount() > 0) {
+		 * findViewById(R.id.rl_scan_record).setVisibility(View.VISIBLE);
+		 * TextView tv_scan_record_value = (TextView)
+		 * findViewById(R.id.tv_scan_record_value);
+		 * 
+		 * tv_scan_record_value.setText(StringHelper.join("\r\n", scanResult
+		 * .getScanRecord().getLatest()));
+		 * 
+		 * } else { findViewById(R.id.rl_scan_record).setVisibility(View.GONE);
+		 * } String[] path = scanResult.getPath(); if (path != null &&
+		 * path.length > 0) {
+		 * findViewById(R.id.rl_logistics).setVisibility(View.VISIBLE); String
+		 * pathDetail = StringHelper.join("\r\n", path); TextView
+		 * tv_logistics_value = (TextView)
+		 * findViewById(R.id.tv_logistics_value);
+		 * tv_logistics_value.setText(pathDetail); } else {
+		 * findViewById(R.id.rl_logistics).setVisibility(View.GONE); }
+		 */
 
 	}
 
@@ -316,32 +338,80 @@ public class ScanResultActivity extends Activity implements DataServiceDelegate 
 	}
 
 	@Override
-	public void onRequestFailed(DataServiceImpl service, final BaseException exception) {
+	public void onRequestFailed(DataServiceImpl service,
+			final BaseException exception) {
 		runOnUiThread(new Runnable() {
 
 			@Override
 			public void run() {
 				// TODO if the status is 404, then make a ui change.
-				//Log.e("onRequestFailed", exception.getMessage());
+				// Log.e("onRequestFailed", exception.getMessage());
 				progressDialog.dismiss();
-				if (exception instanceof NetworkNotAvailableException)
-				{
-					ToastMessageHelper.showErrorMessage(ScanResultActivity.this,
+				if (exception instanceof NetworkNotAvailableException) {
+					ToastMessageHelper.showErrorMessage(
+							ScanResultActivity.this,
 							R.string.network_not_available, true);
 					ScanResultActivity.this.finish();
-				}
-				else {
-					ToastMessageHelper.showErrorMessage(ScanResultActivity.this,
-							R.string.load_failed, true);
+				} else {
+					ToastMessageHelper
+							.showErrorMessage(ScanResultActivity.this,
+									R.string.load_failed, true);
 					ScanResultActivity.this.finish();
 				}
-				
-				
-				
 
 			}
 		});
 
+	}
+	
+	public void setViewPagerHeight(int height)
+	{
+		
+		ViewGroup.LayoutParams params = vp_scan_details.getLayoutParams();
+		params.height = height;
+		vp_scan_details.setLayoutParams(params);
+	
+	}
+
+	private class SectionsPagerAdapter extends
+			android.support.v13.app.FragmentPagerAdapter {
+
+		private List<Fragment> fragmentList;
+		int[] titleRes = new int[] { R.string.product_detail_basic,
+				R.string.product_scan_info, R.string.product_tracking };
+
+		public SectionsPagerAdapter(FragmentManager fm,
+				Collection<Fragment> list) {
+			super(fm);
+			fragmentList = new ArrayList<>();
+			Iterator<Fragment> iterator = list.iterator();
+			while (iterator.hasNext()) {
+				Fragment fragment = (Fragment) iterator.next();
+				fragmentList.add(fragment);
+			}
+			
+		}
+
+		@Override
+		public Fragment getItem(int position) {
+			return fragmentList.get(position % 3);
+		}
+
+		@Override
+		public CharSequence getPageTitle(int position) {
+			return getString(titleRes[position % 3]);
+		}
+
+		@Override
+		public int getCount() {
+
+			return fragmentList.size();
+		}
+	}
+	
+	public interface AutoSizePager
+	{
+		public int getContentHeight();
 	}
 
 }

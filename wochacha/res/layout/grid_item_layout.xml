@@ -9,7 +9,7 @@
         android:layout_width="90dp"
         android:layout_height="90dp"
         android:layout_centerHorizontal="true"
-        android:src="@drawable/home_product_analytics" />
+        />
 
     <TextView
         android:id="@+id/tv_name"

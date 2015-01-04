@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" android:background="#F6F5F4" >
+
+    <RelativeLayout
+        android:id="@+id/rl_product_bar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        
+        android:layout_marginTop="10dp"
+        android:background="@drawable/message_item_bg_single"
+        android:clickable="true"
+        android:padding="10dp" >
+
+        <TextView
+            android:id="@+id/tv_product_bar_title"
+            style="@style/text_style.bold"
+            android:layout_centerVertical="true"
+            android:text="@string/product_barcode" android:minWidth="80dp"
+            android:textSize="16sp" />
+        
+         <TextView
+            android:id="@+id/tv_product_bar_value"
+            style="@style/text_style.light"
+            
+            android:text="@string/product_barcode" android:layout_marginLeft="10dp" android:layout_centerVertical="true"
+            android:textSize="14sp" android:layout_toEndOf="@id/tv_product_bar_title" />
+    </RelativeLayout>
+    
+     <RelativeLayout
+        android:id="@+id/rl_product_name"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        
+        android:layout_marginTop="10dp"
+        android:background="@drawable/message_item_bg_single"
+        android:clickable="true"
+        android:padding="10dp" >
+
+        <TextView
+            android:id="@+id/tv_product_name_title"
+            style="@style/text_style.bold"  android:minWidth="80dp"
+            android:layout_centerVertical="true"
+            android:text="@string/product_name" 
+            android:textSize="16sp" />
+        
+         <TextView
+            android:id="@+id/tv_product_name_value"
+            style="@style/text_style.light"
+            
+            android:text="@string/product_barcode" android:layout_marginLeft="10dp" android:layout_centerVertical="true"
+            android:textSize="14sp" android:layout_toEndOf="@id/tv_product_name_title" />
+         
+         
+    </RelativeLayout>
+    
+        
+     <RelativeLayout
+        android:id="@+id/rl_product_details"
+        android:layout_width="match_parent"
+        android:layout_height="0dp" android:layout_weight="1.0"
+        
+        android:layout_marginTop="10dp"
+        android:background="@drawable/message_item_bg_single"
+        android:clickable="true"
+        android:padding="10dp" >
+
+        <TextView
+            android:id="@+id/tv_product_details_title"
+            style="@style/text_style.bold"  android:minWidth="80dp"
+           android:layout_alignParentTop="true" android:layout_alignParentLeft="true"
+            android:text="@string/product_desc" 
+            android:textSize="16sp" />
+        
+        <View android:id="@+id/v_detail_divider" android:layout_below="@id/tv_product_details_title" android:layout_marginTop="10dp" android:layout_width="match_parent" android:layout_height="1dp" android:background="#c2c2c2"></View>
+          <ListView  android:layout_below="@id/v_detail_divider"  android:id="@+id/lv_details" android:layout_marginTop="10dp" android:layout_width="match_parent" android:layout_height="match_parent"  android:background="#fff"></ListView>
+    </RelativeLayout>
+    
+    
+
+</LinearLayout>

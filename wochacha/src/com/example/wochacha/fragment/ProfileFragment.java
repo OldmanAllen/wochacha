@@ -1,4 +1,4 @@
-package com.example.wochacha.ui;
+package com.example.wochacha.fragment;
 
 import android.app.Activity;
 import android.content.Intent;
@@ -14,6 +14,8 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.example.wochacha.R;
+import com.example.wochacha.ui.TodoActivity;
+import com.example.wochacha.ui.TodoActivity.IntentKey;
 
 /**
  * A placeholder fragment containing a simple view.

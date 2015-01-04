@@ -5,7 +5,7 @@ import android.content.Context;
 
 import com.example.wochacha.manager.DeviceGeoLocationManager;
 import com.example.wochacha.manager.DeviceManager;
-import com.example.wochacha.manager.EnterpriseSessionManager;
+
 import com.example.wochacha.manager.MessageManager;
 import com.example.wochacha.manager.SessionManager;
 import com.example.wochacha.network.CacheService;
@@ -23,21 +23,18 @@ public class MyApplication extends Application {
 
 		NetworkManager.initializeIntance(appContext).isNetworkConnected();
 
-		SessionManager sessionManager = SessionManager.initializeIntance(appContext);
+		SessionManager sessionManager = SessionManager
+				.initializeIntance(appContext);
 		sessionManager.restore();
-		
-		
-		EnterpriseSessionManager enterpriseSessionManager = EnterpriseSessionManager.initializeIntance(appContext);
-		enterpriseSessionManager.restore();
 
 		CacheService.initializeInstance(appContext);
 		ImageManager.initializeIntance(appContext);
 		DeviceGeoLocationManager.initializeIntance(appContext);
-		DeviceGeoLocationManager.getInstance().restore();		
+		DeviceGeoLocationManager.getInstance().restore();
 
 		MessageManager.initializeIntance(appContext);
 		MessageManager.getInstance().restore();
-		
+
 	}
 
 }

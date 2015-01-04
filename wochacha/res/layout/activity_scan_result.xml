@@ -3,336 +3,160 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/sv_content"
     android:layout_width="match_parent"
-    android:layout_height="match_parent" >
+    android:layout_height="match_parent"
+   >
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
         android:background="#fff"
         android:orientation="vertical" >
 
-        <FrameLayout
+        <RelativeLayout
+            android:id="@+id/rl_scan_thumbnail_area"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content" >
+            android:layout_height="100dp"
+            android:background="@drawable/bg_scan_manufacturing_area"
+            android:padding="10dp"
+            android:visibility="visible" >
 
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="vertical" >
+            <com.example.wochacha.view.CircleImageView
+                android:id="@+id/iv_thumbnail"
+                android:layout_width="70dp"
+                android:layout_height="70dp"
+                android:layout_alignParentLeft="true"
+                android:layout_centerVertical="true"
+                android:scaleType="centerCrop"
+                android:src="@drawable/sample_1"
+                app:border_color="#C2C2C2"
+                app:border_width="2dp" />
 
-                <RelativeLayout
-                    android:id="@+id/rl_scan_thumbnail_area"
-                    android:layout_width="match_parent"
-                    android:layout_height="100dp"
-                    android:background="@drawable/bg_scan_manufacturing_area"
-                    android:padding="10dp"
-                    android:visibility="visible" >
+            <RelativeLayout
+                android:id="@+id/rl_verify_group"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:paddingTop="10dp" >
 
-                    <com.example.wochacha.view.CircleImageView
-                        android:id="@+id/iv_thumbnail"
-                        android:layout_width="70dp"
-                        android:layout_height="70dp"
-                        android:layout_alignParentLeft="true"
-                        android:layout_centerVertical="true"
-                        android:scaleType="centerCrop"
-                        android:src="@drawable/sample_1"
-                        app:border_color="#C2C2C2"
-                        app:border_width="2dp" />
+                <ImageView
+                    android:id="@+id/iv_verified"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:layout_centerHorizontal="true"
+                    android:scaleType="fitEnd"
+                    android:src="@drawable/verified" />
 
-                    <RelativeLayout
-                        android:id="@+id/rl_verify_group"
-                        android:layout_width="wrap_content"
-                        android:layout_height="match_parent"
-                        android:layout_alignParentRight="true"
-                        android:layout_centerVertical="true"
-                        android:paddingTop="10dp" >
+                <TextView
+                    style="@style/text_style"
+                    android:layout_below="@id/iv_verified"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginTop="10dp"
+                    android:text="已认证"
+                    android:textColor="#6A6A6A"
+                    android:textSize="14sp" />
+            </RelativeLayout>
 
-                        <ImageView
-                            android:id="@+id/iv_verified"
-                            android:layout_width="30dp"
-                            android:layout_height="30dp"
-                            android:layout_centerHorizontal="true"
-                            android:scaleType="fitEnd"
-                            android:src="@drawable/verified" />
+            <View
+                android:id="@+id/v_divider"
+                android:layout_width="2dp"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:layout_toLeftOf="@id/rl_verify_group"
+                android:background="#EEEEEE" >
+            </View>
 
-                        <TextView
-                            style="@style/text_style"
-                            android:layout_below="@id/iv_verified"
-                            android:layout_centerHorizontal="true"
-                            android:layout_marginTop="10dp"
-                            android:text="已认证"
-                            android:textColor="#6A6A6A"
-                            android:textSize="14sp" />
-                    </RelativeLayout>
+            <TextView
+                android:id="@+id/tv_company_name"
+                style="@style/text_style.bold"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="10dp"
+                android:layout_toLeftOf="@id/v_divider"
+                android:layout_toRightOf="@id/iv_thumbnail"
+                android:singleLine="false"
+                android:text="小米公司"
+                android:textColor="#6A6A6A"
+                android:textSize="16sp" />
+        </RelativeLayout>
 
-                    <View
-                        android:id="@+id/v_divider"
-                        android:layout_width="2dp"
-                        android:layout_height="match_parent"
-                        android:layout_marginLeft="10dp"
-                        android:layout_marginRight="10dp"
-                        android:layout_toLeftOf="@id/rl_verify_group"
-                        android:background="#EEEEEE" >
-                    </View>
-
-                    <TextView
-                        android:id="@+id/tv_company_name"
-                        style="@style/text_style.bold"
-                        android:layout_centerVertical="true"
-                        android:layout_marginLeft="10dp"
-                        android:layout_toLeftOf="@id/v_divider"
-                        android:layout_toRightOf="@id/iv_thumbnail"
-                        android:singleLine="false"
-                        android:text="小米公司"
-                        android:textColor="#6A6A6A"
-                        android:textSize="16sp" />
-                </RelativeLayout>
-
-                <RelativeLayout
-                    android:id="@+id/rl_scan_manufacture_detail"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:background="#B9D1E7"
-                    android:padding="10dp"
-                    android:visibility="gone" >
-
-                    <TextView
-                        android:id="@+id/tv_manfacture_detail"
-                        style="@style/text_style.light" />
-                </RelativeLayout>
-            </LinearLayout>
-        </FrameLayout>
-
-        <View
-            android:layout_width="match_parent"
-            android:layout_height="10dp"
-            android:background="#e9e9e9" >
-        </View>
-
-        <FrameLayout
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="#fff" >
+            android:background="@drawable/message_item_bg_single"
+            android:orientation="horizontal"
+            android:padding="0dp" >
 
-            <LinearLayout
-                android:layout_width="match_parent"
+            <FrameLayout
+                android:id="@+id/rl_scan_result_image"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="15dp"
-                android:background="@drawable/message_item_bg_single"
-                android:orientation="vertical"
-                android:paddingBottom="15dp" >
+                android:layout_weight="1.0"
+                android:padding="10dp"
+                android:visibility="visible" >
 
-                <RelativeLayout
-                    android:id="@+id/rl_scan_result_area"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:visibility="visible" >
+                <ImageView
+                    android:id="@+id/iv_product_icon"
+                    android:layout_width="120dp"
+                    android:layout_height="120dp"
+                    android:layout_gravity="center"
+                    android:scaleType="centerCrop"
+                    android:src="@drawable/demo_scan" />
 
-                    <TextView
-                        android:id="@+id/tv_scan_tips"
-                        style="@style/text_style.light"
-                        android:drawableLeft="@drawable/remind"
-                        android:gravity="center_vertical"
-                        android:text="@string/scan_result_tip" >
-                    </TextView>
+                <ImageView
+                    android:id="@+id/iv_result_status"
+                    android:layout_width="80dp"
+                    android:layout_height="60dp"
+                    android:layout_gravity="bottom|right"
+                    android:scaleType="fitEnd"
+                    android:src="@drawable/ic_zhengpin" />
+            </FrameLayout>
 
-                    <ImageView
-                        android:id="@+id/iv_result_icon"
-                        android:layout_width="80dp"
-                        android:layout_height="80dp"
-                        android:layout_below="@id/tv_scan_tips"
-                        android:layout_centerHorizontal="true"
-                        android:src="@drawable/icon_accept" />
+            <RelativeLayout
+                android:id="@+id/rl_scan_result_info"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_gravity="center_vertical"
+                android:layout_weight="1.0"
+                android:gravity="center_vertical"
+                android:padding="10dp" >
 
-                    <TextView
-                        android:id="@+id/tv_scan_status"
-                        style="@style/text_style.light"
-                        android:layout_below="@id/iv_result_icon"
-                        android:layout_centerHorizontal="true"
-                        android:gravity="center"
-                        android:text="@string/demo_scan_result"
-                        android:textSize="16sp" />
+                <TextView
+                    android:id="@+id/tv_scan_status"
+                    style="@style/text_style.light"
+                    android:layout_alignParentRight="true"
+                    android:drawableLeft="@drawable/remind"
+                    android:gravity="bottom"
+                    android:text="@string/demo_scan_result"
+                    android:textSize="16sp" />
 
-                    <TextView
-                        android:id="@+id/tv_scan_desc"
-                        style="@style/text_style.light"
-                        android:layout_width="200dp"
-                        android:layout_below="@id/tv_scan_status"
-                        android:layout_centerHorizontal="true"
-                        android:layout_marginTop="8dp"
-                        android:gravity="center"
-                        android:text="@string/demo_scan_desc"
-                        android:textSize="12sp" >
-                    </TextView>
-                </RelativeLayout>
-
-                <LinearLayout
-                    android:id="@+id/ll_scan_details"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="vertical"
-                    android:visibility="visible" >
-
-                    <View
-                        android:layout_width="match_parent"
-                        android:layout_height="1dp"
-                        android:layout_marginBottom="10dp"
-                        android:layout_marginTop="10dp"
-                        android:background="#c2c2c2" />
-
-                    <RelativeLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:background="@drawable/bg_item_bottom"
-                        android:minHeight="40dp"
-                        android:padding="5dp" >
-
-                        <TextView
-                            android:id="@+id/tv_product_barcode"
-                            style="@style/text_style.scandetail"
-                            android:layout_alignParentLeft="true"
-                            android:layout_centerVertical="true"
-                            android:gravity="left"
-                            android:text="商品码:" />
-
-                        <TextView
-                            android:id="@+id/tv_product_barcode_value"
-                            style="@style/text_style.scandetail"
-                            android:layout_alignTop="@id/tv_product_barcode"
-                            android:layout_centerVertical="true"
-                            android:layout_marginLeft="10dp"
-                            android:layout_toRightOf="@id/tv_product_barcode"
-                            android:text="商品码" />
-                    </RelativeLayout>
-
-                    <RelativeLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:background="@drawable/bg_item_bottom"
-                        android:minHeight="40dp"
-                        android:padding="5dp" >
-
-                        <TextView
-                            android:id="@+id/tv_product_name"
-                            style="@style/text_style.scandetail"
-                            android:layout_alignParentLeft="true"
-                            android:layout_centerVertical="true"
-                            android:text="物品名称:" />
-
-                        <TextView
-                            android:id="@+id/tv_product_name_value"
-                            style="@style/text_style.scandetail"
-                            android:layout_alignTop="@id/tv_product_name"
-                            android:layout_centerVertical="true"
-                            android:layout_marginLeft="10dp"
-                            android:layout_toRightOf="@id/tv_product_name"
-                            android:text="商品码" />
-                    </RelativeLayout>
-
-                    <RelativeLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:background="@drawable/bg_item_bottom"
-                        android:minHeight="40dp"
-                        android:padding="5dp" >
-
-                        <TextView
-                            android:id="@+id/tv_product_desc"
-                            style="@style/text_style.scandetail"
-                            android:layout_alignParentLeft="true"
-                            android:layout_centerVertical="true"
-                            android:text="描述:" />
-
-                        <TextView
-                            android:id="@+id/tv_product_desc_value"
-                            style="@style/text_style.scandetail"
-                            android:layout_alignTop="@id/tv_product_desc"
-                            android:layout_centerVertical="true"
-                            android:layout_marginLeft="10dp"
-                            android:layout_toRightOf="@id/tv_product_desc"
-                            android:text="商品码" />
-                    </RelativeLayout>
-
-                    <RelativeLayout
-                        android:id="@+id/rl_scan_record"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:background="@drawable/bg_item_bottom"
-                        android:minHeight="40dp"
-                        android:padding="5dp" >
-
-                        <TextView
-                            android:id="@+id/tv_scan_record_title"
-                            style="@style/text_style.scandetail"
-                            android:layout_alignParentLeft="true"
-                            android:layout_centerVertical="true"
-                            android:text="扫描信息：" />
-
-                        <TextView
-                            android:id="@+id/tv_scan_record_value"
-                            style="@style/text_style.scandetail"
-                            android:layout_alignTop="@id/tv_scan_record_title"
-                            android:layout_centerVertical="true"
-                            android:layout_marginLeft="10dp"
-                            android:layout_toRightOf="@id/tv_scan_record_title"
-                            android:text="商品码" />
-                    </RelativeLayout>
-
-                    <RelativeLayout
-                        android:id="@+id/rl_logistics"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:background="@drawable/bg_item_bottom"
-                        android:minHeight="40dp"
-                        android:padding="5dp" >
-
-                        <TextView
-                            android:id="@+id/tv_logistics_title"
-                            style="@style/text_style.scandetail"
-                            android:layout_alignParentLeft="true"
-                            android:layout_centerVertical="true"
-                            android:text="物流信息：" />
-
-                        <TextView
-                            android:id="@+id/tv_logistics_value"
-                            style="@style/text_style.scandetail"
-                            android:layout_alignTop="@id/tv_logistics_title"
-                            android:layout_centerVertical="true"
-                            android:layout_marginLeft="10dp"
-                            android:layout_toRightOf="@id/tv_logistics_title"
-                            android:text="商品码" />
-                    </RelativeLayout>
-                </LinearLayout>
-            </LinearLayout>
-
-            <CheckBox
-                android:id="@+id/iv_scan_result_control"
-                android:layout_width="30dp"
-                android:layout_height="30dp"
-                android:layout_gravity="bottom|center_horizontal"
-                android:background="@drawable/bg_expand_or_collapse"
-                android:button="@null"
-                android:onClick="onExpandOrCollapseClicked"  />
-        </FrameLayout>
-
-        <WebView
-            android:id="@+id/wv_content"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
-            android:visibility="gone" />
+                <TextView
+                    android:id="@+id/tv_scan_desc"
+                    style="@style/text_style.light"
+                    android:layout_alignParentRight="true"
+                    android:layout_below="@+id/tv_scan_status"
+                    android:layout_marginTop="10dp"
+                    android:gravity="right"
+                    android:text="@string/demo_scan_desc"
+                    android:textSize="10sp" />
+            </RelativeLayout>
+        </LinearLayout>
 
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content" >
-			
-            <RadioGroup
-                android:id="@+id/rg_details"
+
+            <com.viewpagerindicator.TabPageIndicator
+                android:id="@+id/indicator"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content" >
-                
-                
-            </RadioGroup>
+                android:layout_height="wrap_content"
+                android:layout_alignParentTop="true" />
+
+            <android.support.v4.view.ViewPager
+                android:id="@+id/vp_scan_details"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_below="@id/indicator" />
         </RelativeLayout>
     </LinearLayout>
 

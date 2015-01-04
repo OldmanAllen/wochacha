@@ -1,4 +1,4 @@
-package com.example.wochacha.ui;
+package com.example.wochacha.fragment;
 
 import com.example.wochacha.R;
 

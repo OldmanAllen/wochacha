@@ -1,4 +1,4 @@
-package com.example.wochacha.ui;
+package com.example.wochacha.fragment;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -30,6 +30,8 @@ import com.example.wochacha.network.CacheService;
 import com.example.wochacha.service.DataServiceImpl;
 import com.example.wochacha.service.MessageService;
 import com.example.wochacha.service.DataServiceImpl.DataServiceDelegate;
+import com.example.wochacha.ui.TodoActivity;
+import com.example.wochacha.ui.TodoActivity.IntentKey;
 import com.example.wochacha.util.ToastMessageHelper;
 import com.handmark.pulltorefresh.library.PullToRefreshBase;
 import com.handmark.pulltorefresh.library.PullToRefreshBase.Mode;

@@ -24,7 +24,7 @@ import android.os.Message;
 import android.util.Log;
 
 import com.example.wochacha.R;
-import com.example.wochacha.ui.HomeFragment;
+import com.example.wochacha.fragment.HomeFragment;
 import com.google.zxing.BinaryBitmap;
 import com.google.zxing.DecodeHintType;
 import com.google.zxing.MultiFormatReader;

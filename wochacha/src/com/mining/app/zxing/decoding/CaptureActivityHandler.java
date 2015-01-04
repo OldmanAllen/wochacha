@@ -28,8 +28,8 @@ import android.os.Message;
 import android.util.Log;
 
 import com.example.wochacha.R;
+import com.example.wochacha.fragment.HomeFragment;
 import com.example.wochacha.ui.CaptureActivity;
-import com.example.wochacha.ui.HomeFragment;
 import com.google.zxing.BarcodeFormat;
 import com.google.zxing.Result;
 import com.mining.app.zxing.camera.CameraManager;

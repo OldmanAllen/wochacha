@@ -22,48 +22,48 @@ import android.text.method.DateTimeKeyListener;
  "keyType": "PUBLIC_QR",
  "product": {
  "productStatusCode": "FAKE",
- "productStatusDescription": "本产品已被别人扫描，有可能为假冒",
+ "productStatusDescription": "鏈骇鍝佸凡琚埆浜烘壂鎻忥紝鏈夊彲鑳戒负鍋囧啋",
  "productInformation": "",
  "manufacturingDate": "2014-12-11T00:00:00",
  "expireDate": "2064-12-08T00:00:00",
  "productType": {
  "barCode": "520015010001",
- "productName": "茅台",
+ "productName": "鑼呭彴",
  "imageUri": "http://web.local/1.png",
  "description": "",
- "details": "△配料表：酒精，水等\r\n△产地：贵州省仁怀市茅台镇\r\n△使用方法：直接饮用。\r\n△执行标准：Q/NKJN308S-2013\r\n△生产许可证号：QS370106010930\r\n△酒精纯度: 高度白酒（50%以上）\r\n△规格：500ML\r\n△净含量：450克\r\n△保质期：18260 天\r\n△存储方法：用后及密封，置于阴凉干燥处\r\n△生产日期：见罐底"
+ "details": "鈻抽厤鏂欒〃锛氶厭绮撅紝姘寸瓑\r\n鈻充骇鍦帮細璐靛窞鐪佷粊鎬�競鑼呭彴闀嘰r\n鈻充娇鐢ㄦ柟娉曪細鐩存帴楗敤銆俓r\n鈻虫墽琛屾爣鍑嗭細Q/NKJN308S-2013\r\n鈻崇敓浜ц鍙瘉鍙凤細QS370106010930\r\n鈻抽厭绮剧函搴� 楂樺害鐧介厭锛�0%浠ヤ笂锛塡r\n鈻宠鏍硷細500ML\r\n鈻冲噣鍚噺锛�50鍏媆r\n鈻充繚璐ㄦ湡锛�8260 澶‐r\n鈻冲瓨鍌ㄦ柟娉曪細鐢ㄥ悗鍙婂瘑灏侊紝缃簬闃村噳骞茬嚗澶刓r\n鈻崇敓浜ф棩鏈燂細瑙佺綈搴�
  }
  },
  "manufacturer": {
  "id": 2,
- "name": "贵州茅台酒股份有限公司",
+ "name": "璐靛窞鑼呭彴閰掕偂浠芥湁闄愬叕鍙�,
  "imageUri": "http://wweb.chinacloudapp.cn/admin/images/maotai.jpg",
  "isVerified": true,
- "description": "贵州茅台酒股份有限公司",
+ "description": "璐靛窞鑼呭彴閰掕偂浠芥湁闄愬叕鍙�,
  "details": ""
  },
  "scanRecord": {
  "count": 10,
  "latest": [
- "2014-12-11 17:02:26 通过手机APP扫描, 地点[浙江省杭州市西湖区]",
- "2014-12-11 17:02:23 通过手机APP扫描, 地点[浙江省杭州市西湖区]",
- "2014-12-11 17:02:20 通过手机APP扫描, 地点[浙江省杭州市西湖区]",
- "2014-12-11 17:02:08 通过手机APP扫描, 地点[浙江省杭州市西湖区]",
- "2014-12-11 17:01:57 通过手机APP扫描, 地点[浙江省杭州市西湖区]",
- "2014-12-11 16:55:27 通过手机APP扫描, 地点[浙江省杭州市西湖区]",
- "2014-12-11 16:54:41 通过手机APP扫描, 地点[浙江省杭州市西湖区]",
- "2014-12-11 16:54:31 通过手机APP扫描, 地点[浙江省杭州市西湖区]",
- "2014-12-11 16:54:20 通过手机APP扫描, 地点[浙江省杭州市西湖区]",
- "2014-12-11 16:54:16 通过手机APP扫描, 地点[浙江省杭州市西湖区]"
+ "2014-12-11 17:02:26 閫氳繃鎵嬫満APP鎵弿, 鍦扮偣[娴欐睙鐪佹澀宸炲競瑗挎箹鍖篯",
+ "2014-12-11 17:02:23 閫氳繃鎵嬫満APP鎵弿, 鍦扮偣[娴欐睙鐪佹澀宸炲競瑗挎箹鍖篯",
+ "2014-12-11 17:02:20 閫氳繃鎵嬫満APP鎵弿, 鍦扮偣[娴欐睙鐪佹澀宸炲競瑗挎箹鍖篯",
+ "2014-12-11 17:02:08 閫氳繃鎵嬫満APP鎵弿, 鍦扮偣[娴欐睙鐪佹澀宸炲競瑗挎箹鍖篯",
+ "2014-12-11 17:01:57 閫氳繃鎵嬫満APP鎵弿, 鍦扮偣[娴欐睙鐪佹澀宸炲競瑗挎箹鍖篯",
+ "2014-12-11 16:55:27 閫氳繃鎵嬫満APP鎵弿, 鍦扮偣[娴欐睙鐪佹澀宸炲競瑗挎箹鍖篯",
+ "2014-12-11 16:54:41 閫氳繃鎵嬫満APP鎵弿, 鍦扮偣[娴欐睙鐪佹澀宸炲競瑗挎箹鍖篯",
+ "2014-12-11 16:54:31 閫氳繃鎵嬫満APP鎵弿, 鍦扮偣[娴欐睙鐪佹澀宸炲競瑗挎箹鍖篯",
+ "2014-12-11 16:54:20 閫氳繃鎵嬫満APP鎵弿, 鍦扮偣[娴欐睙鐪佹澀宸炲競瑗挎箹鍖篯",
+ "2014-12-11 16:54:16 閫氳繃鎵嬫満APP鎵弿, 鍦扮偣[娴欐睙鐪佹澀宸炲競瑗挎箹鍖篯"
  ]
  },
  "path": [
- "2014-11-01 09:34:28 离开杭州市萧山XXX工厂",
- "2014-11-01 09:51:13 进入A仓库",
- "2014-11-02 11:23:04 离开A仓库",
- "2014-11-02 15:37:41 进入杭州市B仓库",
- "2014-11-05 08:10:53 离开杭州市B仓库",
- "2014-11-05 10:43:31 进入XX超市，上架销售"
+ "2014-11-01 09:34:28 绂诲紑鏉窞甯傝惂灞盭XX宸ュ巶",
+ "2014-11-01 09:51:13 杩涘叆A浠撳簱",
+ "2014-11-02 11:23:04 绂诲紑A浠撳簱",
+ "2014-11-02 15:37:41 杩涘叆鏉窞甯侭浠撳簱",
+ "2014-11-05 08:10:53 绂诲紑鏉窞甯侭浠撳簱",
+ "2014-11-05 10:43:31 杩涘叆XX瓒呭競锛屼笂鏋堕攢鍞�
  ]
  }
  */
@@ -120,7 +120,7 @@ public class ScanResult implements JSONEntity {
 					String dateString = columns[0] + " " + columns[1];
 					Date date = format.parse(dateString);
 					String pathInfo = row.replaceAll(dateString, "").trim();
-					list.add(new ScanPath(pathInfo, date));
+					list.add(0,new ScanPath(pathInfo, date));
 
 				} catch (ParseException e) {
 					// TODO Auto-generated catch block
@@ -129,7 +129,7 @@ public class ScanResult implements JSONEntity {
 
 			}
 		}
-		return list;
+		return  list;
 
 	}
 
@@ -295,11 +295,11 @@ public class ScanResult implements JSONEntity {
 
 			List<KeyValuePair> pairs = new ArrayList<KeyValuePair>();
 
-			String replacedDetails = details.replaceAll("△", "");
+			String replacedDetails = details.replaceAll("", "");
 			String[] items = replacedDetails.split("\r\n");
 			if (items != null && items.length > 0) {
 				for (String item : items) {
-					String[] keyValue = item.split(":");
+					String[] keyValue = item.split("：");
 					if (keyValue != null && keyValue.length == 2) {
 						pairs.add(new KeyValuePair(keyValue[0], keyValue[1]));
 					}
@@ -396,12 +396,12 @@ public class ScanResult implements JSONEntity {
 
 			for (String row : latest) {
 				String[] columns = row.split("\\s");
-				if (columns != null && columns.length > 2) {
+				if (columns != null && columns.length > 3) {
 					try {
 						String dateString = columns[0] + " " + columns[1];
 						Date date = format.parse(dateString);
 						String scanInfo = row.replaceAll(dateString, "").trim();
-						list.add(new ScanRecord(scanInfo, date));
+						list.add(new ScanRecord(columns[2].trim().replace(",", ""), columns[3].trim(), date));
 
 					} catch (ParseException e) {
 						// TODO Auto-generated catch block
@@ -418,19 +418,25 @@ public class ScanResult implements JSONEntity {
 
 	public static class ScanRecord {
 		private Date scanDate;
-		private String scanInfo;
+		private String scanMethod;
+		private String scanLocation;
 
-		public ScanRecord(String scanInfo, Date scanDate) {
+		public ScanRecord(String scanMethod, String scanLocation, Date scanDate) {
 			this.scanDate = scanDate;
-			this.scanInfo = scanInfo;
+			this.scanMethod = scanMethod;
+			this.scanLocation = scanLocation;
 		}
 
 		public Date getScanDate() {
 			return scanDate;
 		}
 
-		public String getScanInfo() {
-			return scanInfo;
+		public String getScanLocation() {
+			return scanLocation;
+		}
+		
+		public String getScanMethod() {
+			return scanMethod;
 		}
 	}
 

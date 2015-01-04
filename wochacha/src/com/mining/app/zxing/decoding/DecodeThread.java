@@ -24,8 +24,8 @@ import android.app.Activity;
 import android.os.Handler;
 import android.os.Looper;
 
+import com.example.wochacha.fragment.HomeFragment;
 import com.example.wochacha.ui.CaptureActivity;
-import com.example.wochacha.ui.HomeFragment;
 import com.google.zxing.BarcodeFormat;
 import com.google.zxing.DecodeHintType;
 import com.google.zxing.ResultPointCallback;

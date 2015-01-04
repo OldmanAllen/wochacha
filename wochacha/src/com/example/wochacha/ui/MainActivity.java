@@ -21,10 +21,15 @@ import android.widget.RadioButton;
 import android.widget.RadioGroup;
 
 import com.example.wochacha.R;
+import com.example.wochacha.fragment.FindFragment;
+import com.example.wochacha.fragment.FragmentBase;
+import com.example.wochacha.fragment.HomeFragment;
+import com.example.wochacha.fragment.MessageFragment;
+import com.example.wochacha.fragment.ProfileFragment;
+import com.example.wochacha.fragment.HomeFragment.HomeFragmentCallback;
 import com.example.wochacha.manager.DeviceGeoLocationManager;
 import com.example.wochacha.manager.MessageManager;
 import com.example.wochacha.manager.MessageManager.onMessageNofify;
-import com.example.wochacha.ui.HomeFragment.HomeFragmentCallback;
 import com.example.wochacha.util.ToastMessageHelper;
 
 public class MainActivity extends Activity implements HomeFragmentCallback, RadioGroup.OnCheckedChangeListener {
@@ -49,7 +54,7 @@ public class MainActivity extends Activity implements HomeFragmentCallback, Radi
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		setContentView(R.layout.activity_main2);
+		setContentView(R.layout.activity_main);
 
 		/*
 		 * mNavigationDrawerFragment = (NavigationDrawerFragment)getFragmentManager().findFragmentById(
@@ -67,14 +72,17 @@ public class MainActivity extends Activity implements HomeFragmentCallback, Radi
 
 		HomeFragment homeFragment = new HomeFragment();
 		homeFragment.setVisibility(true);
-		fragments.add(homeFragment);
-		fragments.add(new FindFragment());
+		
+		
+		//fragments.add(new FindFragment());
 		fragments.add(new MessageFragment());
+		fragments.add(homeFragment);
 		fragments.add(new ProfileFragment());
 
-		ids.add(R.id.maintabs_tab_home);
-		ids.add(R.id.maintabs_tab_find);
+		
+		//ids.add(R.id.maintabs_tab_find);
 		ids.add(R.id.maintabs_tab_message);
+		ids.add(R.id.maintabs_tab_home);
 		ids.add(R.id.maintabs_tab_profile);
 
 		maintabs_tabs_bar = (RadioGroup)findViewById(R.id.maintabs_tabs_bar);
@@ -99,7 +107,8 @@ public class MainActivity extends Activity implements HomeFragmentCallback, Radi
 			}
 		});
 
-		vp_fragment.setOffscreenPageLimit(3);
+		vp_fragment.setOffscreenPageLimit(2);
+		vp_fragment.setCurrentItem(1,false);
 
 		MessageManager.getInstance().registerMessageNotification(notifyListener);
 
@@ -210,7 +219,7 @@ public class MainActivity extends Activity implements HomeFragmentCallback, Radi
 		@Override
 		public int getCount() {
 
-			return 4;
+			return 3;
 		}
 	}
 
