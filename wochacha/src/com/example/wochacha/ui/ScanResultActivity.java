@@ -8,6 +8,7 @@ import java.util.List;
 
 import org.json.JSONObject;
 
+import android.R.integer;
 import android.app.Activity;
 import android.app.Fragment;
 import android.app.FragmentManager;
@@ -19,12 +20,16 @@ import android.support.v13.app.FragmentPagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.support.v4.view.ViewPager.OnPageChangeListener;
 import android.text.GetChars;
+import android.util.EventLogTags.Description;
 import android.util.Log;
 import android.view.KeyEvent;
 import android.view.MenuItem;
+import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
+import android.widget.ScrollView;
 import android.widget.TextView;
 
 import com.example.wochacha.R;
@@ -47,7 +52,9 @@ import com.example.wochacha.network.ImageViewInfo;
 import com.example.wochacha.service.DataServiceImpl;
 import com.example.wochacha.service.DataServiceImpl.DataServiceDelegate;
 import com.example.wochacha.service.VerifyCodeService;
+import com.example.wochacha.util.DensityUtil;
 import com.example.wochacha.util.ToastMessageHelper;
+import com.example.wochacha.view.MyScrollView;
 import com.viewpagerindicator.TabPageIndicator;
 
 public class ScanResultActivity extends Activity implements DataServiceDelegate {
@@ -70,7 +77,10 @@ public class ScanResultActivity extends Activity implements DataServiceDelegate 
 
 	ProgressDialog progressDialog;
 	TabPageIndicator indicator;
+	TabPageIndicator indicator2;
 	ViewPager vp_scan_details;
+	MyScrollView sv_content;
+	LinearLayout ll_content;
 
 	VerifyCodeService service;
 
@@ -100,6 +110,8 @@ public class ScanResultActivity extends Activity implements DataServiceDelegate 
 		setContentView(R.layout.activity_scan_result);
 
 		progressDialog = new ProgressDialog(this);
+
+		progressDialog.setCanceledOnTouchOutside(false);
 		progressDialog.setMessage(getString(R.string.verify_code_loading));
 		progressDialog
 				.setOnCancelListener(new DialogInterface.OnCancelListener() {
@@ -111,6 +123,9 @@ public class ScanResultActivity extends Activity implements DataServiceDelegate 
 						}
 					}
 				});
+		sv_content = (MyScrollView) findViewById(R.id.sv_content);
+		
+		ll_content = (LinearLayout)findViewById(R.id.ll_content);
 
 		iv_thumbnail = (ImageView) findViewById(R.id.iv_thumbnail);
 		tv_company_name = (TextView) findViewById(R.id.tv_company_name);
@@ -120,6 +135,9 @@ public class ScanResultActivity extends Activity implements DataServiceDelegate 
 		tv_scan_status = (TextView) findViewById(R.id.tv_scan_status);
 		tv_scan_desc = (TextView) findViewById(R.id.tv_scan_desc);
 		indicator = (TabPageIndicator) findViewById(R.id.indicator);
+		indicator2 = (TabPageIndicator) findViewById(R.id.indicatorTop);
+		
+		
 		vp_scan_details = (ViewPager) findViewById(R.id.vp_scan_details);
 
 		Intent intent = getIntent();
@@ -250,59 +268,51 @@ public class ScanResultActivity extends Activity implements DataServiceDelegate 
 
 	}
 
-	
-
 	private void setupResultDetail(ScanResult scanResult) {
-		/*
-		 * ScanProductType productType = product.getProductType();
-		 * tv_product_barcode_value.setText(productType.getBarCode());
-		 * tv_product_name_value.setText(productType.getProductName());
-		 * tv_product_desc_value.setText(productType.getDetails());
-		 */
 
 		List<Fragment> list = new ArrayList<Fragment>();
 
 		ProductInfoFragment infoFragment = new ProductInfoFragment();
 		infoFragment.setData(scanResult.getProduct());
 		list.add(infoFragment);
-		
+
 		ProductScanInfoFragment scanFragment = new ProductScanInfoFragment();
 		scanFragment.setData(scanResult.getScanRecord());
 		list.add(scanFragment);
-		
+
 		ProductPathInfoFragment pathFragment = new ProductPathInfoFragment();
 		pathFragment.setData(scanResult.getPathList());
 		list.add(pathFragment);
-		
-		
 
 		final FragmentPagerAdapter adapter = new SectionsPagerAdapter(
 				getFragmentManager(), list);
-	
-		vp_scan_details.setAdapter(adapter);
-		indicator.setViewPager(vp_scan_details);
-	
-		//vp_scan_details.setOffscreenPageLimit(2);
 
-		/*
-		 * if (scanResult.getScanRecord().getCount() > 0) {
-		 * findViewById(R.id.rl_scan_record).setVisibility(View.VISIBLE);
-		 * TextView tv_scan_record_value = (TextView)
-		 * findViewById(R.id.tv_scan_record_value);
-		 * 
-		 * tv_scan_record_value.setText(StringHelper.join("\r\n", scanResult
-		 * .getScanRecord().getLatest()));
-		 * 
-		 * } else { findViewById(R.id.rl_scan_record).setVisibility(View.GONE);
-		 * } String[] path = scanResult.getPath(); if (path != null &&
-		 * path.length > 0) {
-		 * findViewById(R.id.rl_logistics).setVisibility(View.VISIBLE); String
-		 * pathDetail = StringHelper.join("\r\n", path); TextView
-		 * tv_logistics_value = (TextView)
-		 * findViewById(R.id.tv_logistics_value);
-		 * tv_logistics_value.setText(pathDetail); } else {
-		 * findViewById(R.id.rl_logistics).setVisibility(View.GONE); }
-		 */
+		vp_scan_details.setAdapter(adapter);
+		indicator2.setViewPager(vp_scan_details, 0);
+		indicator.setViewPager(vp_scan_details, 0);
+		indicator.setOnPageChangeListener(new OnPageChangeListener() {
+			
+			@Override
+			public void onPageSelected(int arg0) {
+				indicator2.setCurrentItem(arg0);
+				
+			}
+			
+			@Override
+			public void onPageScrolled(int arg0, float arg1, int arg2) {
+				// TODO Auto-generated method stub
+				
+			}
+			
+			@Override
+			public void onPageScrollStateChanged(int arg0) {
+				// TODO Auto-generated method stub
+				
+			}
+		});
+		sv_content.setFixedPosition(DensityUtil.dip2px(this, 240));
+		sv_content.setFixedHeaderView(indicator2);
+		
 
 	}
 
@@ -363,14 +373,24 @@ public class ScanResultActivity extends Activity implements DataServiceDelegate 
 		});
 
 	}
-	
-	public void setViewPagerHeight(int height)
-	{
+
+	public void setViewPagerHeight(int height) {
+
+		int contentViewSize = DensityUtil.getScreenHeightAndWidth(this)[1]
+				- DensityUtil.getActionBarHeight(this)
+				- DensityUtil.getStatusBarHeight1(this);
+
+		int otherHeight = contentViewSize - DensityUtil.dip2px(this, 40);
+		int contentHeight = height + DensityUtil.dip2px(this, 240);
+		//ll_content.getLayoutParams().height = contentHeight;
+		if (height < otherHeight)
+		{
+			height = otherHeight;
+		}
 		
 		ViewGroup.LayoutParams params = vp_scan_details.getLayoutParams();
 		params.height = height;
-		vp_scan_details.setLayoutParams(params);
-	
+
 	}
 
 	private class SectionsPagerAdapter extends
@@ -389,7 +409,7 @@ public class ScanResultActivity extends Activity implements DataServiceDelegate 
 				Fragment fragment = (Fragment) iterator.next();
 				fragmentList.add(fragment);
 			}
-			
+
 		}
 
 		@Override
@@ -407,11 +427,6 @@ public class ScanResultActivity extends Activity implements DataServiceDelegate 
 
 			return fragmentList.size();
 		}
-	}
-	
-	public interface AutoSizePager
-	{
-		public int getContentHeight();
 	}
 
 }

@@ -29,6 +29,9 @@ public class ProductAdapter extends BaseAdapter {
 	}
 
 	public void setListData(List<KeyValuePair> list) {
+		if (list == null || list.size() == 0) {
+			return;
+		}
 		this.listData.clear();
 		this.listData.addAll(list);
 	}

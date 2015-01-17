@@ -57,9 +57,11 @@
                 android:layout_height="match_parent"
                 android:layout_weight="1" >
 
-                <ImageView android:id="@+id/iv_rfid"
+                <ImageView
+                    android:id="@+id/iv_rfid"
                     style="@style/indicator_style"
-                    android:src="@drawable/indicate_rfid" android:clickable="true"   />
+                    android:clickable="true"
+                    android:src="@drawable/indicate_rfid" />
             </RelativeLayout>
         </LinearLayout>
 
@@ -68,36 +70,39 @@
             android:layout_width="match_parent"
             android:layout_height="@dimen/scan_action_area_height"
             android:layout_alignParentBottom="true"
-            android:orientation="horizontal" android:paddingBottom="20dp" >
+            android:layout_alignParentRight="true"
+            android:background="#55021416"
+            android:gravity="right"
+            android:orientation="horizontal"
+            android:paddingBottom="10dp"
+            android:paddingTop="10dp" >
 
             <RelativeLayout
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_weight="1" >
+                android:layout_width="80dp"
+                android:layout_height="match_parent" >
 
-                <ImageView
-                    style="@style/indicator_style"
+                <ImageView android:id = "@+id/iv_load_image"
+                    style="@style/indicator_style2"
                     android:src="@drawable/indicate_image" />
             </RelativeLayout>
 
             <RelativeLayout
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_weight="1" >
+                android:layout_width="80dp"
+                android:layout_height="match_parent"  >
 
-                <ImageView
-                    style="@style/indicator_style"
+                <ImageView android:id="@+id/iv_manual"
+                    style="@style/indicator_style2"
                     android:src="@drawable/indicate_manual" />
             </RelativeLayout>
 
             <RelativeLayout
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_weight="1" >
+                android:layout_width="80dp"
+                android:layout_height="match_parent" >
 
-                <CheckBox android:button="@null"
-                    style="@style/indicator_style"
-                    android:background="@drawable/indicate_light" />
+                <CheckBox android:id="@+id/cb_light"
+                    style="@style/indicator_style2"
+                    android:background="@drawable/indicate_light"
+                    android:button="@null" />
             </RelativeLayout>
         </LinearLayout>
     </RelativeLayout>

@@ -1,12 +1,20 @@
 package com.example.wochacha.fragment;
 
 import java.io.IOException;
+import java.io.InputStream;
 import java.util.Vector;
 
 import android.app.Activity;
+import android.app.AlertDialog;
+import android.app.ProgressDialog;
+import android.content.ClipboardManager;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.net.Uri;
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Vibrator;
@@ -19,18 +27,24 @@ import android.view.SurfaceHolder;
 import android.view.SurfaceView;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.CheckBox;
+import android.widget.CompoundButton;
 import android.widget.ImageView;
 
 import com.example.wochacha.R;
 import com.example.wochacha.ui.RFIDWaitingActivity;
 import com.example.wochacha.ui.ScanResultActivity;
-import com.example.wochacha.ui.ScanResultActivity.IntentKey;
 import com.example.wochacha.util.Constants;
 import com.example.wochacha.util.DensityUtil;
+import com.example.wochacha.util.StringHelper;
 import com.example.wochacha.util.ToastMessageHelper;
 import com.google.zxing.BarcodeFormat;
+import com.google.zxing.BinaryBitmap;
 import com.google.zxing.Result;
+import com.google.zxing.common.HybridBinarizer;
+import com.google.zxing.qrcode.QRCodeReader;
 import com.mining.app.zxing.camera.CameraManager;
+import com.mining.app.zxing.camera.RGBLuminanceSource;
 import com.mining.app.zxing.decoding.CaptureActivityHandler;
 import com.mining.app.zxing.decoding.InactivityTimer;
 import com.mining.app.zxing.view.ViewfinderView;
@@ -44,6 +58,7 @@ public class HomeFragment extends FragmentBase implements
 	 * The fragment argument representing the section number for this fragment.
 	 */
 	private static final String ARG_SECTION_NUMBER = "section_number";
+	private static final int REQUEST_IMAGE = HomeFragment.class.hashCode();
 
 	private HomeFragmentCallback callback;
 	private ViewfinderView viewfinderView;
@@ -55,6 +70,8 @@ public class HomeFragment extends FragmentBase implements
 	private CaptureActivityHandler handler;
 	private boolean vibrate;
 	private ImageView iv_rfid;
+
+	private CheckBox cb_light;
 
 	/**
 	 * Returns a new instance of this fragment for the given section number.
@@ -94,7 +111,7 @@ public class HomeFragment extends FragmentBase implements
 
 	@Override
 	public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
-		//inflater.inflate(R.menu.main, menu);
+		// inflater.inflate(R.menu.main, menu);
 
 		super.onCreateOptionsMenu(menu, inflater);
 	}
@@ -120,19 +137,118 @@ public class HomeFragment extends FragmentBase implements
 			}
 		});
 
+		cb_light = (CheckBox) rootView.findViewById(R.id.cb_light);
+		cb_light.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+
+			@Override
+			public void onCheckedChanged(CompoundButton buttonView,
+					boolean isChecked) {
+				if (isChecked) {
+					CameraManager.get().enableFlashLight();
+				} else {
+					CameraManager.get().disableFlashLight();
+				}
+
+			}
+		});
+
+		View iv_load_image = rootView.findViewById(R.id.iv_load_image);
+		iv_load_image.setOnClickListener(new View.OnClickListener() {
+
+			@Override
+			public void onClick(View v) {
+				getImageFromLocal();
+			}
+		});
+
 		hasSurface = false;
 		// inactivityTimer = new InactivityTimer(this.getActivity());
 
 		return rootView;
 	}
 
+	protected void getImageFromLocal() {
+		Intent intent = new Intent(Intent.ACTION_GET_CONTENT);
+		intent.setType("image/*");
+		intent.addCategory(Intent.CATEGORY_OPENABLE);
+		startActivityForResult(intent, REQUEST_IMAGE);
+	}
+
+	@Override
+	public void onActivityResult(int requestCode, int resultCode, Intent data) {
+		super.onActivityResult(requestCode, resultCode, data);
+		if (requestCode == REQUEST_IMAGE && resultCode == Activity.RESULT_OK) {
+			// uri
+			ImageDecoder decoder = new ImageDecoder(getActivity());
+			decoder.execute(data.getData());
+		}
+
+	}
+
+	private class ImageDecoder extends AsyncTask<Uri, Void, String> {
+
+		Activity activity;
+		ProgressDialog progressDialog;
+
+		public ImageDecoder(Activity activity) {
+			this.activity = activity;
+			progressDialog = new ProgressDialog(activity);
+			progressDialog.setCanceledOnTouchOutside(false);
+			progressDialog.setMessage(activity
+					.getString(R.string.decoding_image));
+		}
+
+		@Override
+		protected String doInBackground(Uri... params) {
+			try {
+				Uri uri = params[0];
+				InputStream in = activity.getContentResolver().openInputStream(
+						uri);
+				Bitmap bitmap = BitmapFactory.decodeStream(in);
+
+				com.mining.app.zxing.camera.RGBLuminanceSource source = new RGBLuminanceSource(
+						bitmap);
+				BinaryBitmap binaryBitmap = new BinaryBitmap(
+						new HybridBinarizer(source));
+				QRCodeReader reader = new QRCodeReader();
+
+				Result result = reader.decode(binaryBitmap);
+				return result.getText();
+
+			} catch (Exception e) {
+				// TODO: handle exception
+			}
+			return null;
+		}
+
+		@Override
+		protected void onPreExecute() {
+			progressDialog.show();
+			super.onPreExecute();
+		}
+
+		@Override
+		protected void onPostExecute(String result) {
+			super.onPostExecute(result);
+			progressDialog.dismiss();
+
+			if (result != null) {
+				verifyCode(result, null);
+			} else {
+				ToastMessageHelper.showErrorMessage(activity,
+						R.string.decoding_failed, false);
+			}
+
+		}
+
+	}
+
 	@Override
 	public boolean onOptionsItemSelected(MenuItem item) {
-		/*if (item.getItemId() == R.id.action_scan) {
-			if (callback != null) {
-				callback.onDrawerToogleClicked();
-			}
-		}*/
+		/*
+		 * if (item.getItemId() == R.id.action_scan) { if (callback != null) {
+		 * callback.onDrawerToogleClicked(); } }
+		 */
 		return super.onOptionsItemSelected(item);
 	}
 
@@ -163,27 +279,72 @@ public class HomeFragment extends FragmentBase implements
 			handler = null;
 		}
 		CameraManager.get().closeDriver();
+
 	}
 
-	
 	public void handleDecode(Result result, Bitmap barcode) {
 		// inactivityTimer.onActivity();
+
+		verifyCode(result.getText(), barcode);
+
+	}
+
+	private void verifyCode(final String result, Bitmap barcode) {
+		if (StringHelper.isStringNullOrEmpty(result)) {
+			return;
+		}
 		playVibrate();
-		String resultString = result.getText();
-		Log.e("qr result", result.getText());
-		if (resultString.equals("") || !resultString.contains(Constants.CODE_BASE_URL)) {
-			ToastMessageHelper.showErrorMessage(this.getActivity(),
-					R.string.scan_failed, false);
+
+		Log.e("qr result", result);
+		if (!result.contains(Constants.CODE_BASE_URL)) {
+			/*
+			 * ToastMessageHelper.showErrorMessage(this.getActivity(),
+			 * R.string.scan_failed, false);
+			 */
+
+			CameraManager.get().stopPreview();
+			viewfinderView.drawResultBitmap(barcode);
+			AlertDialog dialog = new AlertDialog.Builder(getActivity())
+					.setMessage(result)
+					.setPositiveButton(R.string.copy,
+							new DialogInterface.OnClickListener() {
+
+								@Override
+								public void onClick(DialogInterface dialog,
+										int which) {
+									CameraManager.get().startPreview();
+									handler.restartPreviewAndDecode();
+
+									ClipboardManager clipboardManager = (ClipboardManager) getActivity()
+											.getSystemService(
+													Context.CLIPBOARD_SERVICE);
+									clipboardManager.setText(result);
+									ToastMessageHelper.showErrorMessage(getActivity(), R.string.copy_succeeded, false);
+
+								}
+							})
+					.setNegativeButton(R.string.no,
+							new DialogInterface.OnClickListener() {
+
+								@Override
+								public void onClick(DialogInterface dialog,
+										int which) {
+									CameraManager.get().startPreview();
+									handler.restartPreviewAndDecode();
+								}
+							}).create();
+			dialog.show();
 
 		} else {
-			
-			
+
 			Intent resultIntent = new Intent(this.getActivity(),
 					ScanResultActivity.class);
 			Bundle bundle = new Bundle();
-			//TODO demo purpose 
-			bundle.putString(ScanResultActivity.IntentKey.RESULT, resultString.replace(Constants.CODE_BASE_URL, ""));
-			//bundle.putString(ScanResultActivity.IntentKey.RESULT, resultString);
+			// TODO demo purpose
+			bundle.putString(ScanResultActivity.IntentKey.RESULT,
+					result.replace(Constants.CODE_BASE_URL, ""));
+			// bundle.putString(ScanResultActivity.IntentKey.RESULT,
+			// resultString);
 			// bundle.putParcelable(ScanResultActivity.IntentKey.THUMBNAIL,
 			// barcode);
 			resultIntent.putExtras(bundle);
@@ -191,7 +352,6 @@ public class HomeFragment extends FragmentBase implements
 			startActivity(resultIntent);
 
 		}
-
 	}
 
 	private void initCamera(SurfaceHolder surfaceHolder) {
@@ -263,6 +423,7 @@ public class HomeFragment extends FragmentBase implements
 	@Override
 	public void onDestroy() {
 		super.onDestroy();
+
 		// inactivityTimer.shutdown();
 	}
 

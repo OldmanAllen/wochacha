@@ -6,7 +6,6 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ListAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
 
@@ -15,7 +14,6 @@ import com.example.wochacha.adapter.ProductAdapter;
 import com.example.wochacha.entity.ScanResult.ScanProduct;
 import com.example.wochacha.entity.ScanResult.ScanProductType;
 import com.example.wochacha.ui.ScanResultActivity;
-import com.example.wochacha.ui.ScanResultActivity.AutoSizePager;
 import com.example.wochacha.util.ViewHelper;
 
 public class ProductInfoFragment extends Fragment {
@@ -56,6 +54,7 @@ public class ProductInfoFragment extends Fragment {
 		lv_details.setAdapter(adapter);
 		if (getUserVisibleHint() == true) {
 			this.height = ViewHelper.calcFragmentHeight(lv_details, view);
+		
 			ScanResultActivity activity = (ScanResultActivity) getActivity();
 			activity.setViewPagerHeight(height);
 		}
@@ -64,14 +63,12 @@ public class ProductInfoFragment extends Fragment {
 	}
 
 	@Override
-	public void onResume() {
-		Log.e("test", "ProductInfoFragment onResume");
+	public void onResume() {		
 		super.onResume();
 	}
 
 	@Override
-	public void onPause() {
-		Log.e("test", "ProductInfoFragment onPause");
+	public void onPause() {		
 		super.onPause();
 	}
 

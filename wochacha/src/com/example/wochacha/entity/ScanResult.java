@@ -109,7 +109,7 @@ public class ScanResult implements JSONEntity {
 
 	public List<ScanPath> getPathList() {
 		if (path == null || path.length == 0) {
-			return null;
+			return new ArrayList<ScanPath>();
 		}
 		List<ScanPath> list = new ArrayList<ScanPath>();
 		SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
@@ -120,7 +120,7 @@ public class ScanResult implements JSONEntity {
 					String dateString = columns[0] + " " + columns[1];
 					Date date = format.parse(dateString);
 					String pathInfo = row.replaceAll(dateString, "").trim();
-					list.add(0,new ScanPath(pathInfo, date));
+					list.add(0, new ScanPath(pathInfo, date));
 
 				} catch (ParseException e) {
 					// TODO Auto-generated catch block
@@ -129,7 +129,7 @@ public class ScanResult implements JSONEntity {
 
 			}
 		}
-		return  list;
+		return list;
 
 	}
 
@@ -161,7 +161,8 @@ public class ScanResult implements JSONEntity {
 	}
 
 	public boolean isDataValid() {
-		return manufacturer.getId() > 0 && product.getProductStatusCode() != null;
+		return manufacturer.getId() > 0
+				&& product.getProductStatusCode() != null;
 	}
 
 	public static class ScanPath {
@@ -227,11 +228,14 @@ public class ScanResult implements JSONEntity {
 		@Override
 		public void populate(JSONObject object) {
 			productStatusCode = object.optString("productStatusCode");
-			productStatusDescription = object.optString("productStatusDescription");
+			productStatusDescription = object
+					.optString("productStatusDescription");
 			productInformation = object.optString("productInformation");
-			String manufacturerDateString = object.optString("manufacturingDate");
+			String manufacturerDateString = object
+					.optString("manufacturingDate");
 			if (StringHelper.isStringNullOrEmpty(manufacturerDateString)) {
-				manufacturingDate = StringHelper.convertStringToDate(manufacturerDateString);
+				manufacturingDate = StringHelper
+						.convertStringToDate(manufacturerDateString);
 			}
 			String expireDateString = object.optString("expireDate");
 			if (StringHelper.isStringNullOrEmpty(expireDateString)) {
@@ -290,7 +294,7 @@ public class ScanResult implements JSONEntity {
 
 		public List<KeyValuePair> getKeyValuePairsFromDetails() {
 			if (StringHelper.isStringNullOrEmpty(details)) {
-				return null;
+				return new ArrayList<KeyValuePair>();
 			}
 
 			List<KeyValuePair> pairs = new ArrayList<KeyValuePair>();
@@ -389,10 +393,11 @@ public class ScanResult implements JSONEntity {
 
 		public List<ScanRecord> getScanRecordList() {
 			if (latest == null || latest.length == 0) {
-				return null;
+				return new ArrayList<ScanRecord>();
 			}
 			List<ScanRecord> list = new ArrayList<ScanRecord>();
-			SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+			SimpleDateFormat format = new SimpleDateFormat(
+					"yyyy-MM-dd HH:mm:ss");
 
 			for (String row : latest) {
 				String[] columns = row.split("\\s");
@@ -401,7 +406,8 @@ public class ScanResult implements JSONEntity {
 						String dateString = columns[0] + " " + columns[1];
 						Date date = format.parse(dateString);
 						String scanInfo = row.replaceAll(dateString, "").trim();
-						list.add(new ScanRecord(columns[2].trim().replace(",", ""), columns[3].trim(), date));
+						list.add(new ScanRecord(columns[2].trim().replace(",",
+								""), columns[3].trim(), date));
 
 					} catch (ParseException e) {
 						// TODO Auto-generated catch block
@@ -434,7 +440,7 @@ public class ScanResult implements JSONEntity {
 		public String getScanLocation() {
 			return scanLocation;
 		}
-		
+
 		public String getScanMethod() {
 			return scanMethod;
 		}

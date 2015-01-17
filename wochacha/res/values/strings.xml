@@ -31,15 +31,16 @@
     <string name="activity">活动</string>
     <string name="popular">热门</string>
     <string name="nearby">周边</string>
-    <string name="my_scan">我的扫描</string>
-    <string name="my_credits">我的积分</string>
-    <string name="my_favorite">我的收藏</string>
-    <string name="settings">设置</string>
+   
     <string name="todo">开发中</string>
     <string name="load_failed">加载失败</string>
     <string name="backpress_to_exit">再按一次返回键退出</string>
     <string name="scan_result_tip">云溯温馨提示：</string>
     <string name="verify_code_loading">查询中...</string>
+    <string name="decoding_image">图片解析中...</string>
+    <string name="decoding_failed">无法解析图片</string>
+    <string name="copy">复制</string>
+    <string name="copy_succeeded">复制成功</string>
     <string name="rfid_tip">请将手机靠近标签</string>
     <string name="rfid_enable">请开启NFC功能</string>
     <string name="demo_scan_result">此商品为真品</string>
@@ -56,24 +57,10 @@
     <string name="location_ok">好的</string>
     <string name="location_no">暂时不</string>
     
-    <!-- enterprise  -->
-    <string name="enterprise_home">首页</string>
-    <string name="enterprise_settings">设置</string>
-    <string name="enterprise_about">关于云溯</string>
-    <string name="enterprise_demo_title">XX药业</string>
-    
-    
-    <string name="enterprise_product_analytics">生产分析</string>
-    <string name="enterprise_marketing_management">营销管理</string>
-    <string name="enterprise_tag_management">标签管理</string>
-    <string name="enterprise_fleeing_analytics">串货分析</string>
-    <string name="enterprise_customer_analytics">消费者分析</string>
-    <string name="enterprise_logistics_analytics">物流分析</string>
-    <string name="enterprise_warning">预警</string>
-    <string name="enterprise_dashboard">实时看板</string>
+
     <string name="loading">加载中...</string>
-    <string name="enterprise_app_name">我瞅瞅企业版</string>
-     <!-- enterprise  -->
+  
+     <!-- scan result UI  -->
      
      <string name="product_detail_basic">基本信息</string>
      <string name="product_scan_info">扫描信息</string>
@@ -81,6 +68,15 @@
      <string name="product_barcode">商品码</string>
      <string name="product_name">物品名称</string>
      <string name="product_desc">商品描述</string>
-     
+     <string name="none">无</string>
 
+     <!-- Profile -->
+     <string name="profile_scan_num_title">扫描记录</string>
+      <string name="profile_credit_num_title">我的积分</string>
+       <string name="profile_favorite">收藏</string>
+      <string name="my_scan">我的扫描</string>
+    <string name="my_credits">我的积分</string>
+    <string name="my_favorite">我的收藏</string>
+    <string name="settings">设置</string>
+     
 </resources>

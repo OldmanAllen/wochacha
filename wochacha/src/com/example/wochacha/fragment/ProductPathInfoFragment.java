@@ -44,8 +44,7 @@ public class ProductPathInfoFragment extends Fragment {
 	}
 
 	@Override
-	public void setUserVisibleHint(boolean isVisibleToUser) {
-		// TODO Auto-generated method stub
+	public void setUserVisibleHint(boolean isVisibleToUser) {	
 		super.setUserVisibleHint(isVisibleToUser);
 		if (isVisibleToUser && getView() != null) {
 			int height = ViewHelper.calcFragmentHeight(listView, null);
@@ -55,12 +54,14 @@ public class ProductPathInfoFragment extends Fragment {
 	}
 
 	@Override
-	public void onResume() {
-		Log.e("test", "ProductPathInfoFragment onResume");
+	public void onResume() {		
 		super.onResume();
 	}
 
 	public void setData(List<ScanPath> pathList) {
+		if (pathList == null || pathList.size() == 0) {
+			return;
+		}
 		paths.clear();
 		paths.addAll(pathList);
 

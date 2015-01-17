@@ -1,15 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ListView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/lv_tracking_info"
     android:layout_width="match_parent"
-    android:layout_height="match_parent" android:background="#F6F5F4" >
+    android:layout_height="match_parent"
+    android:background="#fff"
+    android:divider="@android:color/transparent"
+    android:dividerHeight="0dp" >
 
-    <ListView
-        android:id="@+id/lv_tracking_info"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        
-       android:dividerHeight="0dp" android:divider="@android:color/transparent"
-        android:background="#fff" >
-    </ListView>
-
-</RelativeLayout>
+</ListView>

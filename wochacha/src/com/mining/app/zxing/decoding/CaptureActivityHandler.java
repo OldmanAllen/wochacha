@@ -85,6 +85,8 @@ public final class CaptureActivityHandler extends Handler {
 			Bitmap barcode = bundle == null ? null : (Bitmap)bundle.getParcelable(DecodeThread.BARCODE_BITMAP);//
 
 			fragment.handleDecode((Result)message.obj, barcode);//
+			
+			
 			break;
 		case R.id.decode_failed:
 			// We're decoding as fast as possible, so when one decode fails, start another.
@@ -122,7 +124,7 @@ public final class CaptureActivityHandler extends Handler {
 		removeMessages(R.id.decode_failed);
 	}
 
-	private void restartPreviewAndDecode() {
+	public void restartPreviewAndDecode() {
 		if (state == State.SUCCESS) {
 			state = State.PREVIEW;
 			CameraManager.get().requestPreviewFrame(decodeThread.getHandler(), R.id.decode);

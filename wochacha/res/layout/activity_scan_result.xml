@@ -1,163 +1,177 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:id="@+id/sv_content"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-   >
+    android:layout_height="match_parent" >
 
-    <LinearLayout
+    <com.example.wochacha.view.MyScrollView
+        android:id="@+id/sv_content"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="#fff"
-        android:orientation="vertical" >
-
-        <RelativeLayout
-            android:id="@+id/rl_scan_thumbnail_area"
-            android:layout_width="match_parent"
-            android:layout_height="100dp"
-            android:background="@drawable/bg_scan_manufacturing_area"
-            android:padding="10dp"
-            android:visibility="visible" >
-
-            <com.example.wochacha.view.CircleImageView
-                android:id="@+id/iv_thumbnail"
-                android:layout_width="70dp"
-                android:layout_height="70dp"
-                android:layout_alignParentLeft="true"
-                android:layout_centerVertical="true"
-                android:scaleType="centerCrop"
-                android:src="@drawable/sample_1"
-                app:border_color="#C2C2C2"
-                app:border_width="2dp" />
-
-            <RelativeLayout
-                android:id="@+id/rl_verify_group"
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:layout_alignParentRight="true"
-                android:layout_centerVertical="true"
-                android:paddingTop="10dp" >
-
-                <ImageView
-                    android:id="@+id/iv_verified"
-                    android:layout_width="30dp"
-                    android:layout_height="30dp"
-                    android:layout_centerHorizontal="true"
-                    android:scaleType="fitEnd"
-                    android:src="@drawable/verified" />
-
-                <TextView
-                    style="@style/text_style"
-                    android:layout_below="@id/iv_verified"
-                    android:layout_centerHorizontal="true"
-                    android:layout_marginTop="10dp"
-                    android:text="已认证"
-                    android:textColor="#6A6A6A"
-                    android:textSize="14sp" />
-            </RelativeLayout>
-
-            <View
-                android:id="@+id/v_divider"
-                android:layout_width="2dp"
-                android:layout_height="match_parent"
-                android:layout_marginLeft="10dp"
-                android:layout_marginRight="10dp"
-                android:layout_toLeftOf="@id/rl_verify_group"
-                android:background="#EEEEEE" >
-            </View>
-
-            <TextView
-                android:id="@+id/tv_company_name"
-                style="@style/text_style.bold"
-                android:layout_centerVertical="true"
-                android:layout_marginLeft="10dp"
-                android:layout_toLeftOf="@id/v_divider"
-                android:layout_toRightOf="@id/iv_thumbnail"
-                android:singleLine="false"
-                android:text="小米公司"
-                android:textColor="#6A6A6A"
-                android:textSize="16sp" />
-        </RelativeLayout>
+        android:layout_height="match_parent" >
 
         <LinearLayout
+            android:id="@+id/ll_content"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@drawable/message_item_bg_single"
-            android:orientation="horizontal"
-            android:padding="0dp" >
+            android:background="#fff"
+            android:orientation="vertical" >
 
-            <FrameLayout
-                android:id="@+id/rl_scan_result_image"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1.0"
+            <RelativeLayout
+                android:id="@+id/rl_scan_thumbnail_area"
+                android:layout_width="match_parent"
+                android:layout_height="100dp"
+                android:background="@drawable/bg_scan_manufacturing_area"
                 android:padding="10dp"
                 android:visibility="visible" >
 
-                <ImageView
-                    android:id="@+id/iv_product_icon"
-                    android:layout_width="120dp"
-                    android:layout_height="120dp"
-                    android:layout_gravity="center"
+                <com.example.wochacha.view.CircleImageView
+                    android:id="@+id/iv_thumbnail"
+                    android:layout_width="70dp"
+                    android:layout_height="70dp"
+                    android:layout_alignParentLeft="true"
+                    android:layout_centerVertical="true"
                     android:scaleType="centerCrop"
-                    android:src="@drawable/demo_scan" />
+                    android:src="@drawable/sample_1"
+                    app:border_color="#C2C2C2"
+                    app:border_width="2dp" />
 
-                <ImageView
-                    android:id="@+id/iv_result_status"
-                    android:layout_width="80dp"
-                    android:layout_height="60dp"
-                    android:layout_gravity="bottom|right"
-                    android:scaleType="fitEnd"
-                    android:src="@drawable/ic_zhengpin" />
-            </FrameLayout>
+                <RelativeLayout
+                    android:id="@+id/rl_verify_group"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:paddingTop="10dp" >
+
+                    <ImageView
+                        android:id="@+id/iv_verified"
+                        android:layout_width="30dp"
+                        android:layout_height="30dp"
+                        android:layout_centerHorizontal="true"
+                        android:scaleType="fitEnd"
+                        android:src="@drawable/verified" />
+
+                    <TextView
+                        style="@style/text_style"
+                        android:layout_below="@id/iv_verified"
+                        android:layout_centerHorizontal="true"
+                        android:layout_marginTop="10dp"
+                        android:text="已认证"
+                        android:textColor="#6A6A6A"
+                        android:textSize="14sp" />
+                </RelativeLayout>
+
+                <View
+                    android:id="@+id/v_divider"
+                    android:layout_width="2dp"
+                    android:layout_height="match_parent"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginRight="10dp"
+                    android:layout_toLeftOf="@id/rl_verify_group"
+                    android:background="#EEEEEE" >
+                </View>
+
+                <TextView
+                    android:id="@+id/tv_company_name"
+                    style="@style/text_style.bold"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="10dp"
+                    android:layout_toLeftOf="@id/v_divider"
+                    android:layout_toRightOf="@id/iv_thumbnail"
+                    android:singleLine="false"
+                    android:text="小米公司"
+                    android:textColor="#6A6A6A"
+                    android:textSize="16sp" />
+            </RelativeLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="140dp"
+                android:background="@drawable/message_item_bg_single"
+                android:orientation="horizontal"
+                android:padding="0dp" >
+
+                <FrameLayout
+                    android:id="@+id/rl_scan_result_image"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1.0"
+                    android:padding="10dp"
+                    android:visibility="visible" >
+
+                    <ImageView
+                        android:id="@+id/iv_product_icon"
+                        android:layout_width="120dp"
+                        android:layout_height="120dp"
+                        android:layout_gravity="center"
+                        android:scaleType="centerCrop"
+                        android:src="@drawable/demo_scan" />
+
+                    <ImageView
+                        android:id="@+id/iv_result_status"
+                        android:layout_width="80dp"
+                        android:layout_height="60dp"
+                        android:layout_gravity="bottom|right"
+                        android:scaleType="fitEnd"
+                        android:src="@drawable/ic_zhengpin" />
+                </FrameLayout>
+
+                <RelativeLayout
+                    android:id="@+id/rl_scan_result_info"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="center_vertical"
+                    android:layout_weight="1.0"
+                    android:gravity="center_vertical"
+                    android:padding="10dp" >
+
+                    <TextView
+                        android:id="@+id/tv_scan_status"
+                        style="@style/text_style.light"
+                        android:layout_alignParentRight="true"
+                        android:drawableLeft="@drawable/remind"
+                        android:gravity="bottom"
+                        android:text="@string/demo_scan_result"
+                        android:textSize="16sp" />
+
+                    <TextView
+                        android:id="@+id/tv_scan_desc"
+                        style="@style/text_style.light"
+                        android:layout_alignParentRight="true"
+                        android:layout_below="@+id/tv_scan_status"
+                        android:layout_marginTop="10dp"
+                        android:gravity="right"
+                        android:text="@string/demo_scan_desc"
+                        android:textSize="10sp" />
+                </RelativeLayout>
+            </LinearLayout>
 
             <RelativeLayout
-                android:id="@+id/rl_scan_result_info"
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_gravity="center_vertical"
-                android:layout_weight="1.0"
-                android:gravity="center_vertical"
-                android:padding="10dp" >
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" >
 
-                <TextView
-                    android:id="@+id/tv_scan_status"
-                    style="@style/text_style.light"
-                    android:layout_alignParentRight="true"
-                    android:drawableLeft="@drawable/remind"
-                    android:gravity="bottom"
-                    android:text="@string/demo_scan_result"
-                    android:textSize="16sp" />
+                <com.viewpagerindicator.TabPageIndicator
+                    android:id="@+id/indicator"
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp"
+                    android:layout_alignParentTop="true" />
 
-                <TextView
-                    android:id="@+id/tv_scan_desc"
-                    style="@style/text_style.light"
-                    android:layout_alignParentRight="true"
-                    android:layout_below="@+id/tv_scan_status"
-                    android:layout_marginTop="10dp"
-                    android:gravity="right"
-                    android:text="@string/demo_scan_desc"
-                    android:textSize="10sp" />
+                <android.support.v4.view.ViewPager
+                    android:id="@+id/vp_scan_details"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/indicator"
+                    android:minHeight="500dp" />
             </RelativeLayout>
         </LinearLayout>
+    </com.example.wochacha.view.MyScrollView>
 
-        <RelativeLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content" >
+    <com.viewpagerindicator.TabPageIndicator
+        android:id="@+id/indicatorTop"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:layout_gravity="top"
+        android:visibility="gone" >
+    </com.viewpagerindicator.TabPageIndicator>
 
-            <com.viewpagerindicator.TabPageIndicator
-                android:id="@+id/indicator"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_alignParentTop="true" />
-
-            <android.support.v4.view.ViewPager
-                android:id="@+id/vp_scan_details"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_below="@id/indicator" />
-        </RelativeLayout>
-    </LinearLayout>
-
-</ScrollView>
+</FrameLayout>

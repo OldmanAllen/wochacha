@@ -17,9 +17,7 @@ public abstract class FragmentBase extends Fragment {
 	@Override
 	public void onResume() {
 		super.onResume();
-		if (visible) {
-			setupActionBar();
-		}
+		resetActionBar();
 	}
 
 	protected boolean visible = false;
@@ -27,6 +25,13 @@ public abstract class FragmentBase extends Fragment {
 	public void setVisibility(boolean visible) {
 		this.visible = visible;
 
+	}
+	
+	public void resetActionBar()
+	{
+		if (visible) {
+			setupActionBar();
+		}
 	}
 
 	protected abstract String getTitle();

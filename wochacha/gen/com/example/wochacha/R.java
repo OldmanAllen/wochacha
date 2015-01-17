@@ -27,7 +27,7 @@ theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
          */
-        public static final int border_color=0x7f010015;
+        public static final int border_color=0x7f010034;
         /** <p>Must be a dimension value, which is a floating point number appended with a unit such as "<code>14.5sp</code>".
 Available units are: px (pixels), dp (density-independent pixels), sp (scaled pixels based on preferred font size),
 in (inches), mm (millimeters).
@@ -37,7 +37,164 @@ theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
          */
-        public static final int border_width=0x7f010014;
+        public static final int border_width=0x7f010033;
+        /** <p>Must be a boolean value, either "<code>true</code>" or "<code>false</code>".
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+         */
+        public static final int centered=0x7f010006;
+        /**  Screen edge padding. 
+         <p>Must be a dimension value, which is a floating point number appended with a unit such as "<code>14.5sp</code>".
+Available units are: px (pixels), dp (density-independent pixels), sp (scaled pixels based on preferred font size),
+in (inches), mm (millimeters).
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+         */
+        public static final int clipPadding=0x7f010011;
+        /**  Length of the delay to fade the indicator. 
+         <p>Must be an integer value, such as "<code>100</code>".
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+         */
+        public static final int fadeDelay=0x7f01001d;
+        /**  Length of the indicator fade to transparent. 
+         <p>Must be an integer value, such as "<code>100</code>".
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+         */
+        public static final int fadeLength=0x7f01001e;
+        /**  Whether or not the selected indicator fades. 
+         <p>Must be a boolean value, either "<code>true</code>" or "<code>false</code>".
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+         */
+        public static final int fades=0x7f01001c;
+        /**  Color of the filled circle that represents the current page. 
+         <p>Must be a color value, in the form of "<code>#<i>rgb</i></code>", "<code>#<i>argb</i></code>",
+"<code>#<i>rrggbb</i></code>", or "<code>#<i>aarrggbb</i></code>".
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+         */
+        public static final int fillColor=0x7f01000a;
+        /**  Color of the footer line and indicator. 
+         <p>Must be a color value, in the form of "<code>#<i>rgb</i></code>", "<code>#<i>argb</i></code>",
+"<code>#<i>rrggbb</i></code>", or "<code>#<i>aarrggbb</i></code>".
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+         */
+        public static final int footerColor=0x7f010012;
+        /**  Height of the indicator above the footer line. 
+         <p>Must be a dimension value, which is a floating point number appended with a unit such as "<code>14.5sp</code>".
+Available units are: px (pixels), dp (density-independent pixels), sp (scaled pixels based on preferred font size),
+in (inches), mm (millimeters).
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+         */
+        public static final int footerIndicatorHeight=0x7f010015;
+        /**  Style of the indicator. Default is triangle. 
+         <p>Must be one of the following constant values.</p>
+<table>
+<colgroup align="left" />
+<colgroup align="left" />
+<colgroup align="left" />
+<tr><th>Constant</th><th>Value</th><th>Description</th></tr>
+<tr><td><code>none</code></td><td>0</td><td></td></tr>
+<tr><td><code>triangle</code></td><td>1</td><td></td></tr>
+<tr><td><code>underline</code></td><td>2</td><td></td></tr>
+</table>
+         */
+        public static final int footerIndicatorStyle=0x7f010014;
+        /**  Left and right padding of the underline indicator. 
+         <p>Must be a dimension value, which is a floating point number appended with a unit such as "<code>14.5sp</code>".
+Available units are: px (pixels), dp (density-independent pixels), sp (scaled pixels based on preferred font size),
+in (inches), mm (millimeters).
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+         */
+        public static final int footerIndicatorUnderlinePadding=0x7f010016;
+        /**  Height of the footer line. 
+         <p>Must be a dimension value, which is a floating point number appended with a unit such as "<code>14.5sp</code>".
+Available units are: px (pixels), dp (density-independent pixels), sp (scaled pixels based on preferred font size),
+in (inches), mm (millimeters).
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+         */
+        public static final int footerLineHeight=0x7f010013;
+        /**  Padding between the bottom of the title and the footer. 
+         <p>Must be a dimension value, which is a floating point number appended with a unit such as "<code>14.5sp</code>".
+Available units are: px (pixels), dp (density-independent pixels), sp (scaled pixels based on preferred font size),
+in (inches), mm (millimeters).
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+         */
+        public static final int footerPadding=0x7f010017;
+        /**  Width of the gap between each indicator line. 
+         <p>Must be a dimension value, which is a floating point number appended with a unit such as "<code>14.5sp</code>".
+Available units are: px (pixels), dp (density-independent pixels), sp (scaled pixels based on preferred font size),
+in (inches), mm (millimeters).
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+         */
+        public static final int gapWidth=0x7f010010;
+        /**  Position of the line. 
+         <p>Must be one of the following constant values.</p>
+<table>
+<colgroup align="left" />
+<colgroup align="left" />
+<colgroup align="left" />
+<tr><th>Constant</th><th>Value</th><th>Description</th></tr>
+<tr><td><code>bottom</code></td><td>0</td><td></td></tr>
+<tr><td><code>top</code></td><td>1</td><td></td></tr>
+</table>
+         */
+        public static final int linePosition=0x7f010018;
+        /**  Width of each indicator line. 
+         <p>Must be a dimension value, which is a floating point number appended with a unit such as "<code>14.5sp</code>".
+Available units are: px (pixels), dp (density-independent pixels), sp (scaled pixels based on preferred font size),
+in (inches), mm (millimeters).
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+         */
+        public static final int lineWidth=0x7f01000f;
         /** <p>Must be a dimension value, which is a floating point number appended with a unit such as "<code>14.5sp</code>".
 Available units are: px (pixels), dp (density-independent pixels), sp (scaled pixels based on preferred font size),
 in (inches), mm (millimeters).
@@ -47,14 +204,24 @@ theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
          */
-        public static final int listRowHeight=0x7f010013;
+        public static final int listRowHeight=0x7f010032;
+        /**  Color of the filled circles that represents pages. 
+         <p>Must be a color value, in the form of "<code>#<i>rgb</i></code>", "<code>#<i>argb</i></code>",
+"<code>#<i>rrggbb</i></code>", or "<code>#<i>aarrggbb</i></code>".
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+         */
+        public static final int pageColor=0x7f01000b;
         /**  BELOW HERE ARE DEPRECEATED. DO NOT USE. 
          <p>May be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
 <p>May be a color value, in the form of "<code>#<i>rgb</i></code>", "<code>#<i>argb</i></code>",
 "<code>#<i>rrggbb</i></code>", or "<code>#<i>aarrggbb</i></code>".
          */
-        public static final int ptrAdapterViewBackground=0x7f010010;
+        public static final int ptrAdapterViewBackground=0x7f01002f;
         /**  Style of Animation should be used displayed when pulling. 
          <p>Must be one or more (separated by '|') of the following constant values.</p>
 <table>
@@ -66,56 +233,56 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
 <tr><td><code>flip</code></td><td>0x1</td><td></td></tr>
 </table>
          */
-        public static final int ptrAnimationStyle=0x7f01000c;
+        public static final int ptrAnimationStyle=0x7f01002b;
         /**  Drawable to use as Loading Indicator. Changes both Header and Footer. 
          <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
          */
-        public static final int ptrDrawable=0x7f010006;
+        public static final int ptrDrawable=0x7f010025;
         /** <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
          */
-        public static final int ptrDrawableBottom=0x7f010012;
+        public static final int ptrDrawableBottom=0x7f010031;
         /**  Drawable to use as Loading Indicator in the Footer View. Overrides value set in ptrDrawable. 
          <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
          */
-        public static final int ptrDrawableEnd=0x7f010008;
+        public static final int ptrDrawableEnd=0x7f010027;
         /**  Drawable to use as Loading Indicator in the Header View. Overrides value set in ptrDrawable. 
          <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
          */
-        public static final int ptrDrawableStart=0x7f010007;
+        public static final int ptrDrawableStart=0x7f010026;
         /** <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
          */
-        public static final int ptrDrawableTop=0x7f010011;
+        public static final int ptrDrawableTop=0x7f010030;
         /**  A drawable to use as the background of the Header and Footer Loading Views 
          <p>May be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
 <p>May be a color value, in the form of "<code>#<i>rgb</i></code>", "<code>#<i>argb</i></code>",
 "<code>#<i>rrggbb</i></code>", or "<code>#<i>aarrggbb</i></code>".
          */
-        public static final int ptrHeaderBackground=0x7f010001;
+        public static final int ptrHeaderBackground=0x7f010020;
         /**  Text Color of the Header and Footer Loading Views Sub Header 
          <p>May be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
 <p>May be a color value, in the form of "<code>#<i>rgb</i></code>", "<code>#<i>argb</i></code>",
 "<code>#<i>rrggbb</i></code>", or "<code>#<i>aarrggbb</i></code>".
          */
-        public static final int ptrHeaderSubTextColor=0x7f010003;
+        public static final int ptrHeaderSubTextColor=0x7f010022;
         /**  Base text color, typeface, size, and style for Header and Footer Loading Views 
          <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
          */
-        public static final int ptrHeaderTextAppearance=0x7f01000a;
+        public static final int ptrHeaderTextAppearance=0x7f010029;
         /**  Text Color of the Header and Footer Loading Views 
          <p>May be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
 <p>May be a color value, in the form of "<code>#<i>rgb</i></code>", "<code>#<i>argb</i></code>",
 "<code>#<i>rrggbb</i></code>", or "<code>#<i>aarrggbb</i></code>".
          */
-        public static final int ptrHeaderTextColor=0x7f010002;
+        public static final int ptrHeaderTextColor=0x7f010021;
         /** 
         	Whether PullToRefreshListView has it's extras enabled. This allows the user to be 
         	able to scroll while refreshing, and behaves better. It acheives this by adding
@@ -125,7 +292,7 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
 <p>May be a boolean value, either "<code>true</code>" or "<code>false</code>".
          */
-        public static final int ptrListViewExtrasEnabled=0x7f01000e;
+        public static final int ptrListViewExtrasEnabled=0x7f01002d;
         /**  Mode of Pull-to-Refresh that should be used 
          <p>Must be one or more (separated by '|') of the following constant values.</p>
 <table>
@@ -142,20 +309,20 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
 <tr><td><code>pullUpFromBottom</code></td><td>0x2</td><td></td></tr>
 </table>
          */
-        public static final int ptrMode=0x7f010004;
+        public static final int ptrMode=0x7f010023;
         /**  Whether Android's built-in Over Scroll should be utilised for Pull-to-Refresh. 
          <p>May be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
 <p>May be a boolean value, either "<code>true</code>" or "<code>false</code>".
          */
-        public static final int ptrOverScroll=0x7f010009;
+        public static final int ptrOverScroll=0x7f010028;
         /**  A drawable to use as the background of the Refreshable View 
          <p>May be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
 <p>May be a color value, in the form of "<code>#<i>rgb</i></code>", "<code>#<i>argb</i></code>",
 "<code>#<i>rrggbb</i></code>", or "<code>#<i>aarrggbb</i></code>".
          */
-        public static final int ptrRefreshableViewBackground=0x7f010000;
+        public static final int ptrRefreshableViewBackground=0x7f01001f;
         /** 
         	Whether the Drawable should be continually rotated as you pull. This only
         	takes effect when using the 'Rotate' Animation Style.
@@ -164,33 +331,180 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
 <p>May be a boolean value, either "<code>true</code>" or "<code>false</code>".
          */
-        public static final int ptrRotateDrawableWhilePulling=0x7f01000f;
+        public static final int ptrRotateDrawableWhilePulling=0x7f01002e;
         /**  Whether the user can scroll while the View is Refreshing 
          <p>May be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
 <p>May be a boolean value, either "<code>true</code>" or "<code>false</code>".
          */
-        public static final int ptrScrollingWhileRefreshingEnabled=0x7f01000d;
+        public static final int ptrScrollingWhileRefreshingEnabled=0x7f01002c;
         /**  Whether the Indicator overlay(s) should be used 
          <p>May be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
 <p>May be a boolean value, either "<code>true</code>" or "<code>false</code>".
          */
-        public static final int ptrShowIndicator=0x7f010005;
+        public static final int ptrShowIndicator=0x7f010024;
         /**  Base text color, typeface, size, and style for Header and Footer Loading Views Sub Header 
          <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
          */
-        public static final int ptrSubHeaderTextAppearance=0x7f01000b;
+        public static final int ptrSubHeaderTextAppearance=0x7f01002a;
+        /**  Radius of the circles. This is also the spacing between circles. 
+         <p>Must be a dimension value, which is a floating point number appended with a unit such as "<code>14.5sp</code>".
+Available units are: px (pixels), dp (density-independent pixels), sp (scaled pixels based on preferred font size),
+in (inches), mm (millimeters).
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+         */
+        public static final int radius=0x7f01000c;
+        /**  Whether or not the selected item is displayed as bold. 
+         <p>Must be a boolean value, either "<code>true</code>" or "<code>false</code>".
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+         */
+        public static final int selectedBold=0x7f010019;
+        /** <p>Must be a color value, in the form of "<code>#<i>rgb</i></code>", "<code>#<i>argb</i></code>",
+"<code>#<i>rrggbb</i></code>", or "<code>#<i>aarrggbb</i></code>".
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+         */
+        public static final int selectedColor=0x7f010007;
+        /**  Whether or not the selected indicator snaps to the circles. 
+         <p>Must be a boolean value, either "<code>true</code>" or "<code>false</code>".
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+         */
+        public static final int snap=0x7f01000d;
+        /**  Color of the open circles. 
+         <p>Must be a color value, in the form of "<code>#<i>rgb</i></code>", "<code>#<i>argb</i></code>",
+"<code>#<i>rrggbb</i></code>", or "<code>#<i>aarrggbb</i></code>".
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+         */
+        public static final int strokeColor=0x7f01000e;
+        /** <p>Must be a dimension value, which is a floating point number appended with a unit such as "<code>14.5sp</code>".
+Available units are: px (pixels), dp (density-independent pixels), sp (scaled pixels based on preferred font size),
+in (inches), mm (millimeters).
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+         */
+        public static final int strokeWidth=0x7f010008;
+        /**  Padding between titles when bumping into each other. 
+         <p>Must be a dimension value, which is a floating point number appended with a unit such as "<code>14.5sp</code>".
+Available units are: px (pixels), dp (density-independent pixels), sp (scaled pixels based on preferred font size),
+in (inches), mm (millimeters).
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+         */
+        public static final int titlePadding=0x7f01001a;
+        /**  Padding between titles and the top of the View. 
+         <p>Must be a dimension value, which is a floating point number appended with a unit such as "<code>14.5sp</code>".
+Available units are: px (pixels), dp (density-independent pixels), sp (scaled pixels based on preferred font size),
+in (inches), mm (millimeters).
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+         */
+        public static final int topPadding=0x7f01001b;
+        /** <p>Must be a color value, in the form of "<code>#<i>rgb</i></code>", "<code>#<i>argb</i></code>",
+"<code>#<i>rrggbb</i></code>", or "<code>#<i>aarrggbb</i></code>".
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+         */
+        public static final int unselectedColor=0x7f010009;
+        /**  Style of the circle indicator. 
+         <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
+or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
+         */
+        public static final int vpiCirclePageIndicatorStyle=0x7f010000;
+        /**  Style of the icon indicator's views. 
+         <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
+or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
+         */
+        public static final int vpiIconPageIndicatorStyle=0x7f010001;
+        /**  Style of the line indicator. 
+         <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
+or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
+         */
+        public static final int vpiLinePageIndicatorStyle=0x7f010002;
+        /**  Style of the tab indicator's tabs. 
+         <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
+or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
+         */
+        public static final int vpiTabPageIndicatorStyle=0x7f010004;
+        /**  Style of the title indicator. 
+         <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
+or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
+         */
+        public static final int vpiTitlePageIndicatorStyle=0x7f010003;
+        /**  Style of the underline indicator. 
+         <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
+or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
+         */
+        public static final int vpiUnderlinePageIndicatorStyle=0x7f010005;
+    }
+    public static final class bool {
+        public static final int default_circle_indicator_centered=0x7f070000;
+        public static final int default_circle_indicator_snap=0x7f070001;
+        public static final int default_line_indicator_centered=0x7f070002;
+        public static final int default_title_indicator_selected_bold=0x7f070003;
+        public static final int default_underline_indicator_fades=0x7f070004;
     }
     public static final class color {
-        public static final int clear_color=0x7f090003;
-        public static final int headline_color=0x7f090004;
-        public static final int maintabs_tab_bar_text_color=0x7f090006;
-        public static final int possible_result_points=0x7f090002;
-        public static final int result_view=0x7f090000;
-        public static final int scan_frame_color=0x7f090005;
-        public static final int viewfinder_mask=0x7f090001;
+        public static final int clear_color=0x7f060014;
+        public static final int default_circle_indicator_fill_color=0x7f060008;
+        public static final int default_circle_indicator_page_color=0x7f060009;
+        public static final int default_circle_indicator_stroke_color=0x7f06000a;
+        public static final int default_line_indicator_selected_color=0x7f06000b;
+        public static final int default_line_indicator_unselected_color=0x7f06000c;
+        public static final int default_title_indicator_footer_color=0x7f06000d;
+        public static final int default_title_indicator_selected_color=0x7f06000e;
+        public static final int default_title_indicator_text_color=0x7f06000f;
+        public static final int default_underline_indicator_selected_color=0x7f060010;
+        public static final int headline_color=0x7f060015;
+        public static final int maintabs_tab_bar_text_color=0x7f060019;
+        public static final int possible_result_points=0x7f060013;
+        public static final int result_view=0x7f060011;
+        public static final int scan_current_color=0x7f060017;
+        public static final int scan_frame_color=0x7f060016;
+        public static final int scan_past_color=0x7f060018;
+        public static final int viewfinder_mask=0x7f060012;
+        public static final int vpi__background_holo_dark=0x7f060000;
+        public static final int vpi__background_holo_light=0x7f060001;
+        public static final int vpi__bright_foreground_disabled_holo_dark=0x7f060004;
+        public static final int vpi__bright_foreground_disabled_holo_light=0x7f060005;
+        public static final int vpi__bright_foreground_holo_dark=0x7f060002;
+        public static final int vpi__bright_foreground_holo_light=0x7f060003;
+        public static final int vpi__bright_foreground_inverse_holo_dark=0x7f060006;
+        public static final int vpi__bright_foreground_inverse_holo_light=0x7f060007;
+        public static final int vpi__dark_theme=0x7f06001a;
+        public static final int vpi__light_theme=0x7f06001b;
     }
     public static final class dimen {
         /**  Default screen margins, per the Android Design guidelines. 
@@ -200,21 +514,38 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
          would include 7" and 10" devices in landscape (~960dp and ~1280dp respectively).
     
          */
-        public static final int activity_horizontal_margin=0x7f060005;
-        public static final int activity_vertical_margin=0x7f060006;
-        public static final int header_footer_left_right_padding=0x7f060003;
-        public static final int header_footer_top_bottom_padding=0x7f060004;
-        public static final int indicator_corner_radius=0x7f060001;
-        public static final int indicator_internal_padding=0x7f060002;
-        public static final int indicator_right_padding=0x7f060000;
+        public static final int activity_horizontal_margin=0x7f090012;
+        public static final int activity_vertical_margin=0x7f090013;
+        public static final int default_circle_indicator_radius=0x7f090000;
+        public static final int default_circle_indicator_stroke_width=0x7f090001;
+        public static final int default_line_indicator_gap_width=0x7f090003;
+        public static final int default_line_indicator_line_width=0x7f090002;
+        public static final int default_line_indicator_stroke_width=0x7f090004;
+        public static final int default_title_indicator_clip_padding=0x7f090005;
+        public static final int default_title_indicator_footer_indicator_height=0x7f090007;
+        public static final int default_title_indicator_footer_indicator_underline_padding=0x7f090008;
+        public static final int default_title_indicator_footer_line_height=0x7f090006;
+        public static final int default_title_indicator_footer_padding=0x7f090009;
+        public static final int default_title_indicator_text_size=0x7f09000a;
+        public static final int default_title_indicator_title_padding=0x7f09000b;
+        public static final int default_title_indicator_top_padding=0x7f09000c;
+        public static final int header_footer_left_right_padding=0x7f090010;
+        public static final int header_footer_top_bottom_padding=0x7f090011;
+        public static final int indicator_corner_radius=0x7f09000e;
+        public static final int indicator_internal_padding=0x7f09000f;
+        public static final int indicator_right_padding=0x7f09000d;
         /** 
          Per the design guidelines, navigation drawers should be between 240dp and 320dp:
          https://developer.android.com/design/patterns/navigation-drawer.html
     
          */
-        public static final int navigation_drawer_width=0x7f060007;
-        public static final int scan_action_area_height=0x7f060009;
-        public static final int scan_info_area_height=0x7f060008;
+        public static final int navigation_drawer_width=0x7f090014;
+        public static final int process_current_indicator_size=0x7f090018;
+        public static final int process_current_text_margin_top=0x7f090019;
+        public static final int process_past_indicator_size=0x7f090017;
+        public static final int process_past_text_margin_top=0x7f09001a;
+        public static final int scan_action_area_height=0x7f090016;
+        public static final int scan_info_area_height=0x7f090015;
     }
     public static final class drawable {
         public static final int background=0x7f020000;
@@ -233,64 +564,64 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
         public static final int collapse=0x7f02000d;
         public static final int default_ptr_flip=0x7f02000e;
         public static final int default_ptr_rotate=0x7f02000f;
-        public static final int drawer_shadow=0x7f020010;
-        public static final int expand=0x7f020011;
-        public static final int find_item_bg_bottom_normal=0x7f020012;
-        public static final int find_item_bg_bottom_pressed=0x7f020013;
-        public static final int find_item_bg_normal=0x7f020014;
-        public static final int find_item_bg_pressed=0x7f020015;
-        public static final int home_customer_analytics=0x7f020016;
-        public static final int home_dashboard=0x7f020017;
-        public static final int home_fleeing_analytics=0x7f020018;
-        public static final int home_logistics_analytics=0x7f020019;
-        public static final int home_marketing=0x7f02001a;
-        public static final int home_product_analytics=0x7f02001b;
-        public static final int home_tag_management=0x7f02001c;
-        public static final int home_warning=0x7f02001d;
-        public static final int ic_drawer=0x7f02001e;
-        public static final int ic_find_activity=0x7f02001f;
-        public static final int ic_find_activity2=0x7f020020;
-        public static final int ic_find_company=0x7f020021;
-        public static final int ic_find_nearby=0x7f020022;
-        public static final int ic_find_nearby2=0x7f020023;
-        public static final int ic_find_popular=0x7f020024;
-        public static final int ic_find_popular2=0x7f020025;
-        public static final int ic_find_search_ico=0x7f020026;
-        public static final int ic_find_search_icon=0x7f020027;
-        public static final int ic_find_tag=0x7f020028;
-        public static final int ic_launcher=0x7f020029;
-        public static final int ic_my_credits=0x7f02002a;
-        public static final int ic_my_favorite=0x7f02002b;
-        public static final int ic_my_scan=0x7f02002c;
-        public static final int ic_my_settings=0x7f02002d;
-        public static final int ic_pulltorefresh_arrow=0x7f02002e;
-        public static final int ic_qr_code=0x7f02002f;
-        public static final int ic_right_arrow=0x7f020030;
-        public static final int icon_accept=0x7f020031;
-        public static final int icon_alert=0x7f020032;
-        public static final int icon_nfc_off=0x7f020033;
-        public static final int icon_nfc_on=0x7f020034;
-        public static final int icon_offline_validation=0x7f020035;
-        public static final int icon_reject=0x7f020036;
-        public static final int icon_search=0x7f020037;
-        public static final int img_empty_person=0x7f020038;
-        public static final int indicate_bar_code=0x7f020039;
-        public static final int indicate_image=0x7f02003a;
-        public static final int indicate_light=0x7f02003b;
-        public static final int indicate_manual=0x7f02003c;
-        public static final int indicate_qr_code=0x7f02003d;
-        public static final int indicate_rfid=0x7f02003e;
-        public static final int indicator_arrow=0x7f02003f;
-        public static final int indicator_bar_code=0x7f020040;
-        public static final int indicator_bar_code_off=0x7f020041;
-        public static final int indicator_bar_code_on=0x7f020042;
-        public static final int indicator_bg_bottom=0x7f020043;
-        public static final int indicator_bg_top=0x7f020044;
-        public static final int indicator_image_off=0x7f020045;
-        public static final int indicator_image_on=0x7f020046;
-        public static final int indicator_light_off=0x7f020047;
-        public static final int indicator_light_on=0x7f020048;
-        public static final int indicator_manual=0x7f020049;
+        public static final int demo_scan=0x7f020010;
+        public static final int drawable_scan_tab_normal=0x7f020011;
+        public static final int drawable_scan_tab_press=0x7f020012;
+        public static final int drawer_shadow=0x7f020013;
+        public static final int edit_avatar=0x7f020014;
+        public static final int expand=0x7f020015;
+        public static final int find_item_bg_bottom_normal=0x7f020016;
+        public static final int find_item_bg_bottom_pressed=0x7f020017;
+        public static final int find_item_bg_normal=0x7f020018;
+        public static final int find_item_bg_pressed=0x7f020019;
+        public static final int home_tag_management=0x7f02001a;
+        public static final int ic_drawer=0x7f02001b;
+        public static final int ic_find_activity=0x7f02001c;
+        public static final int ic_find_activity2=0x7f02001d;
+        public static final int ic_find_company=0x7f02001e;
+        public static final int ic_find_nearby=0x7f02001f;
+        public static final int ic_find_nearby2=0x7f020020;
+        public static final int ic_find_popular=0x7f020021;
+        public static final int ic_find_popular2=0x7f020022;
+        public static final int ic_find_search_ico=0x7f020023;
+        public static final int ic_find_search_icon=0x7f020024;
+        public static final int ic_find_tag=0x7f020025;
+        public static final int ic_jiahuo=0x7f020026;
+        public static final int ic_jinggao=0x7f020027;
+        public static final int ic_launcher=0x7f020028;
+        public static final int ic_my_credits=0x7f020029;
+        public static final int ic_my_favorite=0x7f02002a;
+        public static final int ic_my_scan=0x7f02002b;
+        public static final int ic_my_settings=0x7f02002c;
+        public static final int ic_pulltorefresh_arrow=0x7f02002d;
+        public static final int ic_qr_code=0x7f02002e;
+        public static final int ic_right_arrow=0x7f02002f;
+        public static final int ic_row_indicator=0x7f020030;
+        public static final int ic_zhengpin=0x7f020031;
+        public static final int icon_accept=0x7f020032;
+        public static final int icon_alert=0x7f020033;
+        public static final int icon_nfc_off=0x7f020034;
+        public static final int icon_nfc_on=0x7f020035;
+        public static final int icon_offline_validation=0x7f020036;
+        public static final int icon_reject=0x7f020037;
+        public static final int icon_search=0x7f020038;
+        public static final int img_empty_person=0x7f020039;
+        public static final int indicate_bar_code=0x7f02003a;
+        public static final int indicate_image=0x7f02003b;
+        public static final int indicate_light=0x7f02003c;
+        public static final int indicate_manual=0x7f02003d;
+        public static final int indicate_qr_code=0x7f02003e;
+        public static final int indicate_rfid=0x7f02003f;
+        public static final int indicator_arrow=0x7f020040;
+        public static final int indicator_bar_code=0x7f020041;
+        public static final int indicator_bar_code_off=0x7f020042;
+        public static final int indicator_bar_code_on=0x7f020043;
+        public static final int indicator_bg_bottom=0x7f020044;
+        public static final int indicator_bg_top=0x7f020045;
+        public static final int indicator_image_off=0x7f020046;
+        public static final int indicator_image_on=0x7f020047;
+        public static final int indicator_light_off=0x7f020048;
+        public static final int indicator_light_on=0x7f020049;
         public static final int indicator_manual_off=0x7f02004a;
         public static final int indicator_manual_on=0x7f02004b;
         public static final int indicator_more=0x7f02004c;
@@ -330,261 +661,310 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
         public static final int message_tab_bg_press=0x7f02006e;
         public static final int nfc_btn=0x7f02006f;
         public static final int personal=0x7f020070;
-        public static final int profile_newspaper_edge=0x7f020071;
-        public static final int remind=0x7f020072;
-        public static final int sample_1=0x7f020073;
-        public static final int sample_2=0x7f020074;
-        public static final int sensor_1=0x7f020075;
-        public static final int sensor_2=0x7f020076;
-        public static final int sensor_3=0x7f020077;
-        public static final int sensor_4=0x7f020078;
-        public static final int splash=0x7f020079;
-        public static final int title_bar=0x7f02007a;
-        public static final int verified=0x7f02007b;
-        public static final int welcome=0x7f02007c;
-        public static final int welcome_message=0x7f02007d;
+        public static final int process_current=0x7f020071;
+        public static final int process_past=0x7f020072;
+        public static final int profile_newspaper_edge=0x7f020073;
+        public static final int remind=0x7f020074;
+        public static final int sample_1=0x7f020075;
+        public static final int sample_2=0x7f020076;
+        public static final int sample_user=0x7f020077;
+        public static final int sensor_1=0x7f020078;
+        public static final int sensor_2=0x7f020079;
+        public static final int sensor_3=0x7f02007a;
+        public static final int sensor_4=0x7f02007b;
+        public static final int splash=0x7f02007c;
+        public static final int tab_scan_bg=0x7f02007d;
+        public static final int title_bar=0x7f02007e;
+        public static final int verified=0x7f02007f;
+        public static final int vpi__tab_indicator=0x7f020080;
+        public static final int vpi__tab_selected_focused_holo=0x7f020081;
+        public static final int vpi__tab_selected_holo=0x7f020082;
+        public static final int vpi__tab_selected_pressed_holo=0x7f020083;
+        public static final int vpi__tab_unselected_focused_holo=0x7f020084;
+        public static final int vpi__tab_unselected_holo=0x7f020085;
+        public static final int vpi__tab_unselected_pressed_holo=0x7f020086;
+        public static final int welcome=0x7f020087;
+        public static final int welcome_message=0x7f020088;
     }
     public static final class id {
-        public static final int about_version_code=0x7f07000f;
-        public static final int action_scan=0x7f070080;
+        public static final int about_version_code=0x7f0b000f;
+        public static final int action_scan=0x7f0b0093;
         /**  Messages IDs 
          */
-        public static final int auto_focus=0x7f070003;
-        public static final int both=0x7f070011;
-        public static final int btn_back=0x7f070048;
-        public static final int cb_nfc_mode=0x7f070049;
-        public static final int cb_turn_light=0x7f07004a;
-        public static final int container=0x7f070020;
-        public static final int decode=0x7f070004;
-        public static final int decode_failed=0x7f070005;
-        public static final int decode_succeeded=0x7f070006;
-        public static final int disabled=0x7f070012;
-        public static final int drawer_layout=0x7f07001f;
-        public static final int encode_failed=0x7f070007;
-        public static final int encode_succeeded=0x7f070008;
-        public static final int fl_inner=0x7f07007e;
-        public static final int flip=0x7f070018;
-        public static final int footer_bar=0x7f070022;
-        public static final int gridview=0x7f070000;
-        public static final int header_bar=0x7f070060;
-        public static final int iv_comany=0x7f070051;
-        public static final int iv_icon=0x7f07006c;
-        public static final int iv_image=0x7f07001a;
-        public static final int iv_message_icon=0x7f070076;
-        public static final int iv_profile_image=0x7f070063;
-        public static final int iv_result_icon=0x7f070031;
-        public static final int iv_rfid=0x7f07006a;
-        public static final int iv_rfid_animation=0x7f070024;
-        public static final int iv_right_arrow=0x7f070077;
-        public static final int iv_scan_result_control=0x7f070041;
-        public static final int iv_tag=0x7f07004f;
-        public static final int iv_thumbnail=0x7f070028;
-        public static final int iv_verified=0x7f07002a;
-        public static final int launch_product_query=0x7f070009;
-        public static final int ll_bottom=0x7f07006b;
-        public static final int ll_bottom_action=0x7f07006f;
-        public static final int ll_content=0x7f070073;
-        public static final int ll_message1=0x7f070074;
-        public static final int ll_scan_details=0x7f070034;
-        public static final int ll_top=0x7f070069;
-        public static final int ly_main_tab_bottom=0x7f070042;
-        public static final int maintabs_tab_find=0x7f070045;
-        public static final int maintabs_tab_home=0x7f070044;
-        public static final int maintabs_tab_message=0x7f070046;
-        public static final int maintabs_tab_profile=0x7f070047;
-        public static final int maintabs_tabs_bar=0x7f070043;
-        public static final int manualOnly=0x7f070013;
-        public static final int navigation_drawer=0x7f070021;
-        public static final int preview_view=0x7f07001c;
-        public static final int pullDownFromTop=0x7f070014;
-        public static final int pullFromEnd=0x7f070015;
-        public static final int pullFromStart=0x7f070016;
-        public static final int pullUpFromBottom=0x7f070017;
-        public static final int pull_refresh_list=0x7f070061;
-        public static final int pull_to_refresh_header=0x7f070079;
-        public static final int pull_to_refresh_image=0x7f07007b;
-        public static final int pull_to_refresh_progress=0x7f07007a;
-        public static final int pull_to_refresh_sub_text=0x7f07007f;
-        public static final int pull_to_refresh_text=0x7f07007c;
-        public static final int pull_to_refresh_updated_at=0x7f07007d;
-        public static final int quit=0x7f07000a;
-        public static final int rb_action1=0x7f070070;
-        public static final int rb_action2=0x7f070071;
-        public static final int rb_action3=0x7f070072;
-        public static final int restart_preview=0x7f07000b;
-        public static final int return_scan_result=0x7f07000c;
-        public static final int rl_activity=0x7f070053;
-        public static final int rl_activity2=0x7f07005a;
-        public static final int rl_company_area=0x7f070050;
-        public static final int rl_items_1=0x7f070052;
-        public static final int rl_items_2=0x7f070059;
-        public static final int rl_logistics=0x7f07003e;
-        public static final int rl_message_icon=0x7f070075;
-        public static final int rl_my_credits=0x7f070066;
-        public static final int rl_my_favor=0x7f070067;
-        public static final int rl_my_scan=0x7f070065;
-        public static final int rl_nearby=0x7f070057;
-        public static final int rl_nearby2=0x7f07005e;
-        public static final int rl_popular=0x7f070055;
-        public static final int rl_popular2=0x7f07005c;
-        public static final int rl_profile_area=0x7f070062;
-        public static final int rl_scan_manufacture_detail=0x7f07002d;
-        public static final int rl_scan_record=0x7f07003b;
-        public static final int rl_scan_result_area=0x7f07002f;
-        public static final int rl_scan_thumbnail_area=0x7f070027;
-        public static final int rl_search_area=0x7f07004d;
-        public static final int rl_settings=0x7f070068;
-        public static final int rl_tag_area=0x7f07004e;
-        public static final int rl_verify_group=0x7f070029;
-        public static final int rotate=0x7f070019;
-        public static final int scrollview=0x7f070002;
-        public static final int search_book_contents_failed=0x7f07000d;
-        public static final int search_book_contents_succeeded=0x7f07000e;
-        public static final int sfv_camera=0x7f07004b;
-        public static final int split=0x7f070010;
-        public static final int sv_content=0x7f070026;
-        public static final int tv_action_name=0x7f07001b;
-        public static final int tv_activity=0x7f070054;
-        public static final int tv_activity2=0x7f07005b;
-        public static final int tv_company_name=0x7f07002c;
-        public static final int tv_logistics_title=0x7f07003f;
-        public static final int tv_logistics_value=0x7f070040;
-        public static final int tv_manfacture_detail=0x7f07002e;
-        public static final int tv_message_title=0x7f070078;
-        public static final int tv_name=0x7f07006d;
-        public static final int tv_nearby=0x7f070058;
-        public static final int tv_nearby2=0x7f07005f;
-        public static final int tv_new_message_count=0x7f07006e;
-        public static final int tv_nfc_action_desc=0x7f070025;
-        public static final int tv_popular=0x7f070056;
-        public static final int tv_popular2=0x7f07005d;
-        public static final int tv_product_barcode=0x7f070035;
-        public static final int tv_product_barcode_value=0x7f070036;
-        public static final int tv_product_desc=0x7f070039;
-        public static final int tv_product_desc_value=0x7f07003a;
-        public static final int tv_product_name=0x7f070037;
-        public static final int tv_product_name_value=0x7f070038;
-        public static final int tv_scan_desc=0x7f070033;
-        public static final int tv_scan_record_title=0x7f07003c;
-        public static final int tv_scan_record_value=0x7f07003d;
-        public static final int tv_scan_status=0x7f070032;
-        public static final int tv_scan_tips=0x7f070030;
-        public static final int tv_title=0x7f07004c;
-        public static final int tv_user_name=0x7f070064;
-        public static final int v_divider=0x7f07002b;
-        public static final int viewfinder_view=0x7f07001d;
-        public static final int vp_fragment=0x7f070023;
-        public static final int webview=0x7f070001;
-        public static final int wv_content=0x7f07001e;
+        public static final int auto_focus=0x7f0b0003;
+        public static final int both=0x7f0b0016;
+        public static final int bottom=0x7f0b0014;
+        public static final int btn_back=0x7f0b003d;
+        public static final int cb_light=0x7f0b0073;
+        public static final int cb_nfc_mode=0x7f0b003e;
+        public static final int cb_turn_light=0x7f0b003f;
+        public static final int decode=0x7f0b0004;
+        public static final int decode_failed=0x7f0b0005;
+        public static final int decode_succeeded=0x7f0b0006;
+        public static final int disabled=0x7f0b0017;
+        public static final int encode_failed=0x7f0b0007;
+        public static final int encode_succeeded=0x7f0b0008;
+        public static final int fl_inner=0x7f0b0087;
+        public static final int flip=0x7f0b001d;
+        public static final int footer_bar=0x7f0b0023;
+        public static final int gridview=0x7f0b0000;
+        public static final int header_bar=0x7f0b0054;
+        public static final int indicator=0x7f0b0035;
+        public static final int indicatorTop=0x7f0b0037;
+        public static final int iv_comany=0x7f0b0045;
+        public static final int iv_icon=0x7f0b0076;
+        public static final int iv_image=0x7f0b001f;
+        public static final int iv_load_image=0x7f0b0071;
+        public static final int iv_manual=0x7f0b0072;
+        public static final int iv_message_icon=0x7f0b007f;
+        public static final int iv_process_indicator=0x7f0b008c;
+        public static final int iv_product_icon=0x7f0b0030;
+        public static final int iv_profile_image=0x7f0b0061;
+        public static final int iv_result_status=0x7f0b0031;
+        public static final int iv_rfid=0x7f0b006f;
+        public static final int iv_rfid_animation=0x7f0b0025;
+        public static final int iv_right_arrow=0x7f0b0080;
+        public static final int iv_tag=0x7f0b0043;
+        public static final int iv_thumbnail=0x7f0b002a;
+        public static final int iv_verified=0x7f0b002c;
+        public static final int launch_product_query=0x7f0b0009;
+        public static final int ll_bottom=0x7f0b0070;
+        public static final int ll_bottom_action=0x7f0b0079;
+        public static final int ll_content=0x7f0b0028;
+        public static final int ll_message1=0x7f0b007d;
+        public static final int ll_profile_area=0x7f0b0060;
+        public static final int ll_profile_info=0x7f0b0063;
+        public static final int ll_top=0x7f0b006e;
+        public static final int lv_details=0x7f0b005f;
+        public static final int lv_scan_history=0x7f0b0074;
+        public static final int lv_tracking_info=0x7f0b0075;
+        public static final int ly_main_tab_bottom=0x7f0b0038;
+        public static final int maintabs_tab_home=0x7f0b003b;
+        public static final int maintabs_tab_message=0x7f0b003a;
+        public static final int maintabs_tab_profile=0x7f0b003c;
+        public static final int maintabs_tabs_bar=0x7f0b0039;
+        public static final int manualOnly=0x7f0b0018;
+        public static final int none=0x7f0b0011;
+        public static final int preview_view=0x7f0b0021;
+        public static final int pullDownFromTop=0x7f0b0019;
+        public static final int pullFromEnd=0x7f0b001a;
+        public static final int pullFromStart=0x7f0b001b;
+        public static final int pullUpFromBottom=0x7f0b001c;
+        public static final int pull_refresh_list=0x7f0b0055;
+        public static final int pull_to_refresh_header=0x7f0b0082;
+        public static final int pull_to_refresh_image=0x7f0b0084;
+        public static final int pull_to_refresh_progress=0x7f0b0083;
+        public static final int pull_to_refresh_sub_text=0x7f0b0088;
+        public static final int pull_to_refresh_text=0x7f0b0085;
+        public static final int pull_to_refresh_updated_at=0x7f0b0086;
+        public static final int quit=0x7f0b000a;
+        public static final int rb_action1=0x7f0b007a;
+        public static final int rb_action2=0x7f0b007b;
+        public static final int rb_action3=0x7f0b007c;
+        public static final int restart_preview=0x7f0b000b;
+        public static final int return_scan_result=0x7f0b000c;
+        public static final int rl_activity=0x7f0b0047;
+        public static final int rl_activity2=0x7f0b004e;
+        public static final int rl_company_area=0x7f0b0044;
+        public static final int rl_items_1=0x7f0b0046;
+        public static final int rl_items_2=0x7f0b004d;
+        public static final int rl_message_icon=0x7f0b007e;
+        public static final int rl_my_credits=0x7f0b006b;
+        public static final int rl_my_favor=0x7f0b006c;
+        public static final int rl_my_scan=0x7f0b006a;
+        public static final int rl_nearby=0x7f0b004b;
+        public static final int rl_nearby2=0x7f0b0052;
+        public static final int rl_popular=0x7f0b0049;
+        public static final int rl_popular2=0x7f0b0050;
+        public static final int rl_product_bar=0x7f0b0056;
+        public static final int rl_product_details=0x7f0b005c;
+        public static final int rl_product_name=0x7f0b0059;
+        public static final int rl_scan_result_image=0x7f0b002f;
+        public static final int rl_scan_result_info=0x7f0b0032;
+        public static final int rl_scan_thumbnail_area=0x7f0b0029;
+        public static final int rl_search_area=0x7f0b0041;
+        public static final int rl_settings=0x7f0b006d;
+        public static final int rl_tag_area=0x7f0b0042;
+        public static final int rl_verify_group=0x7f0b002b;
+        public static final int rotate=0x7f0b001e;
+        public static final int scrollview=0x7f0b0002;
+        public static final int search_book_contents_failed=0x7f0b000d;
+        public static final int search_book_contents_succeeded=0x7f0b000e;
+        public static final int sfv_camera=0x7f0b0040;
+        public static final int split=0x7f0b0010;
+        public static final int sv_content=0x7f0b0027;
+        public static final int top=0x7f0b0015;
+        public static final int triangle=0x7f0b0012;
+        public static final int tv_action_name=0x7f0b0020;
+        public static final int tv_activity=0x7f0b0048;
+        public static final int tv_activity2=0x7f0b004f;
+        public static final int tv_company_name=0x7f0b002e;
+        public static final int tv_credit_num_value=0x7f0b0066;
+        public static final int tv_credit_number_title=0x7f0b0067;
+        public static final int tv_favor_num_value=0x7f0b0068;
+        public static final int tv_favor_number_title=0x7f0b0069;
+        public static final int tv_key=0x7f0b0089;
+        public static final int tv_message_title=0x7f0b0081;
+        public static final int tv_name=0x7f0b0077;
+        public static final int tv_nearby=0x7f0b004c;
+        public static final int tv_nearby2=0x7f0b0053;
+        public static final int tv_new_message_count=0x7f0b0078;
+        public static final int tv_nfc_action_desc=0x7f0b0026;
+        public static final int tv_popular=0x7f0b004a;
+        public static final int tv_popular2=0x7f0b0051;
+        public static final int tv_product_bar_title=0x7f0b0057;
+        public static final int tv_product_bar_value=0x7f0b0058;
+        public static final int tv_product_details_title=0x7f0b005d;
+        public static final int tv_product_name_title=0x7f0b005a;
+        public static final int tv_product_name_value=0x7f0b005b;
+        public static final int tv_scan_desc=0x7f0b0034;
+        public static final int tv_scan_num_value=0x7f0b0064;
+        public static final int tv_scan_number_title=0x7f0b0065;
+        public static final int tv_scan_status=0x7f0b0033;
+        public static final int tv_text1=0x7f0b008e;
+        public static final int tv_text2=0x7f0b008f;
+        public static final int tv_time=0x7f0b0091;
+        public static final int tv_title=0x7f0b0092;
+        public static final int tv_user_name=0x7f0b0062;
+        public static final int tv_value=0x7f0b008a;
+        public static final int underline=0x7f0b0013;
+        public static final int v_bottom=0x7f0b008d;
+        public static final int v_bottom_line=0x7f0b0090;
+        public static final int v_detail_divider=0x7f0b005e;
+        public static final int v_divider=0x7f0b002d;
+        public static final int v_top=0x7f0b008b;
+        public static final int viewfinder_view=0x7f0b0022;
+        public static final int vp_fragment=0x7f0b0024;
+        public static final int vp_scan_details=0x7f0b0036;
+        public static final int webview=0x7f0b0001;
+    }
+    public static final class integer {
+        public static final int default_circle_indicator_orientation=0x7f080000;
+        public static final int default_title_indicator_footer_indicator_style=0x7f080001;
+        public static final int default_title_indicator_line_position=0x7f080002;
+        public static final int default_underline_indicator_fade_delay=0x7f080003;
+        public static final int default_underline_indicator_fade_length=0x7f080004;
     }
     public static final class layout {
         public static final int action_item_layout=0x7f030000;
         public static final int activity_capture=0x7f030001;
-        public static final int activity_enterprise_todo=0x7f030002;
-        public static final int activity_main=0x7f030003;
-        public static final int activity_main2=0x7f030004;
-        public static final int activity_rfid=0x7f030005;
-        public static final int activity_scan_result=0x7f030006;
-        public static final int activity_todo=0x7f030007;
-        public static final int bottom_bar=0x7f030008;
-        public static final int capture_bottom_bar=0x7f030009;
-        public static final int capture_layout=0x7f03000a;
-        public static final int enterprise_title_bar=0x7f03000b;
-        public static final int footer_item=0x7f03000c;
-        public static final int fragment_enterprise=0x7f03000d;
-        public static final int fragment_find=0x7f03000e;
-        public static final int fragment_home=0x7f03000f;
-        public static final int fragment_main=0x7f030010;
-        public static final int fragment_message=0x7f030011;
-        public static final int fragment_navigation_drawer=0x7f030012;
-        public static final int fragment_profile=0x7f030013;
-        public static final int fragment_scan=0x7f030014;
+        public static final int activity_main=0x7f030002;
+        public static final int activity_rfid=0x7f030003;
+        public static final int activity_scan_result=0x7f030004;
+        public static final int activity_todo=0x7f030005;
+        public static final int bottom_bar=0x7f030006;
+        public static final int capture_bottom_bar=0x7f030007;
+        public static final int capture_layout=0x7f030008;
+        public static final int footer_item=0x7f030009;
+        public static final int fragment_enterprise=0x7f03000a;
+        public static final int fragment_find=0x7f03000b;
+        public static final int fragment_home=0x7f03000c;
+        public static final int fragment_main=0x7f03000d;
+        public static final int fragment_message=0x7f03000e;
+        public static final int fragment_navigation_drawer=0x7f03000f;
+        public static final int fragment_product_info=0x7f030010;
+        public static final int fragment_profile=0x7f030011;
+        public static final int fragment_scan=0x7f030012;
+        public static final int fragment_scan_history=0x7f030013;
+        public static final int fragment_tracking_info=0x7f030014;
         public static final int grid_item_layout=0x7f030015;
         public static final int message_detail_layout=0x7f030016;
         public static final int message_item_layout=0x7f030017;
         public static final int pull_to_refresh_header=0x7f030018;
         public static final int pull_to_refresh_header_horizontal=0x7f030019;
         public static final int pull_to_refresh_header_vertical=0x7f03001a;
-        public static final int title_bar=0x7f03001b;
+        public static final int scan_detail_item_layout=0x7f03001b;
+        public static final int scan_history_item_layout=0x7f03001c;
+        public static final int scan_tracking_item_layout=0x7f03001d;
+        public static final int title_bar=0x7f03001e;
     }
     public static final class menu {
-        public static final int global=0x7f0b0000;
-        public static final int main=0x7f0b0001;
+        public static final int global=0x7f0d0000;
+        public static final int main=0x7f0d0001;
     }
     public static final class raw {
         public static final int beep=0x7f050000;
     }
     public static final class string {
-        public static final int action_example=0x7f08000c;
-        public static final int action_settings=0x7f08000d;
-        public static final int activity=0x7f08001e;
-        public static final int app_name=0x7f080006;
-        public static final int back=0x7f080013;
-        public static final int backpress_to_exit=0x7f080027;
-        public static final int company_member=0x7f08001d;
-        public static final int demo_scan_desc=0x7f08002d;
-        public static final int demo_scan_result=0x7f08002c;
-        public static final int detail_info=0x7f080017;
-        public static final int enterprise_about=0x7f080035;
-        public static final int enterprise_app_name=0x7f080040;
-        public static final int enterprise_customer_analytics=0x7f08003b;
-        public static final int enterprise_dashboard=0x7f08003e;
-        public static final int enterprise_demo_title=0x7f080036;
-        public static final int enterprise_fleeing_analytics=0x7f08003a;
-        /**  enterprise  
+        public static final int action_example=0x7f0c000c;
+        public static final int action_settings=0x7f0c000d;
+        public static final int activity=0x7f0c001e;
+        public static final int app_name=0x7f0c0006;
+        public static final int back=0x7f0c0013;
+        public static final int backpress_to_exit=0x7f0c0023;
+        public static final int company_member=0x7f0c001d;
+        public static final int copy=0x7f0c0028;
+        public static final int copy_succeeded=0x7f0c0029;
+        public static final int decoding_failed=0x7f0c0027;
+        public static final int decoding_image=0x7f0c0026;
+        public static final int demo_scan_desc=0x7f0c002d;
+        public static final int demo_scan_result=0x7f0c002c;
+        public static final int detail_info=0x7f0c0017;
+        public static final int enable_location_message=0x7f0c0034;
+        /**  Locaiton  
          */
-        public static final int enterprise_home=0x7f080033;
-        public static final int enterprise_logistics_analytics=0x7f08003c;
-        public static final int enterprise_marketing_management=0x7f080038;
-        public static final int enterprise_product_analytics=0x7f080037;
-        public static final int enterprise_settings=0x7f080034;
-        public static final int enterprise_tag_management=0x7f080039;
-        public static final int enterprise_warning=0x7f08003d;
-        public static final int find_tag=0x7f08001c;
-        public static final int hint_search=0x7f08001b;
-        public static final int load_failed=0x7f080026;
-        public static final int loading=0x7f08003f;
-        public static final int my_credits=0x7f080022;
-        public static final int my_favorite=0x7f080023;
-        public static final int my_scan=0x7f080021;
-        public static final int navigation_drawer_close=0x7f08000b;
-        public static final int navigation_drawer_open=0x7f08000a;
-        public static final int nearby=0x7f080020;
-        public static final int network_not_available=0x7f080019;
-        public static final int nfc_enable_message=0x7f080030;
-        public static final int nfc_enable_title=0x7f08002f;
-        public static final int nfc_not_supported=0x7f08002e;
-        public static final int no=0x7f080032;
-        public static final int original_info=0x7f080016;
-        public static final int popular=0x7f08001f;
+        public static final int enable_location_title=0x7f0c0033;
+        public static final int find_tag=0x7f0c001c;
+        public static final int hint_search=0x7f0c001b;
+        public static final int load_failed=0x7f0c0022;
+        public static final int loading=0x7f0c0037;
+        public static final int location_no=0x7f0c0036;
+        public static final int location_ok=0x7f0c0035;
+        public static final int my_credits=0x7f0c0043;
+        public static final int my_favorite=0x7f0c0044;
+        public static final int my_scan=0x7f0c0042;
+        public static final int navigation_drawer_close=0x7f0c000b;
+        public static final int navigation_drawer_open=0x7f0c000a;
+        public static final int nearby=0x7f0c0020;
+        public static final int network_not_available=0x7f0c0019;
+        public static final int nfc_enable_message=0x7f0c0030;
+        public static final int nfc_enable_title=0x7f0c002f;
+        public static final int nfc_not_supported=0x7f0c002e;
+        public static final int no=0x7f0c0032;
+        public static final int none=0x7f0c003e;
+        public static final int original_info=0x7f0c0016;
+        public static final int popular=0x7f0c001f;
+        public static final int product_barcode=0x7f0c003b;
+        public static final int product_desc=0x7f0c003d;
+        /**  scan result UI  
+         */
+        public static final int product_detail_basic=0x7f0c0038;
+        public static final int product_name=0x7f0c003c;
+        public static final int product_scan_info=0x7f0c0039;
+        public static final int product_tracking=0x7f0c003a;
+        public static final int profile_credit_num_title=0x7f0c0040;
+        public static final int profile_favorite=0x7f0c0041;
+        /**  Profile 
+         */
+        public static final int profile_scan_num_title=0x7f0c003f;
         /**  Just use standard Pull Down String when pulling up. These can be set for languages which require it 
  Just use standard Pull Down String when pulling up. These can be set for languages which require it 
          */
-        public static final int pull_to_refresh_from_bottom_pull_label=0x7f080003;
-        public static final int pull_to_refresh_from_bottom_refreshing_label=0x7f080005;
-        public static final int pull_to_refresh_from_bottom_release_label=0x7f080004;
-        public static final int pull_to_refresh_pull_label=0x7f080000;
-        public static final int pull_to_refresh_refreshing_label=0x7f080002;
-        public static final int pull_to_refresh_release_label=0x7f080001;
-        public static final int pull_to_refresh_tap_label=0x7f08001a;
-        public static final int rfid_enable=0x7f08002b;
-        public static final int rfid_tip=0x7f08002a;
-        public static final int scan_failed=0x7f080015;
-        public static final int scan_result=0x7f080018;
-        public static final int scan_result_tip=0x7f080028;
-        public static final int scan_text=0x7f080014;
-        public static final int settings=0x7f080024;
-        public static final int tab_find=0x7f080011;
-        public static final int tab_history=0x7f08000f;
-        public static final int tab_message=0x7f08000e;
-        public static final int tab_profile=0x7f080012;
-        public static final int tab_scan=0x7f080010;
-        public static final int title_section1=0x7f080007;
-        public static final int title_section2=0x7f080008;
-        public static final int title_section3=0x7f080009;
-        public static final int todo=0x7f080025;
-        public static final int verify_code_loading=0x7f080029;
-        public static final int yes=0x7f080031;
+        public static final int pull_to_refresh_from_bottom_pull_label=0x7f0c0003;
+        public static final int pull_to_refresh_from_bottom_refreshing_label=0x7f0c0005;
+        public static final int pull_to_refresh_from_bottom_release_label=0x7f0c0004;
+        public static final int pull_to_refresh_pull_label=0x7f0c0000;
+        public static final int pull_to_refresh_refreshing_label=0x7f0c0002;
+        public static final int pull_to_refresh_release_label=0x7f0c0001;
+        public static final int pull_to_refresh_tap_label=0x7f0c001a;
+        public static final int rfid_enable=0x7f0c002b;
+        public static final int rfid_tip=0x7f0c002a;
+        public static final int scan_failed=0x7f0c0015;
+        public static final int scan_result=0x7f0c0018;
+        public static final int scan_result_tip=0x7f0c0024;
+        public static final int scan_text=0x7f0c0014;
+        public static final int settings=0x7f0c0045;
+        public static final int tab_find=0x7f0c0011;
+        public static final int tab_history=0x7f0c000f;
+        public static final int tab_message=0x7f0c000e;
+        public static final int tab_profile=0x7f0c0012;
+        public static final int tab_scan=0x7f0c0010;
+        public static final int title_section1=0x7f0c0007;
+        public static final int title_section2=0x7f0c0008;
+        public static final int title_section3=0x7f0c0009;
+        public static final int todo=0x7f0c0021;
+        public static final int verify_code_loading=0x7f0c0025;
+        public static final int yes=0x7f0c0031;
     }
     public static final class style {
         /** 
@@ -596,14 +976,17 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
 
 
 
+
+
+
+
+
+
     
 
             Theme customizations available in newer API levels can go in
             res/values-vXX/styles.xml, while customizations related to
             backward-compatibility can go here.
-
-
-
 
 
 
@@ -620,27 +1003,40 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
     
  API 14 theme customizations can go here. 
          */
-        public static final int AppBaseTheme=0x7f0a0000;
+        public static final int AppBaseTheme=0x7f0a0005;
         /**  Application theme. 
          */
-        public static final int AppTheme=0x7f0a0001;
-        public static final int AppTheme2=0x7f0a0003;
-        public static final int EnterpriseMyActionBar=0x7f0a0004;
-        public static final int MyActionBar=0x7f0a0002;
-        public static final int NoEnterAnimation=0x7f0a0006;
+        public static final int AppTheme=0x7f0a0006;
+        /**  Tab style 
+         */
+        public static final int AppearanceTabPageIndicator=0x7f0a001a;
+        public static final int MyActionBar=0x7f0a0007;
+        public static final int NoEnterAnimation=0x7f0a0009;
         /**  <item name="android:windowAnimationStyle">@style/activity_animation</item> 
          */
-        public static final int SplashTheme=0x7f0a0005;
-        public static final int activity_animation=0x7f0a0007;
-        public static final int headline_text=0x7f0a0009;
-        public static final int indicator_style=0x7f0a000a;
-        public static final int maintabs_tab_style=0x7f0a0008;
-        public static final int message_tab_style=0x7f0a0010;
-        public static final int right_action_style=0x7f0a000f;
-        public static final int text_style=0x7f0a000b;
-        public static final int text_style_bold=0x7f0a000d;
-        public static final int text_style_light=0x7f0a000c;
-        public static final int text_style_scandetail=0x7f0a000e;
+        public static final int SplashTheme=0x7f0a0008;
+        public static final int TabPageIndicator=0x7f0a001b;
+        public static final int TextAppearance_TabPageIndicator=0x7f0a0003;
+        public static final int Theme_PageIndicatorDefaults=0x7f0a0000;
+        public static final int Widget=0x7f0a0001;
+        public static final int Widget_IconPageIndicator=0x7f0a0004;
+        public static final int Widget_TabPageIndicator=0x7f0a0002;
+        public static final int activity_animation=0x7f0a000a;
+        public static final int default_style=0x7f0a000b;
+        public static final int headline_text=0x7f0a000d;
+        public static final int indicator_style=0x7f0a000e;
+        public static final int indicator_style2=0x7f0a000f;
+        public static final int maintabs_tab_style=0x7f0a000c;
+        public static final int message_tab_style=0x7f0a0018;
+        public static final int right_action_style=0x7f0a0017;
+        public static final int scan_tab_style=0x7f0a0019;
+        public static final int text_profile_info=0x7f0a0013;
+        public static final int text_style=0x7f0a0010;
+        public static final int text_style_bold=0x7f0a0012;
+        public static final int text_style_light=0x7f0a0011;
+        public static final int text_style_scandetail=0x7f0a0014;
+        public static final int text_style_scanhistory=0x7f0a0015;
+        public static final int text_style_scanhistory_sub=0x7f0a0016;
     }
     public static final class styleable {
         /** Attributes that can be used with a CircleImageView.
@@ -656,7 +1052,7 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
            @see #CircleImageView_border_width
          */
         public static final int[] CircleImageView = {
-            0x7f010014, 0x7f010015
+            0x7f010033, 0x7f010034
         };
         /**
           <p>This symbol is the offset where the {@link com.example.wochacha.R.attr#border_color}
@@ -689,6 +1085,313 @@ containing a value of this type.
           @attr name com.example.wochacha:border_width
         */
         public static final int CircleImageView_border_width = 0;
+        /** Attributes that can be used with a CirclePageIndicator.
+           <p>Includes the following attributes:</p>
+           <table>
+           <colgroup align="left" />
+           <colgroup align="left" />
+           <tr><th>Attribute</th><th>Description</th></tr>
+           <tr><td><code>{@link #CirclePageIndicator_android_background android:background}</code></td><td> View background </td></tr>
+           <tr><td><code>{@link #CirclePageIndicator_android_orientation android:orientation}</code></td><td> Orientation of the indicator.</td></tr>
+           <tr><td><code>{@link #CirclePageIndicator_centered com.example.wochacha:centered}</code></td><td> Whether or not the indicators should be centered.</td></tr>
+           <tr><td><code>{@link #CirclePageIndicator_fillColor com.example.wochacha:fillColor}</code></td><td> Color of the filled circle that represents the current page.</td></tr>
+           <tr><td><code>{@link #CirclePageIndicator_pageColor com.example.wochacha:pageColor}</code></td><td> Color of the filled circles that represents pages.</td></tr>
+           <tr><td><code>{@link #CirclePageIndicator_radius com.example.wochacha:radius}</code></td><td> Radius of the circles.</td></tr>
+           <tr><td><code>{@link #CirclePageIndicator_snap com.example.wochacha:snap}</code></td><td> Whether or not the selected indicator snaps to the circles.</td></tr>
+           <tr><td><code>{@link #CirclePageIndicator_strokeColor com.example.wochacha:strokeColor}</code></td><td> Color of the open circles.</td></tr>
+           <tr><td><code>{@link #CirclePageIndicator_strokeWidth com.example.wochacha:strokeWidth}</code></td><td> Width of the stroke used to draw the circles.</td></tr>
+           </table>
+           @see #CirclePageIndicator_android_background
+           @see #CirclePageIndicator_android_orientation
+           @see #CirclePageIndicator_centered
+           @see #CirclePageIndicator_fillColor
+           @see #CirclePageIndicator_pageColor
+           @see #CirclePageIndicator_radius
+           @see #CirclePageIndicator_snap
+           @see #CirclePageIndicator_strokeColor
+           @see #CirclePageIndicator_strokeWidth
+         */
+        public static final int[] CirclePageIndicator = {
+            0x010100c4, 0x010100d4, 0x7f010006, 0x7f010008,
+            0x7f01000a, 0x7f01000b, 0x7f01000c, 0x7f01000d,
+            0x7f01000e
+        };
+        /**
+          <p>
+          @attr description
+           View background 
+          <p>This corresponds to the global attribute
+          resource symbol {@link android.R.attr#background}.
+          @attr name android:background
+        */
+        public static final int CirclePageIndicator_android_background = 1;
+        /**
+          <p>
+          @attr description
+           Orientation of the indicator. 
+          <p>This corresponds to the global attribute
+          resource symbol {@link android.R.attr#orientation}.
+          @attr name android:orientation
+        */
+        public static final int CirclePageIndicator_android_orientation = 0;
+        /**
+          <p>
+          @attr description
+           Whether or not the indicators should be centered. 
+
+
+          <p>Must be a boolean value, either "<code>true</code>" or "<code>false</code>".
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+          <p>This is a private symbol.
+          @attr name com.example.wochacha:centered
+        */
+        public static final int CirclePageIndicator_centered = 2;
+        /**
+          <p>
+          @attr description
+           Color of the filled circle that represents the current page. 
+
+
+          <p>Must be a color value, in the form of "<code>#<i>rgb</i></code>", "<code>#<i>argb</i></code>",
+"<code>#<i>rrggbb</i></code>", or "<code>#<i>aarrggbb</i></code>".
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+          <p>This is a private symbol.
+          @attr name com.example.wochacha:fillColor
+        */
+        public static final int CirclePageIndicator_fillColor = 4;
+        /**
+          <p>
+          @attr description
+           Color of the filled circles that represents pages. 
+
+
+          <p>Must be a color value, in the form of "<code>#<i>rgb</i></code>", "<code>#<i>argb</i></code>",
+"<code>#<i>rrggbb</i></code>", or "<code>#<i>aarrggbb</i></code>".
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+          <p>This is a private symbol.
+          @attr name com.example.wochacha:pageColor
+        */
+        public static final int CirclePageIndicator_pageColor = 5;
+        /**
+          <p>
+          @attr description
+           Radius of the circles. This is also the spacing between circles. 
+
+
+          <p>Must be a dimension value, which is a floating point number appended with a unit such as "<code>14.5sp</code>".
+Available units are: px (pixels), dp (density-independent pixels), sp (scaled pixels based on preferred font size),
+in (inches), mm (millimeters).
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+          <p>This is a private symbol.
+          @attr name com.example.wochacha:radius
+        */
+        public static final int CirclePageIndicator_radius = 6;
+        /**
+          <p>
+          @attr description
+           Whether or not the selected indicator snaps to the circles. 
+
+
+          <p>Must be a boolean value, either "<code>true</code>" or "<code>false</code>".
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+          <p>This is a private symbol.
+          @attr name com.example.wochacha:snap
+        */
+        public static final int CirclePageIndicator_snap = 7;
+        /**
+          <p>
+          @attr description
+           Color of the open circles. 
+
+
+          <p>Must be a color value, in the form of "<code>#<i>rgb</i></code>", "<code>#<i>argb</i></code>",
+"<code>#<i>rrggbb</i></code>", or "<code>#<i>aarrggbb</i></code>".
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+          <p>This is a private symbol.
+          @attr name com.example.wochacha:strokeColor
+        */
+        public static final int CirclePageIndicator_strokeColor = 8;
+        /**
+          <p>
+          @attr description
+           Width of the stroke used to draw the circles. 
+
+
+          <p>Must be a dimension value, which is a floating point number appended with a unit such as "<code>14.5sp</code>".
+Available units are: px (pixels), dp (density-independent pixels), sp (scaled pixels based on preferred font size),
+in (inches), mm (millimeters).
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+          <p>This is a private symbol.
+          @attr name com.example.wochacha:strokeWidth
+        */
+        public static final int CirclePageIndicator_strokeWidth = 3;
+        /** Attributes that can be used with a LinePageIndicator.
+           <p>Includes the following attributes:</p>
+           <table>
+           <colgroup align="left" />
+           <colgroup align="left" />
+           <tr><th>Attribute</th><th>Description</th></tr>
+           <tr><td><code>{@link #LinePageIndicator_android_background android:background}</code></td><td> View background </td></tr>
+           <tr><td><code>{@link #LinePageIndicator_centered com.example.wochacha:centered}</code></td><td> Whether or not the indicators should be centered.</td></tr>
+           <tr><td><code>{@link #LinePageIndicator_gapWidth com.example.wochacha:gapWidth}</code></td><td> Width of the gap between each indicator line.</td></tr>
+           <tr><td><code>{@link #LinePageIndicator_lineWidth com.example.wochacha:lineWidth}</code></td><td> Width of each indicator line.</td></tr>
+           <tr><td><code>{@link #LinePageIndicator_selectedColor com.example.wochacha:selectedColor}</code></td><td> Color of the selected line that represents the current page.</td></tr>
+           <tr><td><code>{@link #LinePageIndicator_strokeWidth com.example.wochacha:strokeWidth}</code></td><td> Width of each indicator line's stroke.</td></tr>
+           <tr><td><code>{@link #LinePageIndicator_unselectedColor com.example.wochacha:unselectedColor}</code></td><td> Color of the unselected lines that represent the pages.</td></tr>
+           </table>
+           @see #LinePageIndicator_android_background
+           @see #LinePageIndicator_centered
+           @see #LinePageIndicator_gapWidth
+           @see #LinePageIndicator_lineWidth
+           @see #LinePageIndicator_selectedColor
+           @see #LinePageIndicator_strokeWidth
+           @see #LinePageIndicator_unselectedColor
+         */
+        public static final int[] LinePageIndicator = {
+            0x010100d4, 0x7f010006, 0x7f010007, 0x7f010008,
+            0x7f010009, 0x7f01000f, 0x7f010010
+        };
+        /**
+          <p>
+          @attr description
+           View background 
+          <p>This corresponds to the global attribute
+          resource symbol {@link android.R.attr#background}.
+          @attr name android:background
+        */
+        public static final int LinePageIndicator_android_background = 0;
+        /**
+          <p>
+          @attr description
+           Whether or not the indicators should be centered. 
+
+
+          <p>Must be a boolean value, either "<code>true</code>" or "<code>false</code>".
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+          <p>This is a private symbol.
+          @attr name com.example.wochacha:centered
+        */
+        public static final int LinePageIndicator_centered = 1;
+        /**
+          <p>
+          @attr description
+           Width of the gap between each indicator line. 
+
+
+          <p>Must be a dimension value, which is a floating point number appended with a unit such as "<code>14.5sp</code>".
+Available units are: px (pixels), dp (density-independent pixels), sp (scaled pixels based on preferred font size),
+in (inches), mm (millimeters).
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+          <p>This is a private symbol.
+          @attr name com.example.wochacha:gapWidth
+        */
+        public static final int LinePageIndicator_gapWidth = 6;
+        /**
+          <p>
+          @attr description
+           Width of each indicator line. 
+
+
+          <p>Must be a dimension value, which is a floating point number appended with a unit such as "<code>14.5sp</code>".
+Available units are: px (pixels), dp (density-independent pixels), sp (scaled pixels based on preferred font size),
+in (inches), mm (millimeters).
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+          <p>This is a private symbol.
+          @attr name com.example.wochacha:lineWidth
+        */
+        public static final int LinePageIndicator_lineWidth = 5;
+        /**
+          <p>
+          @attr description
+           Color of the selected line that represents the current page. 
+
+
+          <p>Must be a color value, in the form of "<code>#<i>rgb</i></code>", "<code>#<i>argb</i></code>",
+"<code>#<i>rrggbb</i></code>", or "<code>#<i>aarrggbb</i></code>".
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+          <p>This is a private symbol.
+          @attr name com.example.wochacha:selectedColor
+        */
+        public static final int LinePageIndicator_selectedColor = 2;
+        /**
+          <p>
+          @attr description
+           Width of each indicator line's stroke. 
+
+
+          <p>Must be a dimension value, which is a floating point number appended with a unit such as "<code>14.5sp</code>".
+Available units are: px (pixels), dp (density-independent pixels), sp (scaled pixels based on preferred font size),
+in (inches), mm (millimeters).
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+          <p>This is a private symbol.
+          @attr name com.example.wochacha:strokeWidth
+        */
+        public static final int LinePageIndicator_strokeWidth = 3;
+        /**
+          <p>
+          @attr description
+           Color of the unselected lines that represent the pages. 
+
+
+          <p>Must be a color value, in the form of "<code>#<i>rgb</i></code>", "<code>#<i>argb</i></code>",
+"<code>#<i>rrggbb</i></code>", or "<code>#<i>aarrggbb</i></code>".
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+          <p>This is a private symbol.
+          @attr name com.example.wochacha:unselectedColor
+        */
+        public static final int LinePageIndicator_unselectedColor = 4;
         /** Attributes that can be used with a PullToRefresh.
            <p>Includes the following attributes:</p>
            <table>
@@ -738,11 +1441,11 @@ containing a value of this type.
            @see #PullToRefresh_ptrSubHeaderTextAppearance
          */
         public static final int[] PullToRefresh = {
-            0x7f010000, 0x7f010001, 0x7f010002, 0x7f010003,
-            0x7f010004, 0x7f010005, 0x7f010006, 0x7f010007,
-            0x7f010008, 0x7f010009, 0x7f01000a, 0x7f01000b,
-            0x7f01000c, 0x7f01000d, 0x7f01000e, 0x7f01000f,
-            0x7f010010, 0x7f010011, 0x7f010012
+            0x7f01001f, 0x7f010020, 0x7f010021, 0x7f010022,
+            0x7f010023, 0x7f010024, 0x7f010025, 0x7f010026,
+            0x7f010027, 0x7f010028, 0x7f010029, 0x7f01002a,
+            0x7f01002b, 0x7f01002c, 0x7f01002d, 0x7f01002e,
+            0x7f01002f, 0x7f010030, 0x7f010031
         };
         /**
           <p>
@@ -1020,7 +1723,7 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
            @see #PullToRefreshList_listRowHeight
          */
         public static final int[] PullToRefreshList = {
-            0x7f010013
+            0x7f010032
         };
         /**
           <p>This symbol is the offset where the {@link com.example.wochacha.R.attr#listRowHeight}
@@ -1038,5 +1741,483 @@ containing a value of this type.
           @attr name com.example.wochacha:listRowHeight
         */
         public static final int PullToRefreshList_listRowHeight = 0;
+        /** Attributes that can be used with a TitlePageIndicator.
+           <p>Includes the following attributes:</p>
+           <table>
+           <colgroup align="left" />
+           <colgroup align="left" />
+           <tr><th>Attribute</th><th>Description</th></tr>
+           <tr><td><code>{@link #TitlePageIndicator_android_background android:background}</code></td><td> View background </td></tr>
+           <tr><td><code>{@link #TitlePageIndicator_android_textColor android:textColor}</code></td><td> Color of regular titles.</td></tr>
+           <tr><td><code>{@link #TitlePageIndicator_android_textSize android:textSize}</code></td><td> Size of title text.</td></tr>
+           <tr><td><code>{@link #TitlePageIndicator_clipPadding com.example.wochacha:clipPadding}</code></td><td> Screen edge padding.</td></tr>
+           <tr><td><code>{@link #TitlePageIndicator_footerColor com.example.wochacha:footerColor}</code></td><td> Color of the footer line and indicator.</td></tr>
+           <tr><td><code>{@link #TitlePageIndicator_footerIndicatorHeight com.example.wochacha:footerIndicatorHeight}</code></td><td> Height of the indicator above the footer line.</td></tr>
+           <tr><td><code>{@link #TitlePageIndicator_footerIndicatorStyle com.example.wochacha:footerIndicatorStyle}</code></td><td> Style of the indicator.</td></tr>
+           <tr><td><code>{@link #TitlePageIndicator_footerIndicatorUnderlinePadding com.example.wochacha:footerIndicatorUnderlinePadding}</code></td><td> Left and right padding of the underline indicator.</td></tr>
+           <tr><td><code>{@link #TitlePageIndicator_footerLineHeight com.example.wochacha:footerLineHeight}</code></td><td> Height of the footer line.</td></tr>
+           <tr><td><code>{@link #TitlePageIndicator_footerPadding com.example.wochacha:footerPadding}</code></td><td> Padding between the bottom of the title and the footer.</td></tr>
+           <tr><td><code>{@link #TitlePageIndicator_linePosition com.example.wochacha:linePosition}</code></td><td> Position of the line.</td></tr>
+           <tr><td><code>{@link #TitlePageIndicator_selectedBold com.example.wochacha:selectedBold}</code></td><td> Whether or not the selected item is displayed as bold.</td></tr>
+           <tr><td><code>{@link #TitlePageIndicator_selectedColor com.example.wochacha:selectedColor}</code></td><td> Color of the selected title.</td></tr>
+           <tr><td><code>{@link #TitlePageIndicator_titlePadding com.example.wochacha:titlePadding}</code></td><td> Padding between titles when bumping into each other.</td></tr>
+           <tr><td><code>{@link #TitlePageIndicator_topPadding com.example.wochacha:topPadding}</code></td><td> Padding between titles and the top of the View.</td></tr>
+           </table>
+           @see #TitlePageIndicator_android_background
+           @see #TitlePageIndicator_android_textColor
+           @see #TitlePageIndicator_android_textSize
+           @see #TitlePageIndicator_clipPadding
+           @see #TitlePageIndicator_footerColor
+           @see #TitlePageIndicator_footerIndicatorHeight
+           @see #TitlePageIndicator_footerIndicatorStyle
+           @see #TitlePageIndicator_footerIndicatorUnderlinePadding
+           @see #TitlePageIndicator_footerLineHeight
+           @see #TitlePageIndicator_footerPadding
+           @see #TitlePageIndicator_linePosition
+           @see #TitlePageIndicator_selectedBold
+           @see #TitlePageIndicator_selectedColor
+           @see #TitlePageIndicator_titlePadding
+           @see #TitlePageIndicator_topPadding
+         */
+        public static final int[] TitlePageIndicator = {
+            0x01010095, 0x01010098, 0x010100d4, 0x7f010007,
+            0x7f010011, 0x7f010012, 0x7f010013, 0x7f010014,
+            0x7f010015, 0x7f010016, 0x7f010017, 0x7f010018,
+            0x7f010019, 0x7f01001a, 0x7f01001b
+        };
+        /**
+          <p>
+          @attr description
+           View background 
+          <p>This corresponds to the global attribute
+          resource symbol {@link android.R.attr#background}.
+          @attr name android:background
+        */
+        public static final int TitlePageIndicator_android_background = 2;
+        /**
+          <p>
+          @attr description
+           Color of regular titles. 
+          <p>This corresponds to the global attribute
+          resource symbol {@link android.R.attr#textColor}.
+          @attr name android:textColor
+        */
+        public static final int TitlePageIndicator_android_textColor = 1;
+        /**
+          <p>
+          @attr description
+           Size of title text. 
+          <p>This corresponds to the global attribute
+          resource symbol {@link android.R.attr#textSize}.
+          @attr name android:textSize
+        */
+        public static final int TitlePageIndicator_android_textSize = 0;
+        /**
+          <p>
+          @attr description
+           Screen edge padding. 
+
+
+          <p>Must be a dimension value, which is a floating point number appended with a unit such as "<code>14.5sp</code>".
+Available units are: px (pixels), dp (density-independent pixels), sp (scaled pixels based on preferred font size),
+in (inches), mm (millimeters).
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+          <p>This is a private symbol.
+          @attr name com.example.wochacha:clipPadding
+        */
+        public static final int TitlePageIndicator_clipPadding = 4;
+        /**
+          <p>
+          @attr description
+           Color of the footer line and indicator. 
+
+
+          <p>Must be a color value, in the form of "<code>#<i>rgb</i></code>", "<code>#<i>argb</i></code>",
+"<code>#<i>rrggbb</i></code>", or "<code>#<i>aarrggbb</i></code>".
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+          <p>This is a private symbol.
+          @attr name com.example.wochacha:footerColor
+        */
+        public static final int TitlePageIndicator_footerColor = 5;
+        /**
+          <p>
+          @attr description
+           Height of the indicator above the footer line. 
+
+
+          <p>Must be a dimension value, which is a floating point number appended with a unit such as "<code>14.5sp</code>".
+Available units are: px (pixels), dp (density-independent pixels), sp (scaled pixels based on preferred font size),
+in (inches), mm (millimeters).
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+          <p>This is a private symbol.
+          @attr name com.example.wochacha:footerIndicatorHeight
+        */
+        public static final int TitlePageIndicator_footerIndicatorHeight = 8;
+        /**
+          <p>
+          @attr description
+           Style of the indicator. Default is triangle. 
+
+
+          <p>Must be one of the following constant values.</p>
+<table>
+<colgroup align="left" />
+<colgroup align="left" />
+<colgroup align="left" />
+<tr><th>Constant</th><th>Value</th><th>Description</th></tr>
+<tr><td><code>none</code></td><td>0</td><td></td></tr>
+<tr><td><code>triangle</code></td><td>1</td><td></td></tr>
+<tr><td><code>underline</code></td><td>2</td><td></td></tr>
+</table>
+          <p>This is a private symbol.
+          @attr name com.example.wochacha:footerIndicatorStyle
+        */
+        public static final int TitlePageIndicator_footerIndicatorStyle = 7;
+        /**
+          <p>
+          @attr description
+           Left and right padding of the underline indicator. 
+
+
+          <p>Must be a dimension value, which is a floating point number appended with a unit such as "<code>14.5sp</code>".
+Available units are: px (pixels), dp (density-independent pixels), sp (scaled pixels based on preferred font size),
+in (inches), mm (millimeters).
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+          <p>This is a private symbol.
+          @attr name com.example.wochacha:footerIndicatorUnderlinePadding
+        */
+        public static final int TitlePageIndicator_footerIndicatorUnderlinePadding = 9;
+        /**
+          <p>
+          @attr description
+           Height of the footer line. 
+
+
+          <p>Must be a dimension value, which is a floating point number appended with a unit such as "<code>14.5sp</code>".
+Available units are: px (pixels), dp (density-independent pixels), sp (scaled pixels based on preferred font size),
+in (inches), mm (millimeters).
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+          <p>This is a private symbol.
+          @attr name com.example.wochacha:footerLineHeight
+        */
+        public static final int TitlePageIndicator_footerLineHeight = 6;
+        /**
+          <p>
+          @attr description
+           Padding between the bottom of the title and the footer. 
+
+
+          <p>Must be a dimension value, which is a floating point number appended with a unit such as "<code>14.5sp</code>".
+Available units are: px (pixels), dp (density-independent pixels), sp (scaled pixels based on preferred font size),
+in (inches), mm (millimeters).
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+          <p>This is a private symbol.
+          @attr name com.example.wochacha:footerPadding
+        */
+        public static final int TitlePageIndicator_footerPadding = 10;
+        /**
+          <p>
+          @attr description
+           Position of the line. 
+
+
+          <p>Must be one of the following constant values.</p>
+<table>
+<colgroup align="left" />
+<colgroup align="left" />
+<colgroup align="left" />
+<tr><th>Constant</th><th>Value</th><th>Description</th></tr>
+<tr><td><code>bottom</code></td><td>0</td><td></td></tr>
+<tr><td><code>top</code></td><td>1</td><td></td></tr>
+</table>
+          <p>This is a private symbol.
+          @attr name com.example.wochacha:linePosition
+        */
+        public static final int TitlePageIndicator_linePosition = 11;
+        /**
+          <p>
+          @attr description
+           Whether or not the selected item is displayed as bold. 
+
+
+          <p>Must be a boolean value, either "<code>true</code>" or "<code>false</code>".
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+          <p>This is a private symbol.
+          @attr name com.example.wochacha:selectedBold
+        */
+        public static final int TitlePageIndicator_selectedBold = 12;
+        /**
+          <p>
+          @attr description
+           Color of the selected title. 
+
+
+          <p>Must be a color value, in the form of "<code>#<i>rgb</i></code>", "<code>#<i>argb</i></code>",
+"<code>#<i>rrggbb</i></code>", or "<code>#<i>aarrggbb</i></code>".
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+          <p>This is a private symbol.
+          @attr name com.example.wochacha:selectedColor
+        */
+        public static final int TitlePageIndicator_selectedColor = 3;
+        /**
+          <p>
+          @attr description
+           Padding between titles when bumping into each other. 
+
+
+          <p>Must be a dimension value, which is a floating point number appended with a unit such as "<code>14.5sp</code>".
+Available units are: px (pixels), dp (density-independent pixels), sp (scaled pixels based on preferred font size),
+in (inches), mm (millimeters).
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+          <p>This is a private symbol.
+          @attr name com.example.wochacha:titlePadding
+        */
+        public static final int TitlePageIndicator_titlePadding = 13;
+        /**
+          <p>
+          @attr description
+           Padding between titles and the top of the View. 
+
+
+          <p>Must be a dimension value, which is a floating point number appended with a unit such as "<code>14.5sp</code>".
+Available units are: px (pixels), dp (density-independent pixels), sp (scaled pixels based on preferred font size),
+in (inches), mm (millimeters).
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+          <p>This is a private symbol.
+          @attr name com.example.wochacha:topPadding
+        */
+        public static final int TitlePageIndicator_topPadding = 14;
+        /** Attributes that can be used with a UnderlinePageIndicator.
+           <p>Includes the following attributes:</p>
+           <table>
+           <colgroup align="left" />
+           <colgroup align="left" />
+           <tr><th>Attribute</th><th>Description</th></tr>
+           <tr><td><code>{@link #UnderlinePageIndicator_android_background android:background}</code></td><td> View background </td></tr>
+           <tr><td><code>{@link #UnderlinePageIndicator_fadeDelay com.example.wochacha:fadeDelay}</code></td><td> Length of the delay to fade the indicator.</td></tr>
+           <tr><td><code>{@link #UnderlinePageIndicator_fadeLength com.example.wochacha:fadeLength}</code></td><td> Length of the indicator fade to transparent.</td></tr>
+           <tr><td><code>{@link #UnderlinePageIndicator_fades com.example.wochacha:fades}</code></td><td> Whether or not the selected indicator fades.</td></tr>
+           <tr><td><code>{@link #UnderlinePageIndicator_selectedColor com.example.wochacha:selectedColor}</code></td><td> Color of the selected line that represents the current page.</td></tr>
+           </table>
+           @see #UnderlinePageIndicator_android_background
+           @see #UnderlinePageIndicator_fadeDelay
+           @see #UnderlinePageIndicator_fadeLength
+           @see #UnderlinePageIndicator_fades
+           @see #UnderlinePageIndicator_selectedColor
+         */
+        public static final int[] UnderlinePageIndicator = {
+            0x010100d4, 0x7f010007, 0x7f01001c, 0x7f01001d,
+            0x7f01001e
+        };
+        /**
+          <p>
+          @attr description
+           View background 
+          <p>This corresponds to the global attribute
+          resource symbol {@link android.R.attr#background}.
+          @attr name android:background
+        */
+        public static final int UnderlinePageIndicator_android_background = 0;
+        /**
+          <p>
+          @attr description
+           Length of the delay to fade the indicator. 
+
+
+          <p>Must be an integer value, such as "<code>100</code>".
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+          <p>This is a private symbol.
+          @attr name com.example.wochacha:fadeDelay
+        */
+        public static final int UnderlinePageIndicator_fadeDelay = 3;
+        /**
+          <p>
+          @attr description
+           Length of the indicator fade to transparent. 
+
+
+          <p>Must be an integer value, such as "<code>100</code>".
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+          <p>This is a private symbol.
+          @attr name com.example.wochacha:fadeLength
+        */
+        public static final int UnderlinePageIndicator_fadeLength = 4;
+        /**
+          <p>
+          @attr description
+           Whether or not the selected indicator fades. 
+
+
+          <p>Must be a boolean value, either "<code>true</code>" or "<code>false</code>".
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+          <p>This is a private symbol.
+          @attr name com.example.wochacha:fades
+        */
+        public static final int UnderlinePageIndicator_fades = 2;
+        /**
+          <p>
+          @attr description
+           Color of the selected line that represents the current page. 
+
+
+          <p>Must be a color value, in the form of "<code>#<i>rgb</i></code>", "<code>#<i>argb</i></code>",
+"<code>#<i>rrggbb</i></code>", or "<code>#<i>aarrggbb</i></code>".
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+          <p>This is a private symbol.
+          @attr name com.example.wochacha:selectedColor
+        */
+        public static final int UnderlinePageIndicator_selectedColor = 1;
+        /** Attributes that can be used with a ViewPagerIndicator.
+           <p>Includes the following attributes:</p>
+           <table>
+           <colgroup align="left" />
+           <colgroup align="left" />
+           <tr><th>Attribute</th><th>Description</th></tr>
+           <tr><td><code>{@link #ViewPagerIndicator_vpiCirclePageIndicatorStyle com.example.wochacha:vpiCirclePageIndicatorStyle}</code></td><td> Style of the circle indicator.</td></tr>
+           <tr><td><code>{@link #ViewPagerIndicator_vpiIconPageIndicatorStyle com.example.wochacha:vpiIconPageIndicatorStyle}</code></td><td> Style of the icon indicator's views.</td></tr>
+           <tr><td><code>{@link #ViewPagerIndicator_vpiLinePageIndicatorStyle com.example.wochacha:vpiLinePageIndicatorStyle}</code></td><td> Style of the line indicator.</td></tr>
+           <tr><td><code>{@link #ViewPagerIndicator_vpiTabPageIndicatorStyle com.example.wochacha:vpiTabPageIndicatorStyle}</code></td><td> Style of the tab indicator's tabs.</td></tr>
+           <tr><td><code>{@link #ViewPagerIndicator_vpiTitlePageIndicatorStyle com.example.wochacha:vpiTitlePageIndicatorStyle}</code></td><td> Style of the title indicator.</td></tr>
+           <tr><td><code>{@link #ViewPagerIndicator_vpiUnderlinePageIndicatorStyle com.example.wochacha:vpiUnderlinePageIndicatorStyle}</code></td><td> Style of the underline indicator.</td></tr>
+           </table>
+           @see #ViewPagerIndicator_vpiCirclePageIndicatorStyle
+           @see #ViewPagerIndicator_vpiIconPageIndicatorStyle
+           @see #ViewPagerIndicator_vpiLinePageIndicatorStyle
+           @see #ViewPagerIndicator_vpiTabPageIndicatorStyle
+           @see #ViewPagerIndicator_vpiTitlePageIndicatorStyle
+           @see #ViewPagerIndicator_vpiUnderlinePageIndicatorStyle
+         */
+        public static final int[] ViewPagerIndicator = {
+            0x7f010000, 0x7f010001, 0x7f010002, 0x7f010003,
+            0x7f010004, 0x7f010005
+        };
+        /**
+          <p>
+          @attr description
+           Style of the circle indicator. 
+
+
+          <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
+or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
+          <p>This is a private symbol.
+          @attr name com.example.wochacha:vpiCirclePageIndicatorStyle
+        */
+        public static final int ViewPagerIndicator_vpiCirclePageIndicatorStyle = 0;
+        /**
+          <p>
+          @attr description
+           Style of the icon indicator's views. 
+
+
+          <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
+or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
+          <p>This is a private symbol.
+          @attr name com.example.wochacha:vpiIconPageIndicatorStyle
+        */
+        public static final int ViewPagerIndicator_vpiIconPageIndicatorStyle = 1;
+        /**
+          <p>
+          @attr description
+           Style of the line indicator. 
+
+
+          <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
+or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
+          <p>This is a private symbol.
+          @attr name com.example.wochacha:vpiLinePageIndicatorStyle
+        */
+        public static final int ViewPagerIndicator_vpiLinePageIndicatorStyle = 2;
+        /**
+          <p>
+          @attr description
+           Style of the tab indicator's tabs. 
+
+
+          <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
+or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
+          <p>This is a private symbol.
+          @attr name com.example.wochacha:vpiTabPageIndicatorStyle
+        */
+        public static final int ViewPagerIndicator_vpiTabPageIndicatorStyle = 4;
+        /**
+          <p>
+          @attr description
+           Style of the title indicator. 
+
+
+          <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
+or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
+          <p>This is a private symbol.
+          @attr name com.example.wochacha:vpiTitlePageIndicatorStyle
+        */
+        public static final int ViewPagerIndicator_vpiTitlePageIndicatorStyle = 3;
+        /**
+          <p>
+          @attr description
+           Style of the underline indicator. 
+
+
+          <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
+or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
+          <p>This is a private symbol.
+          @attr name com.example.wochacha:vpiUnderlinePageIndicatorStyle
+        */
+        public static final int ViewPagerIndicator_vpiUnderlinePageIndicatorStyle = 5;
     };
 }

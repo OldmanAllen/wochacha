@@ -96,6 +96,7 @@ public class MainActivity extends Activity implements HomeFragmentCallback, Radi
 			@Override
 			public void onPageSelected(int position) {
 				maintabs_tabs_bar.check(ids.get(position));
+				
 			}
 
 			@Override
@@ -157,12 +158,11 @@ public class MainActivity extends Activity implements HomeFragmentCallback, Radi
 		int idx = 0;
 		for (FragmentBase fragment : fragments) {
 			if (position == idx) {
-				fragment.setVisibility(true);
-				fragment.onResume();
-
+				fragment.setVisibility(true);				
+				fragment.resetActionBar();
 			} else {
 				fragment.setVisibility(false);
-				fragment.onPause();
+				//fragment.onPause();
 			}
 			idx++;
 
