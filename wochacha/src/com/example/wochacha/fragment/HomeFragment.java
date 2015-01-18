@@ -2,6 +2,8 @@ package com.example.wochacha.fragment;
 
 import java.io.IOException;
 import java.io.InputStream;
+import java.nio.ByteBuffer;
+import java.util.HashMap;
 import java.util.Vector;
 
 import android.app.Activity;
@@ -13,6 +15,8 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
+import android.graphics.BitmapFactory.Options;
+import android.graphics.Rect;
 import android.net.Uri;
 import android.os.AsyncTask;
 import android.os.Bundle;
@@ -40,11 +44,14 @@ import com.example.wochacha.util.StringHelper;
 import com.example.wochacha.util.ToastMessageHelper;
 import com.google.zxing.BarcodeFormat;
 import com.google.zxing.BinaryBitmap;
+import com.google.zxing.DecodeHintType;
+import com.google.zxing.MultiFormatReader;
+import com.google.zxing.RGBLuminanceSource;
 import com.google.zxing.Result;
 import com.google.zxing.common.HybridBinarizer;
 import com.google.zxing.qrcode.QRCodeReader;
 import com.mining.app.zxing.camera.CameraManager;
-import com.mining.app.zxing.camera.RGBLuminanceSource;
+import com.mining.app.zxing.camera.PlanarYUVLuminanceSource;
 import com.mining.app.zxing.decoding.CaptureActivityHandler;
 import com.mining.app.zxing.decoding.InactivityTimer;
 import com.mining.app.zxing.view.ViewfinderView;
@@ -179,6 +186,7 @@ public class HomeFragment extends FragmentBase implements
 		super.onActivityResult(requestCode, resultCode, data);
 		if (requestCode == REQUEST_IMAGE && resultCode == Activity.RESULT_OK) {
 			// uri
+
 			ImageDecoder decoder = new ImageDecoder(getActivity());
 			decoder.execute(data.getData());
 		}
@@ -189,6 +197,7 @@ public class HomeFragment extends FragmentBase implements
 
 		Activity activity;
 		ProgressDialog progressDialog;
+		private Bitmap bitmap;
 
 		public ImageDecoder(Activity activity) {
 			this.activity = activity;
@@ -201,22 +210,45 @@ public class HomeFragment extends FragmentBase implements
 		@Override
 		protected String doInBackground(Uri... params) {
 			try {
+
 				Uri uri = params[0];
 				InputStream in = activity.getContentResolver().openInputStream(
 						uri);
+
 				Bitmap bitmap = BitmapFactory.decodeStream(in);
 
-				com.mining.app.zxing.camera.RGBLuminanceSource source = new RGBLuminanceSource(
-						bitmap);
+				Rect rect = CameraManager.get().getFramingRect();
+				Bitmap scaledBitmap = Bitmap.createScaledBitmap(bitmap,
+						rect.right - rect.left, rect.bottom - rect.top, true);
+				// scaledBitmap.setConfig(Bitmap.Config.ARGB_8888);
+				this.bitmap = scaledBitmap;
+
+				int[] array = new int[scaledBitmap.getWidth()
+						* scaledBitmap.getHeight()];
+
+				scaledBitmap.getPixels(array, 0, scaledBitmap.getWidth(), 0, 0,
+						scaledBitmap.getWidth(), scaledBitmap.getHeight());
+
+				RGBLuminanceSource source = new RGBLuminanceSource(
+						scaledBitmap.getWidth(), scaledBitmap.getHeight(),
+						array);
+
 				BinaryBitmap binaryBitmap = new BinaryBitmap(
 						new HybridBinarizer(source));
-				QRCodeReader reader = new QRCodeReader();
-
-				Result result = reader.decode(binaryBitmap);
+				MultiFormatReader reader = new MultiFormatReader();
+				HashMap<DecodeHintType, Object> hints = new HashMap<>();
+				hints.put(DecodeHintType.TRY_HARDER, Boolean.TRUE);
+				Result result = reader.decode(binaryBitmap, hints);
 				return result.getText();
 
 			} catch (Exception e) {
-				// TODO: handle exception
+
+				try {
+					throw e;
+				} catch (Exception e1) {
+					// TODO Auto-generated catch block
+					e1.printStackTrace();
+				}
 			}
 			return null;
 		}
@@ -233,7 +265,10 @@ public class HomeFragment extends FragmentBase implements
 			progressDialog.dismiss();
 
 			if (result != null) {
-				verifyCode(result, null);
+				if (handler != null) {
+					handler.markAsSuccess();
+				}
+				verifyCode(result, bitmap);
 			} else {
 				ToastMessageHelper.showErrorMessage(activity,
 						R.string.decoding_failed, false);
@@ -302,10 +337,11 @@ public class HomeFragment extends FragmentBase implements
 			 * R.string.scan_failed, false);
 			 */
 
-			CameraManager.get().stopPreview();
+			CameraManager.get().stopPreview2();
 			viewfinderView.drawResultBitmap(barcode);
 			AlertDialog dialog = new AlertDialog.Builder(getActivity())
 					.setMessage(result)
+					.setCancelable(false)
 					.setPositiveButton(R.string.copy,
 							new DialogInterface.OnClickListener() {
 
@@ -319,7 +355,9 @@ public class HomeFragment extends FragmentBase implements
 											.getSystemService(
 													Context.CLIPBOARD_SERVICE);
 									clipboardManager.setText(result);
-									ToastMessageHelper.showErrorMessage(getActivity(), R.string.copy_succeeded, false);
+									ToastMessageHelper.showErrorMessage(
+											getActivity(),
+											R.string.copy_succeeded, false);
 
 								}
 							})

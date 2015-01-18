@@ -40,6 +40,7 @@ public final class RGBLuminanceSource extends LuminanceSource {
  
     public RGBLuminanceSource(Bitmap bitmap) {
         super(bitmap.getWidth(), bitmap.getHeight());
+        
         int width = bitmap.getWidth();
         int height = bitmap.getHeight();
         int[] pixels = new int[width * height];

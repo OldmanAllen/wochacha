@@ -124,6 +124,10 @@ public final class CaptureActivityHandler extends Handler {
 		removeMessages(R.id.decode_failed);
 	}
 
+	public void markAsSuccess()
+	{
+		state = State.SUCCESS;
+	}
 	public void restartPreviewAndDecode() {
 		if (state == State.SUCCESS) {
 			state = State.PREVIEW;

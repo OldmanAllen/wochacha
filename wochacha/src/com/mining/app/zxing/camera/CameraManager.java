@@ -221,6 +221,14 @@ public final class CameraManager {
 		}
 	}
 
+	public void stopPreview2()
+	{
+		if (camera != null && previewing)
+		{
+			camera.stopPreview();
+			previewing = false;
+		}
+	}
 	/**
 	 * Tells the camera to stop drawing preview frames.
 	 */
