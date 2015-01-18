@@ -265,9 +265,9 @@ public class HomeFragment extends FragmentBase implements
 			progressDialog.dismiss();
 
 			if (result != null) {
-				if (handler != null) {
-					handler.markAsSuccess();
-				}
+				
+				CameraManager.get().stopPreview();
+				handler.markAsSuccess();
 				verifyCode(result, bitmap);
 			} else {
 				ToastMessageHelper.showErrorMessage(activity,
@@ -336,8 +336,8 @@ public class HomeFragment extends FragmentBase implements
 			 * ToastMessageHelper.showErrorMessage(this.getActivity(),
 			 * R.string.scan_failed, false);
 			 */
-
-			CameraManager.get().stopPreview2();
+			
+			CameraManager.get().stopPreview();
 			viewfinderView.drawResultBitmap(barcode);
 			AlertDialog dialog = new AlertDialog.Builder(getActivity())
 					.setMessage(result)
