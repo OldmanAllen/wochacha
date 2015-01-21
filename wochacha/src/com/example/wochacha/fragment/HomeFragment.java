@@ -2,7 +2,6 @@ package com.example.wochacha.fragment;
 
 import java.io.IOException;
 import java.io.InputStream;
-import java.nio.ByteBuffer;
 import java.util.HashMap;
 import java.util.Vector;
 
@@ -49,9 +48,7 @@ import com.google.zxing.MultiFormatReader;
 import com.google.zxing.RGBLuminanceSource;
 import com.google.zxing.Result;
 import com.google.zxing.common.HybridBinarizer;
-import com.google.zxing.qrcode.QRCodeReader;
 import com.mining.app.zxing.camera.CameraManager;
-import com.mining.app.zxing.camera.PlanarYUVLuminanceSource;
 import com.mining.app.zxing.decoding.CaptureActivityHandler;
 import com.mining.app.zxing.decoding.InactivityTimer;
 import com.mining.app.zxing.view.ViewfinderView;
@@ -215,13 +212,40 @@ public class HomeFragment extends FragmentBase implements
 				InputStream in = activity.getContentResolver().openInputStream(
 						uri);
 
-				Bitmap bitmap = BitmapFactory.decodeStream(in);
+				Options o = new Options();
+				o.inJustDecodeBounds = true;
+
+				Bitmap bitmap = BitmapFactory.decodeStream(in, null, o);
+				int width_tmp = o.outWidth, height_tmp = o.outHeight;
+				if (width_tmp > height_tmp) {
+					width_tmp = o.outHeight;
+					height_tmp = o.outWidth;
+				}
+				int screenWidth = DensityUtil
+						.getScreenHeightAndWidth(getActivity())[0];
+				int scale = 1;
+				while (true) {
+					if (width_tmp <= screenWidth)
+						break;
+					width_tmp /= 2;
+					height_tmp /= 2;
+					scale *= 2;
+				}
+				o.inJustDecodeBounds = false;
+				o.inSampleSize = scale;
+				o.inPurgeable = true;
+				o.inInputShareable = true;
+				
+				Log.e("test", "scale = " + scale);
+				in = activity.getContentResolver().openInputStream(uri);
+				bitmap = BitmapFactory.decodeStream(in, null, o);
 
 				Rect rect = CameraManager.get().getFramingRect();
 				Bitmap scaledBitmap = Bitmap.createScaledBitmap(bitmap,
 						rect.right - rect.left, rect.bottom - rect.top, true);
 				// scaledBitmap.setConfig(Bitmap.Config.ARGB_8888);
 				this.bitmap = scaledBitmap;
+				bitmap.recycle();
 
 				int[] array = new int[scaledBitmap.getWidth()
 						* scaledBitmap.getHeight()];
@@ -265,7 +289,7 @@ public class HomeFragment extends FragmentBase implements
 			progressDialog.dismiss();
 
 			if (result != null) {
-				
+
 				CameraManager.get().stopPreview();
 				handler.markAsSuccess();
 				verifyCode(result, bitmap);
@@ -336,7 +360,7 @@ public class HomeFragment extends FragmentBase implements
 			 * ToastMessageHelper.showErrorMessage(this.getActivity(),
 			 * R.string.scan_failed, false);
 			 */
-			
+
 			CameraManager.get().stopPreview();
 			viewfinderView.drawResultBitmap(barcode);
 			AlertDialog dialog = new AlertDialog.Builder(getActivity())
